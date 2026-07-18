@@ -99,8 +99,8 @@ export default function DashboardPage() {
           <SystemInfoCards info={systemInfo} loading={loading} />
 
           {/* Main Grid */}
-          <div className="grid gap-4 lg:grid-cols-[1fr_380px]">
-            <div className="space-y-4">
+          <div className="grid gap-4 lg:grid-cols-3">
+            <div className="lg:col-span-2 space-y-4">
               <QuickActions />
               <ServerStats info={systemInfo} />
             </div>

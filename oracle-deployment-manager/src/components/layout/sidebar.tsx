@@ -6,19 +6,12 @@ import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/app-store';
 import {
   LayoutDashboard,
-  FolderOpen,
-  Settings2,
-  Code2,
   Rocket,
-  UserCircle2,
   Copy,
-  RotateCcw,
-  ScrollText,
   Shield,
   ChevronFirst,
   ChevronLast,
   Database,
-  Languages,
   Paintbrush,
   Package,
   Layers,
@@ -41,13 +34,6 @@ export function Sidebar() {
     { href: '/sw-deploy', label: t('nav.swDeploy'), icon: Package, group: 'main' },
     { href: '/deployment', label: t('nav.deployment'), icon: Rocket, group: 'docs' },
     { href: '/templates', label: t('nav.templates'), icon: Copy, group: 'docs' },
-    { href: '/file-manager', label: t('nav.fileManager'), icon: FolderOpen, group: 'tools' },
-    { href: '/config-manager', label: t('nav.configManager'), icon: Settings2, group: 'tools' },
-    { href: '/editor', label: t('nav.smartEditor'), icon: Code2, group: 'tools' },
-    { href: '/profiles', label: t('nav.profiles'), icon: UserCircle2, group: 'tools' },
-    { href: '/rollback', label: t('nav.rollback'), icon: RotateCcw, group: 'system' },
-    { href: '/logs', label: t('nav.logs'), icon: ScrollText, group: 'system' },
-    { href: '/translations', label: t('nav.translations'), icon: Languages, group: 'settings' },
     { href: '/branding', label: t('nav.branding'), icon: Paintbrush, group: 'settings' },
   ];
 
@@ -73,8 +59,6 @@ export function Sidebar() {
   const groupLabels: Record<string, string> = {
     main: isRTL ? 'الرئيسية' : 'Main',
     docs: isRTL ? 'التوثيق' : 'Documentation',
-    tools: isRTL ? 'الأدوات' : 'Tools',
-    system: isRTL ? 'النظام' : 'System',
     settings: isRTL ? 'الإعدادات' : 'Settings',
   };
 

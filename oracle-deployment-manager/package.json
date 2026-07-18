@@ -1,12 +1,21 @@
 {
   "name": "oracle-deployment-manager",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "main": "electron/main.js",
+  "author": "Ultimate Solutions",
+  "description": "Oracle Deployment Manager - Professional Oracle Forms & Reports Deployment Platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "electron:dev": "concurrently \"next dev\" \"wait-on http://127.0.0.1:3000 && electron .\"",
+    "electron:build": "npm run build && electron-builder --win",
+    "electron:build:win": "npm run build && electron-builder --win --publish never",
+    "electron:build:portable": "npm run build && electron-builder --win portable --publish never",
+    "electron:build:all": "npm run build && electron-builder --win --mac --linux --publish never",
+    "electron:preview": "electron ."
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -38,13 +47,69 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@electron/rebuild": "^4.2.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "concurrently": "^9.1.0",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wait-on": "^8.0.0"
+  },
+  "build": {
+    "appId": "com.ultimate-solutions.oracle-deployment-manager",
+    "productName": "Oracle Deployment Manager",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      ".next/standalone/**/*",
+      ".next/static/**/*",
+      "public/**/*",
+      "electron/**/*",
+      "!node_modules",
+      "!src",
+      "!**/*.map"
+    ],
+    "extraResources": [],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "electron/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Oracle Deployment Manager",
+      "installerIcon": "electron/icon.ico",
+      "uninstallerIcon": "electron/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "electron/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "electron/icon.png"
+    }
   }
 }

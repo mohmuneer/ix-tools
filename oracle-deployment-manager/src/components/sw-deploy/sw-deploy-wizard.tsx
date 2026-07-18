@@ -363,7 +363,7 @@ export function SwDeployWizard() {
         <div>
           <h2 className={cn('text-lg font-semibold flex items-center gap-2', isRTL && 'flex-row-reverse')}>
             <Rocket className="h-5 w-5 text-orange-500" />
-            {isRTL ? 'تثبيت نظام IX' : 'IX System Installation'}
+            {isRTL ? 'خطوات إعادة التركيب' : 'Reinstallation Steps'}
           </h2>
           <p className="text-sm text-muted-foreground">
             {isRTL ? 'تحقق → أدخل البيانات → نفّذ → أعد المحاولة' : 'Verify → Configure → Execute → Retry'}
