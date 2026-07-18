@@ -1,0 +1,75 @@
+@echo off
+ren   D:\oracle\ofm\ofr\asinst1\config\tnsnames.ora tnsnames_def.ora 
+ren   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\formsweb.cfg  formsweb_def.cfg 
+ren   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\forms\registry\oracle\forms\registry\registry.dat registry_def.dat
+ren   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\default.env default_org.env 
+ren   D:\oracle\ofm\ofr\as1\forms\webutil webutil_def 
+ren   D:\Oracle\ofm\ofr\as1\forms\fmrwebar.res fmrwebar_def.res
+ren   D:\oracle\ofm\ofr\asinst1\config\FormsComponent\forms\server\webutil.cfg webutil_def.cfg
+ren   D:\oracle\ofm\ofr\as1\forms\java\frmwebutil.jar  frmwebutil_def.jar
+ren   D:\oracle\ofm\ofr\asinst1\config\FRComponent\frcommon\tools\COMMON\uifont.ali uifont_def.ali
+ren   D:\oracle\ofm\ofr\as1\forms\webutil.pll webutil_def.pll
+ren   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_REPORTS\applications\reports_11.1.2\configuration\rwservlet.properties rwservlet_org.properties
+timeout /t 1 /nobreak >nul
+xcopy D:\sw\cfg\rwservlet.properties D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_REPORTS\applications\reports_11.1.2\configuration
+xcopy D:\sw\cfg\uifont.ali D:\oracle\ofm\ofr\asinst1\config\FRComponent\frcommon\tools\COMMON
+xcopy D:\sw\cfg\tnsnames.ora   D:\oracle\ofm\ofr\asinst1\config
+xcopy D:\sw\cfg\formsweb.cfg   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config
+xcopy D:\sw\cfg\registry.dat   D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\forms\registry\oracle\forms\registry
+mkdir D:\oracle\ofm\ofr\as1\forms\webutil
+xcopy D:\sw\cfg\webutil\win32\d2kwut60.dll  D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win32\ffisamp.dll  D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win32\jacob.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win32\jacob-1.14.3-x86.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win32\JNIsharedstubs.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win32\YSBiometric.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win32
+xcopy D:\sw\cfg\webutil\win64\d2kwut60.dll  D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\webutil\win64\ffisamp.dll  D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\webutil\win64\jacob.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\webutil\win64\jacob-1.14.3-x86.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\webutil\win64\JNIsharedstubs.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\webutil\win64\YSBiometric.dll   D:\oracle\ofm\ofr\as1\forms\webutil\win64
+xcopy D:\sw\cfg\fmrwebar.res   D:\Oracle\ofm\ofr\as1\forms
+xcopy D:\sw\cfg\webutil.cfg    D:\oracle\ofm\ofr\asinst1\config\FormsComponent\forms\server
+xcopy D:\sw\cfg\jarfiles\accordion.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\archivesicons.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\arcicons.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\Calculator.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\calendar.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\clientprint.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\colorpicker.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\ComboMenuBar.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\commons-logging-1.1.3.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\FormsGraph.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\frmwebutil.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\gmap.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\jacob.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\java.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\jcalendar.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\JCalendarJinit.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\JErpIcon.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\JErpIcon-old2.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\jicons.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\SystemTray.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\YSArcUtl.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\ystools.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\jarfiles\onyxix_pos.jar D:\oracle\ofm\ofr\as1\forms\java
+xcopy D:\sw\cfg\default.env D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config
+xcopy D:\sw\cfg\ONYXW_EN.env D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config
+xcopy D:\sw\cfg\ONYXW.env D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config
+xcopy D:\sw\cfg\ONYXWPOS.env  D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOS.env
+xcopy D:\sw\cfg\ONYXWPOSMN.env  D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOSMN.env
+xcopy D:\sw\cfg\ONYXWPOSOFF.env  D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOSOFF.env
+xcopy D:\sw\cfg\rwserver.conf  D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOSOFF.env
+
+timeout /t 1 /nobreak >nul
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXW_EN.env 
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXW.env 
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\default.env
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOS.env
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOSMN.env 
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\ONYXWPOSOFF.env
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\formsweb.cfg
+start D:\sw\wordpad D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_REPORTS\applications\reports_11.1.2\configuration\rwservlet.properties
+start D:\sw\wordpad D:\oracle\ofm\ofr\asinst1\config\tnsnames.ora
+

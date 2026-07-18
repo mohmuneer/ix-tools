@@ -1,0 +1,562 @@
+{
+  "app": {
+    "name": "Oracle Deployment Manager",
+    "shortName": "Oracle Deploy",
+    "description": "Professional Oracle Forms & Reports Deployment Platform"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "fileManager": "File Manager",
+    "configManager": "Config Manager",
+    "smartEditor": "Smart Editor",
+    "deployment": "Deployment",
+    "profiles": "Profiles",
+    "templates": "Installation Steps",
+    "rollback": "Rollback",
+    "logs": "Logs",
+    "settings": "Settings",
+    "translations": "Translations",
+    "branding": "Branding",
+    "swDeploy": "IX System Install",
+    "architecture": "Architecture"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Oracle Deployment Manager - Server Overview",
+    "server": "Server",
+    "cpu": "CPU",
+    "memory": "Memory",
+    "disk": "Disk",
+    "java": "Java",
+    "oracleForms": "Oracle Forms",
+    "weblogic": "WebLogic",
+    "database": "Database",
+    "running": "Running",
+    "stopped": "Stopped",
+    "error": "Error",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "serverDetails": "Server Details",
+    "noActivity": "No activity yet",
+    "newDeployment": "New Deployment",
+    "nodeManager": "Node Mgr",
+    "cores": "Cores",
+    "freeOf": "free of",
+    "listener": "Listener",
+    "hostname": "Hostname",
+    "os": "Operating System",
+    "windowsVersion": "Windows Version",
+    "javaVersion": "Java Version",
+    "oracleReports": "Oracle Reports",
+    "diskTotal": "Disk Total",
+    "diskFree": "Disk Free",
+    "memoryTotal": "Memory Total",
+    "cpuCores": "CPU Cores"
+  },
+  "common": {
+    "search": "Search...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "close": "Close",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "loading": "Loading...",
+    "refresh": "Refresh",
+    "export": "Export",
+    "import": "Import",
+    "copy": "Copy",
+    "cut": "Cut",
+    "paste": "Paste",
+    "rename": "Rename",
+    "download": "Download",
+    "upload": "Upload",
+    "selected": "selected",
+    "noData": "No data found",
+    "actions": "Actions",
+    "status": "Status",
+    "name": "Name",
+    "size": "Size",
+    "type": "Type",
+    "modified": "Modified",
+    "created": "Created",
+    "description": "Description",
+    "folder": "Folder",
+    "file": "File",
+    "total": "Total",
+    "success": "Success",
+    "running": "Running",
+    "stopped": "Stopped",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "rollback": "Rollback",
+    "version": "Version",
+    "newFolder": "New Folder",
+    "newFile": "New File",
+    "createFolder": "Create New Folder",
+    "createFile": "Create New File",
+    "folderName": "Folder Name",
+    "fileName": "File Name",
+    "newName": "New Name",
+    "areYouSure": "Are you sure?",
+    "cannotUndo": "This action cannot be undone.",
+    "noItemsSelected": "No items selected",
+    "itemsSelected": "{count} item(s) selected"
+  },
+  "fileManager": {
+    "title": "File Manager",
+    "subtitle": "Browse and manage files on the server",
+    "searchFiles": "Search files...",
+    "noFiles": "This folder is empty",
+    "noSearchResults": "No files match your search",
+    "createFolder": "Folder",
+    "createFile": "File",
+    "deleteConfirm": "Are you sure you want to delete {count} item(s)? This action cannot be undone."
+  },
+  "configManager": {
+    "title": "Configuration Manager",
+    "subtitle": "Manage Oracle configuration files",
+    "searchFiles": "Search files...",
+    "selectFile": "Select a file to edit",
+    "original": "Original",
+    "current": "Current",
+    "compare": "Compare",
+    "revert": "Revert",
+    "modified": "Modified",
+    "versions": "{count} version(s) saved",
+    "saveConfirm": "Are you sure you want to save changes to {file}?",
+    "fileSaved": "saved successfully",
+    "reverted": "reverted to last saved version",
+    "searchHint": "Search for config files across Oracle directories",
+    "filesFound": "{count} file(s) found",
+    "browseHint": "Click a config file to open it",
+    "emptyFolder": "Empty folder",
+    "configLabel": "config"
+  },
+  "editor": {
+    "title": "Smart Editor",
+    "subtitle": "Professional text editor with syntax highlighting",
+    "openFile": "Open File",
+    "save": "Save",
+    "copyAll": "Copy All",
+    "find": "Find",
+    "replace": "Replace",
+    "replaceAll": "Replace All",
+    "lines": "Lines",
+    "characters": "Characters",
+    "modified": "Modified",
+    "contentCopied": "Content copied to clipboard",
+    "saved": "saved successfully",
+    "openFailed": "Could not open file",
+    "saveFailed": "Could not save file"
+  },
+  "deployment": {
+    "title": "Deployment Wizard",
+    "subtitle": "Deploy Oracle Forms & Reports updates",
+    "selectProfile": "Select Deployment Profile",
+    "chooseProfile": "Choose a profile...",
+    "servicesToRestart": "Services to Restart",
+    "deploy": "Deploy",
+    "deploying": "Deploying...",
+    "deploymentSteps": "Deployment Steps",
+    "liveLog": "Live Log",
+    "confirmDeployment": "Confirm Deployment",
+    "confirmMessage": "You are about to deploy using profile \"{profile}\". This will execute all {steps} steps.",
+    "backupWillCreate": "A backup will be created automatically. You can rollback if needed.",
+    "startDeployment": "Start Deployment",
+    "cancel": "Cancel",
+    "deploymentStarted": "Deployment started",
+    "deploymentComplete": "Deployment completed successfully!",
+    "deploymentFailed": "Deployment failed. Starting rollback...",
+    "stepCompleted": "Completed: {step}",
+    "stepFailed": "Failed: {step}",
+    "startingStep": "Starting: {step}",
+    "rollingBack": "Rolling back: {step}"
+  },
+  "profiles": {
+    "title": "Installation Profiles",
+    "subtitle": "Manage deployment profiles for each customer",
+    "newProfile": "New Profile",
+    "editProfile": "Edit Profile",
+    "profileName": "Profile Name",
+    "customerName": "Customer Name",
+    "deploymentSettings": "Deployment Settings",
+    "deploy": "Deploy",
+    "noProfiles": "No profiles yet",
+    "createFirst": "Create First Profile",
+    "deleteConfirm": "Are you sure you want to delete this profile? This cannot be undone.",
+    "profileCreated": "Profile created successfully",
+    "profileUpdated": "Profile updated successfully",
+    "profileDeleted": "Profile deleted"
+  },
+  "guide": {
+    "title": "Installation Guide",
+    "subtitle": "Step-by-step reference for server deployment verification",
+    "progress": "Overall Progress",
+    "completedSteps": "{done} of {total} steps completed",
+    "resetChecklist": "Reset Checklist",
+    "viewGuide": "View Guide PDF",
+    "phases": {
+      "linux": {
+        "title": "Phase 1: Oracle Linux 8.9 Server",
+        "description": "Operating system installation and base configuration",
+        "steps": {
+          "install": "Install Oracle Linux 8.9 on the server",
+          "network": "Configure network interfaces and hostname",
+          "firewall": "Configure firewall rules (open ports: 1521, 8888, 443, 7001-7003, 8001-8002, 9001-9002)",
+          "selinux": "Set SELinux to permissive mode",
+          "packages": "Install prerequisite packages (binutils, gcc, make, etc.)",
+          "oracleUser": "Create oracle user and groups (oinstall, dba)",
+          "kernel": "Configure kernel parameters (shmmax, shmall, sem, etc.)",
+          "limits": "Configure /etc/security/limits.conf for oracle user",
+          "firewalld": "Enable and start firewalld service"
+        }
+      },
+      "database": {
+        "title": "Phase 2: Oracle Database 21c",
+        "description": "Database server installation and configuration",
+        "steps": {
+          "uploadMedia": "Upload Oracle Database 21c installation media to server",
+          "runInstaller": "Run runInstaller and select Basic Installation",
+          "setPassword": "Set database administrator passwords (SYS, SYSTEM)",
+          "createDB": "Create database instance with appropriate SGA/PGA",
+          "configureListener": "Configure Oracle Listener on port 1521",
+          "createService": "Create database service name (e.g. ORCL)",
+          "testConn": "Test database connectivity with sqlplus",
+          "createUsers": "Create application database users and roles",
+          "importData": "Import database schema and seed data",
+          "checkListener": "Verify listener status with lsnrctl status"
+        }
+      },
+      "apex": {
+        "title": "Phase 3: Oracle APEX 22.2",
+        "description": "Oracle Application Express installation on database",
+        "steps": {
+          "installApex": "Install APEX 22.2 on Oracle Database",
+          "configureApex": "Configure APEX instance (apex instance setup)",
+          "testApex": "Test APEX access via browser",
+          "configureImages": "Configure APEX image prefix",
+          "backupApexConfig": "Backup APEX configuration"
+        }
+      },
+      "weblogic": {
+        "title": "Phase 4: WebLogic 10.3.6 + Forms & Reports",
+        "description": "Application server and Forms/Reports installation",
+        "steps": {
+          "installJdk": "Install JDK 7 and set JAVA_HOME",
+          "installWebLogic": "Install Oracle WebLogic Server 10.3.6",
+          "createDomain": "Create WebLogic domain (base_domain)",
+          "configNodeManager": "Configure Node Manager",
+          "startNodeManager": "Start Node Manager service",
+          "installFormsReports": "Install Oracle Forms & Reports 11g",
+          "applyPatch": "Apply Patch 17301874 to Forms & Reports",
+          "configureForms": "Configure Forms servlet and default.env",
+          "configureReports": "Configure Reports Server and rwservlet.properties",
+          "createManagedServers": "Create WLS_FORMS and WLS_REPORTS managed servers",
+          "startServers": "Start all managed servers and verify"
+        }
+      },
+      "ords": {
+        "title": "Phase 5: ORDS + SSL/HTTPS",
+        "description": "Oracle REST Data Services installation and SSL configuration",
+        "steps": {
+          "installOrds": "Install Oracle REST Data Services (ORDS)",
+          "configureOrds": "Configure ORDS with database connection",
+          "startOrds": "Start ORDS on port 8888",
+          "sslCert": "Generate and configure SSL certificate",
+          "configureHttps": "Configure HTTPS on port 443",
+          "testOrdsAccess": "Test ORDS and APEX access: https://<server>/ords",
+          "backupOrdsConfig": "Backup ORDS configuration files"
+        }
+      },
+      "ixConfig": {
+        "title": "Phase 6: IX System Configuration",
+        "description": "Directory structure, config files, and application deployment",
+        "steps": {
+          "createDirs": "Run mkdir_1010.bat to create directory structure",
+          "copyConfigFiles": "Copy configuration files (tnsnames.ora, formsweb.cfg, etc.)",
+          "replaceHost": "Replace hostname in tnsnames.ora and env files",
+          "replaceService": "Replace SERVICE_NAME in config files",
+          "installWebUtil": "Install WebUtil (DLLs, pll, jar files)",
+          "installJarFiles": "Install JAR files (24+ jar files to Forms java dir)",
+          "configureEnv": "Configure environment files (default.env, ONYXW.env, etc.)",
+          "copyRegistry": "Copy and update registry.dat",
+          "copyFontConfig": "Copy uifont.ali to FRComponent directory",
+          "restartServers": "Restart WLS_FORMS and WLS_REPORTS servers"
+        }
+      },
+      "client": {
+        "title": "Phase 7: Client Workstation Setup",
+        "description": "Browser, Java, and POS terminal configuration",
+        "steps": {
+          "installJre": "Install Java JRE 8 on client machines",
+          "configBrowser": "Configure browser to trust self-signed certificate",
+          "addTrustedSite": "Add application URL to trusted sites",
+          "disableSecurity": "Disable enhanced security configuration in IE",
+          "installCert": "Install SSL certificate in Windows trust store",
+          "testForms": "Test Forms application access from browser",
+          "configPOS": "Configure POS terminal connection settings",
+          "testPOS": "Test POS terminal connectivity",
+          "verifyPrinting": "Verify POS printing functionality",
+          "documentIPs": "Document all client IP addresses and machine names"
+        }
+      }
+    }
+  },
+  "templates": {
+    "title": "File Templates",
+    "subtitle": "Manage regional configuration templates",
+    "newTemplate": "New Template",
+    "editTemplate": "Edit Template",
+    "templateName": "Template Name",
+    "region": "Region",
+    "selectRegion": "Select region...",
+    "defaultSettings": "Default Settings",
+    "noTemplates": "No templates",
+    "add": "Add",
+    "deleteConfirm": "Are you sure you want to delete this template?",
+    "templateCreated": "Template created",
+    "templateUpdated": "Template updated",
+    "templateDeleted": "Template deleted"
+  },
+  "rollback": {
+    "title": "Rollback Manager",
+    "subtitle": "Restore files from backup",
+    "availableBackups": "Available Backups",
+    "backupCount": "{count} backup(s) available",
+    "restore": "Restore",
+    "restoring": "Restoring...",
+    "noBackups": "No backups available",
+    "backupsCreatedDuring": "Backups are created during deployment",
+    "confirmRestore": "Confirm Restore",
+    "confirmRestoreMessage": "Are you sure you want to restore this file?",
+    "willOverwrite": "This will overwrite the current file with the backup version.",
+    "restoreComplete": "Restore complete",
+    "restoreFailed": "Restore failed"
+  },
+  "logs": {
+    "title": "Activity Logs",
+    "subtitle": "Complete log of all operations",
+    "refresh": "Refresh",
+    "export": "Export",
+    "clear": "Clear",
+    "searchLogs": "Search logs...",
+    "allLevels": "All Levels",
+    "noLogs": "No logs found",
+    "total": "Total",
+    "errors": "Errors",
+    "warnings": "Warnings"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Application settings and preferences",
+    "appearance": "Appearance",
+    "darkMode": "Dark Mode",
+    "darkModeDesc": "Toggle dark/light theme",
+    "rtl": "Right-to-Left (RTL)",
+    "rtlDesc": "Toggle Arabic layout direction",
+    "language": "Language",
+    "languageDesc": "Select application language",
+    "notifications": "Notifications",
+    "enableNotifications": "Enable Notifications",
+    "enableNotificationsDesc": "Show deployment notifications",
+    "autoBackup": "Auto Backup",
+    "autoBackupDesc": "Automatically backup before deployment",
+    "security": "Security",
+    "currentRole": "Current Role",
+    "yourAccessLevel": "Your access level",
+    "changePassword": "Change Password",
+    "newPassword": "New password",
+    "saveSettings": "Save Settings",
+    "saved": "Saved!"
+  },
+  "translations": {
+    "title": "Translation Manager",
+    "subtitle": "Manage translations for all languages",
+    "addLanguage": "Add Language",
+    "searchTranslations": "Search translations...",
+    "key": "Key",
+    "originalText": "Original Text",
+    "translatedText": "Translated Text",
+    "untranslated": "Untranslated",
+    "translated": "Translated",
+    "totalKeys": "Total Keys",
+    "completionRate": "Completion Rate",
+    "saveTranslation": "Save Translation",
+    "exportTranslations": "Export",
+    "importTranslations": "Import",
+    "compareLanguages": "Compare Languages",
+    "translationSaved": "Translation saved successfully",
+    "noUntranslated": "All translations complete!"
+  },
+  "branding": {
+    "title": "Branding & Appearance",
+    "subtitle": "Customize the look and feel of the application",
+    "logoManagement": "Logo Management",
+    "mainLogo": "Main Logo",
+    "sidebarLogo": "Sidebar Logo",
+    "loginLogo": "Login Logo",
+    "favicon": "Favicon",
+    "reportLogo": "Report Logo",
+    "uploadLogo": "Upload Logo",
+    "colorScheme": "Color Scheme",
+    "primaryColor": "Primary Color",
+    "secondaryColor": "Secondary Color",
+    "successColor": "Success Color",
+    "warningColor": "Warning Color",
+    "errorColor": "Error Color",
+    "background": "Background",
+    "headerColor": "Header Color",
+    "sidebarColor": "Sidebar Color",
+    "cardColor": "Card Color",
+    "typography": "Typography",
+    "fontFamily": "Font Family",
+    "fontSize": "Font Size",
+    "borderRadius": "Border Radius",
+    "themes": "Themes",
+    "currentTheme": "Current Theme",
+    "createTheme": "Create Theme",
+    "preview": "Preview",
+    "applyChanges": "Apply Changes",
+    "changesSaved": "Changes saved successfully",
+    "resetDefaults": "Reset to Defaults"
+  },
+  "login": {
+    "title": "Sign In",
+    "username": "Username",
+    "password": "Password",
+    "signIn": "Sign In",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?"
+  },
+  "arch": {
+    "title": "System Architecture",
+    "subtitle": "Three-Tier Architecture Overview — ONYX-IX",
+    "intro": "The ONYX-IX system uses a three-tier architecture that separates presentation, application logic, and data storage for scalability, maintainability, and security. This page provides an interactive reference for understanding each tier, its tools, and their integration roles.",
+    "viewSimple": "Simple View",
+    "viewDetailed": "Detailed View",
+    "tier": {
+      "client": "Client Tier",
+      "clientSub": "Client Tier",
+      "application": "Application Tier",
+      "applicationSub": "Application Tier — ERP-IAS",
+      "database": "Database Tier",
+      "databaseSub": "Database Tier — ERP-DBS"
+    },
+    "connection": {
+      "http": "HTTP/HTTPS — Port 8888 / 443",
+      "tns": "SQL*Net / TNS — Port 1521"
+    },
+    "drawer": {
+      "role": "Role",
+      "description": "Description",
+      "integrationBenefit": "Integration Benefit",
+      "relatedGuide": "Related Guide"
+    },
+    "tools": {
+      "webBrowser": {
+        "role": "Access Interface",
+        "desc": "The web browser is the user's primary entry point. It loads Oracle Forms via the Java plugin and renders the interactive system interface.",
+        "benefit": "Provides rapid access from any network-connected device without additional software installation."
+      },
+      "javaJre": {
+        "role": "Form Engine",
+        "desc": "Java Runtime Environment 8 runs Oracle Forms as applets inside the browser via the Java plugin.",
+        "benefit": "Provides a unified runtime environment for all system forms and ensures compatibility across Java versions."
+      },
+      "posTerminal": {
+        "role": "Point of Sale",
+        "desc": "The POS terminal handles direct printing and barcode generation in retail stores and distribution centers.",
+        "benefit": "Integrates with ONYX-IX for processing sales transactions, issuing invoices, and printing barcodes."
+      },
+      "weblogic": {
+        "role": "Application Server",
+        "desc": "Oracle WebLogic 10.3.6 is the Java application server that hosts Forms & Reports Servers and manages database connections.",
+        "benefit": "Provides a stable and scalable environment for managing concurrent user loads."
+      },
+      "formsReports": {
+        "role": "Forms & Reports Engine",
+        "desc": "Oracle Forms & Reports 11g runs ERP forms and generates dynamic reports from the database.",
+        "benefit": "Forms the core of business logic and transforms raw data into interactive reports."
+      },
+      "ordsApex": {
+        "role": "REST & Web Interface",
+        "desc": "Oracle REST Data Services (ORDS) and APEX provide a lightweight web interface and REST API services.",
+        "benefit": "Enables web access without Oracle Forms and simplifies integration with external systems."
+      },
+      "reportsServers": {
+        "role": "Reports Server",
+        "desc": "The Reports Server generates printed reports (PDF, HTML, Excel) from Oracle Database data.",
+        "benefit": "Separates data presentation from output format, enabling report customization per requirements."
+      },
+      "jdk": {
+        "role": "Development Kit",
+        "desc": "Java Development Kit 7 provides the development and compilation tools necessary for Oracle Forms.",
+        "benefit": "Provides a development environment compatible with WebLogic 10.3.6 and Forms 11g."
+      },
+      "sslHttps": {
+        "role": "Security & Encryption",
+        "desc": "SSL/HTTPS encrypts web connections between the browser and application server to protect sensitive data.",
+        "benefit": "Ensures transport security and meets governance and compliance requirements."
+      },
+      "oracleDb": {
+        "role": "Database",
+        "desc": "Oracle Database 21c is the core database that stores all system data and enables complex queries.",
+        "benefit": "Delivers the highest level of performance, reliability, and security for enterprise data."
+      },
+      "oracleLinux": {
+        "role": "Operating System",
+        "desc": "Oracle Linux 8.9 is the operating system that runs the database and application servers with UEK installed.",
+        "benefit": "Provides a stable environment optimized for Oracle Database and WebLogic."
+      }
+    },
+    "journey": {
+      "title": "Typical Request Journey",
+      "step1": {
+        "title": "Open system link and load forms",
+        "desc": "The user opens the system link in the browser and Oracle Forms load via the Java plugin (JRE)."
+      },
+      "step2": {
+        "title": "Send request to application server",
+        "desc": "The browser sends the request via HTTP/HTTPS to the WebLogic server on ERP-IAS."
+      },
+      "step3": {
+        "title": "Process business logic",
+        "desc": "Forms process business logic via Forms & Reports and query the database via TNS/SQL*Net."
+      },
+      "step4": {
+        "title": "Return results",
+        "desc": "Results return from Oracle Database 21c — displayed in the form or generated as a report via the Reports Server."
+      },
+      "step5": {
+        "title": "Print at point of sale",
+        "desc": "For printing: barcode library and direct printing on the POS device."
+      }
+    },
+    "guides": {
+      "title": "Installation Guides",
+      "linux": "Oracle Linux 8.9 Installation Guide",
+      "linux.desc": "Steps for installing the OS and configuring UEK.",
+      "database": "Oracle Database 21c Installation Guide",
+      "database.desc": "Database installation and basic configuration.",
+      "ordsApex": "ORDS & APEX with SSL Installation Guide",
+      "ordsApex.desc": "REST and web interface setup with encryption.",
+      "appServer": "Application Server & Browser Installation Guide",
+      "appServer.desc": "WebLogic and Forms & Reports installation.",
+      "formsPatch": "Oracle Forms Patch 17301874 Guide",
+      "formsPatch.desc": "Applying the latest patch to Oracle Forms.",
+      "pos": "POS Server Setup Guide",
+      "pos.desc": "Setting up POS devices and printing."
+    }
+  },
+  "status": {
+    "running": "Running",
+    "stopped": "Stopped",
+    "error": "Error"
+  }
+}

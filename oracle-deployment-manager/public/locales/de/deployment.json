@@ -1,0 +1,32 @@
+{
+  "steps": {
+    "backup": "Sicherung",
+    "copy": "Dateien kopieren",
+    "variables": "Variablen ersetzen",
+    "environment": "Umgebung konfigurieren",
+    "webutil": "WebUtil installieren",
+    "jar": "Jar installieren",
+    "restart": "Dienste neu starten"
+  },
+  "variables": {
+    "HOST": "Host",
+    "PORT": "Port",
+    "SERVICE_NAME": "Service-Name",
+    "FORMS_PATH": "Forms-Pfad",
+    "REPORTS_PATH": "Reports-Pfad",
+    "JAVA_HOME": "Java Home",
+    "DOMAIN_HOME": "Domain Home",
+    "INSTANCE_HOME": "Instance Home",
+    "DATABASE_NAME": "Datenbank",
+    "TNS_ADMIN": "TNS Admin",
+    "FORMS_LISTENER_PORT": "Forms-Port",
+    "REPORTS_LISTENER_PORT": "Reports-Port"
+  },
+  "services": {
+    "node-manager": "Node-Manager",
+    "forms": "Oracle Forms",
+    "reports": "Oracle Reports",
+    "weblogic": "WebLogic",
+    "windows-service": "Windows-Dienst"
+  }
+}

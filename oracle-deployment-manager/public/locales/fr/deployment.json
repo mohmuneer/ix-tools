@@ -1,0 +1,32 @@
+{
+  "steps": {
+    "backup": "Sauvegarde",
+    "copy": "Copie des fichiers",
+    "variables": "Remplacement des variables",
+    "environment": "Configuration de l'environnement",
+    "webutil": "Installation WebUtil",
+    "jar": "Installation Jar",
+    "restart": "Redémarrage des services"
+  },
+  "variables": {
+    "HOST": "Hôte",
+    "PORT": "Port",
+    "SERVICE_NAME": "Nom du service",
+    "FORMS_PATH": "Chemin Forms",
+    "REPORTS_PATH": "Chemin Reports",
+    "JAVA_HOME": "Java Home",
+    "DOMAIN_HOME": "Domain Home",
+    "INSTANCE_HOME": "Instance Home",
+    "DATABASE_NAME": "Base de données",
+    "TNS_ADMIN": "TNS Admin",
+    "FORMS_LISTENER_PORT": "Port Forms",
+    "REPORTS_LISTENER_PORT": "Port Reports"
+  },
+  "services": {
+    "node-manager": "Gestionnaire de nœuds",
+    "forms": "Oracle Forms",
+    "reports": "Oracle Reports",
+    "weblogic": "WebLogic",
+    "windows-service": "Service Windows"
+  }
+}

@@ -1,0 +1,14 @@
+mkdir D:\ultimate\onyxw\fmx
+mkdir D:\ultimate\onyxw\lib
+mkdir D:\ultimate\onyxw\othr\bk
+mkdir D:\ultimate\onyxw\othr\erp_Rprt_cch
+mkdir D:\ultimate\onyxw\othr\erp_Rprt_tmp
+mkdir D:\ultimate\onyxw\othr\usr_imgs
+mkdir D:\ultimate\onyxw\othr\usr_rprts
+mkdir D:\ultimate\onyxw\othr\wrk_area
+mkdir D:\ultimate\onyxw\rprt 
+mkdir D:\ultimate\onyxws
+mkdir D:\ultimate\onyxwp
+mkdir D:\oracle\ofm\ofr 
+mkdir D:\oracle\java\jdk7
+mkdir D:\oracle\dbs\db1\product\21.3.0.0\db_1

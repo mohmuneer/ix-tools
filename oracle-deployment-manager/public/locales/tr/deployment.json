@@ -1,0 +1,32 @@
+{
+  "steps": {
+    "backup": "Yedekleme",
+    "copy": "Dosyaları Kopyala",
+    "variables": "Değişkenleri Değiştir",
+    "environment": "Ortam Yapılandırması",
+    "webutil": "WebUtil Kurulumu",
+    "jar": "Jar Kurulumu",
+    "restart": "Hizmetleri Yeniden Başlat"
+  },
+  "variables": {
+    "HOST": "Host",
+    "PORT": "Port",
+    "SERVICE_NAME": "Servis Adı",
+    "FORMS_PATH": "Forms Yolu",
+    "REPORTS_PATH": "Reports Yolu",
+    "JAVA_HOME": "Java Home",
+    "DOMAIN_HOME": "Domain Home",
+    "INSTANCE_HOME": "Instance Home",
+    "DATABASE_NAME": "Veritabanı",
+    "TNS_ADMIN": "TNS Admin",
+    "FORMS_LISTENER_PORT": "Forms Port",
+    "REPORTS_LISTENER_PORT": "Reports Port"
+  },
+  "services": {
+    "node-manager": "Node Manager",
+    "forms": "Oracle Forms",
+    "reports": "Oracle Reports",
+    "weblogic": "WebLogic",
+    "windows-service": "Windows Hizmeti"
+  }
+}

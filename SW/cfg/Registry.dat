@@ -1,0 +1,67 @@
+# 
+# This is the Registry file.
+# 
+# This file contains the logical [Java] Class name and an associated
+# [numerical] identifier that will be used to refer to objects of the
+# class in order to reduce the amount of information that needs to be
+# repeatedly transmitted to the client.
+# 
+# This file is of the Form understood by java.util.Properties (for now)
+# 
+# The System Level sound file is relative to the CODEBASE
+# 
+# The oracle classes which used to be defined here have now been moved to
+# within the code.
+# 
+# 
+# 
+# Defaults for the Font details, all names are Java Font names.  Each of
+# these parameters represents the default property to use when none is
+# specified.
+# 
+# defaultFontname represents the default Java fontName.
+# defaultSize     represents the default fontSize.  Note that the size is
+#                 multiplied by 100 (e.g. a 10pt font has a size of 1000).
+# defaultStyle    represents the default fontStyle, PLAIN or ITALIC.
+# defaultWeight   represents the default fontWeight, PLAIN or BOLD.
+# 
+default.fontMap.defaultFontname=TAHOMA
+default.fontMap.defaultSize=800
+default.fontMap.defaultStyle=PLAIN
+default.fontMap.defaultWeight=BOLD
+# 
+# 
+# Default Font Face mapping.
+# 
+# appFontname  represents a comma delimited list of Application Font Names.
+# javaFontname represents a comma delimited list of Java Font Names.
+# 
+# The number of entries in the appFontname list should match the number in
+# the javaFontname list.  The elements of the list are comma separated and
+# *all* characters are taken literally, leading and trailing spaces are
+# stripped from Face names.
+# 
+# Note that this file uses the Java 1.1 Font names in order to be able to
+# handle the NLS Plane (BUG 431051)
+# 
+default.fontMap.appFontnames=Courier New,Courier,courier,System,Terminal,Fixed,Fixedsys,Times,Times New Roman,MS Sans Serif,Arial
+default.fontMap.javaFontnames=MonoSpaced,MonoSpaced,MonoSpaced,Dialog,MonoSpaced,Dialog,Dialog,Serif,Serif,Dialog,SansSerif
+# 
+# 
+# 
+# The Application Level icon files are relative to the DOCUMENTBASE
+#   example: icons/
+# or an absolute URL.
+#   example: http://www.example.net/~luser/d2k_project/
+# 
+default.icons.iconpath=
+default.icons.iconextension=gif
+# 
+# 
+# 
+# Application level settings to control UI features
+# 
+app.ui.lovButtons=true
+app.ui.requiredFieldVA=false
+#    The background color is specified as an RGB triple.
+app.ui.requiredFieldVABGColor=255,0,0

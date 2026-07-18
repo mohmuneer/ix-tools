@@ -1,0 +1,44 @@
+------------------- In Application Server -----------------------------------------------------------------------------------------------------
+java_home=D:\oracle\java\jdks\jdk7u76
+as_home=D:\oracle\ofm\ofr\as1
+inst_home=D:\oracle\ofm\ofr\asinst1
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+tns config= D:\oracle\ofm\ofr\asinst1\config
+wls_config=D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config
+wls_reg_config=D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_FORMS\applications\formsapp_11.1.2\config\forms\registry\oracle\forms\registry
+java_jar=D:\oracle\ofm\ofr\as1\forms\java
+webutil folder(dll files) ==>  D:\oracle\ofm\ofr\as1\forms\webutil
+webutil.cfg= D:\oracle\ofm\ofr\asinst1\config\FormsComponent\forms\server
+fmrwebar.res = D:\Oracle\ofm\ofr\as1\forms
+fontui.ali  = D:\oracle\ofm\ofr\asinst1\config\FRComponent\frcommon\tools\COMMON 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+RP CFG
+
+D:\oracle\ofm\ofr\user_projects\domains\ultimate\config\fmwconfig\servers\WLS_REPORTS\applications\reports_11.1.2\configuration 
+file : rwservlet.properties
+
+edit to be 
+   <webcommandaccess>L2</webcommandaccess>
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+REP LINK TST run errors
+http://192.168.210.34:9002/reports/rwservlet/showjobs?server=RptSvr_ERPIAS_asinst1
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+<server>rep_wls_reports_ixappserver_asinst1</server>
+   
+   <singlesignon>no</singlesignon>
+   
+   <inprocess>yes</inprocess>
+   
+   <!--reports_servermap></reports_servermap-->
+
+   <!--cookie cookieexpire="30" 
+		encryptionkey="reports9i" /--> 
+   
+   <!--defaultcharset></defaultcharset-->
+
+   <webcommandaccess>L2</webcommandaccess>

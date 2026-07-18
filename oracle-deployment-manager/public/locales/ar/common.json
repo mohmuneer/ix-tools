@@ -1,0 +1,562 @@
+{
+  "app": {
+    "name": "مدير نشر أوراكل",
+    "shortName": "نشر أوراكل",
+    "description": "منصة احترافية لنشر Oracle Forms & Reports"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "fileManager": "مدير الملفات",
+    "configManager": "إدارة الإعدادات",
+    "smartEditor": "المحرر الذكي",
+    "deployment": "توثيق النظام",
+    "profiles": "الملفات الشخصية",
+    "templates": "خطوات التركيب",
+    "rollback": "التراجع",
+    "logs": "السجلات",
+    "settings": "الإعدادات",
+    "translations": "الترجمات",
+    "branding": "الهوية البصرية",
+    "swDeploy": "تثبيت نظام IX",
+    "architecture": "معمارية النظام"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "subtitle": "مدير نشر أوراكل - نظرة عامة على السيرفر",
+    "server": "السيرفر",
+    "cpu": "المعالج",
+    "memory": "الذاكرة",
+    "disk": "القرص",
+    "java": "جافا",
+    "oracleForms": "أوراكل فورمز",
+    "weblogic": "ويب لوجيك",
+    "database": "قاعدة البيانات",
+    "running": "يعمل",
+    "stopped": "متوقف",
+    "error": "خطأ",
+    "recentActivity": "النشاط الأخير",
+    "quickActions": "إجراءات سريعة",
+    "serverDetails": "تفاصيل السيرفر",
+    "noActivity": "لا يوجد نشاط بعد",
+    "newDeployment": "نشر جديد",
+    "nodeManager": "مدير العقد",
+    "cores": "أنوية",
+    "freeOf": "من",
+    "listener": "الليسنر",
+    "hostname": "اسم السيرفر",
+    "os": "نظام التشغيل",
+    "windowsVersion": "إصدار ويندوز",
+    "javaVersion": "إصدار جافا",
+    "oracleReports": "أوراكل ريبورتس",
+    "diskTotal": "إجمالي القرص",
+    "diskFree": "القرص المتاح",
+    "memoryTotal": "إجمالي الذاكرة",
+    "cpuCores": "أنوية المعالج"
+  },
+  "common": {
+    "search": "بحث...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "create": "إنشاء",
+    "close": "إغلاق",
+    "confirm": "تأكيد",
+    "yes": "نعم",
+    "no": "لا",
+    "ok": "موافق",
+    "loading": "جاري التحميل...",
+    "refresh": "تحديث",
+    "export": "تصدير",
+    "import": "استيراد",
+    "copy": "نسخ",
+    "cut": "قص",
+    "paste": "لصق",
+    "rename": "إعادة تسمية",
+    "download": "تنزيل",
+    "upload": "رفع",
+    "selected": "محدد",
+    "noData": "لا توجد بيانات",
+    "actions": "الإجراءات",
+    "status": "الحالة",
+    "name": "الاسم",
+    "size": "الحجم",
+    "type": "النوع",
+    "modified": "آخر تعديل",
+    "created": "تاريخ الإنشاء",
+    "description": "الوصف",
+    "folder": "مجلد",
+    "file": "ملف",
+    "total": "الإجمالي",
+    "success": "نجاح",
+    "running": "يعمل",
+    "stopped": "متوقف",
+    "error": "خطأ",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "rollback": "التراجع",
+    "version": "الإصدار",
+    "newFolder": "مجلد جديد",
+    "newFile": "ملف جديد",
+    "createFolder": "إنشاء مجلد جديد",
+    "createFile": "إنشاء ملف جديد",
+    "folderName": "اسم المجلد",
+    "fileName": "اسم الملف",
+    "newName": "الاسم الجديد",
+    "areYouSure": "هل أنت متأكد؟",
+    "cannotUndo": "لا يمكن التراجع عن هذا الإجراء.",
+    "noItemsSelected": "لم يتم تحديد أي عناصر",
+    "itemsSelected": "تم تحديد {count} عنصر(عناصر)"
+  },
+  "fileManager": {
+    "title": "مدير الملفات",
+    "subtitle": "استعراض وإدارة الملفات على السيرفر",
+    "searchFiles": "بحث في الملفات...",
+    "noFiles": "هذا المجلد فارغ",
+    "noSearchResults": "لا توجد ملفات تطابق بحثك",
+    "createFolder": "مجلد",
+    "createFile": "ملف",
+    "deleteConfirm": "هل أنت متأكد من حذف {count} عنصر(عناصر)؟ لا يمكن التراجع عن هذا الإجراء."
+  },
+  "configManager": {
+    "title": "إدارة الإعدادات",
+    "subtitle": "إدارة ملفات إعدادات Oracle",
+    "searchFiles": "بحث في الملفات...",
+    "selectFile": "اختر ملفاً للتعديل",
+    "original": "الأصلي",
+    "current": "الحالي",
+    "compare": "مقارنة",
+    "revert": "استرجاع",
+    "modified": "معدل",
+    "versions": "تم حفظ {count} إصدار(إصدارات)",
+    "saveConfirm": "هل أنت متأكد من حفظ التغييرات في {file}؟",
+    "fileSaved": "تم الحفظ بنجاح",
+    "reverted": "تمت الاسترجاع إلى آخر إصدار محفوظ",
+    "searchHint": "البحث عن ملفات الإعدادات عبر مجلدات Oracle",
+    "filesFound": "تم العثور على {count} ملف(ملفات)",
+    "browseHint": "انقر على ملف الإعدادات لفتحه",
+    "emptyFolder": "مجلد فارغ",
+    "configLabel": "إعدادات"
+  },
+  "editor": {
+    "title": "المحرر الذكي",
+    "subtitle": "محرر نصوص احترافي مع تمييز بناء الجملة",
+    "openFile": "فتح ملف",
+    "save": "حفظ",
+    "copyAll": "نسخ الكل",
+    "find": "بحث",
+    "replace": "استبدال",
+    "replaceAll": "استبدال الكل",
+    "lines": "الأسطر",
+    "characters": "الأحرف",
+    "modified": "معدل",
+    "contentCopied": "تم نسخ المحتوى",
+    "saved": "تم الحفظ بنجاح",
+    "openFailed": "تعذر فتح الملف",
+    "saveFailed": "تعذر حفظ الملف"
+  },
+  "deployment": {
+    "title": " معالج النشر",
+    "subtitle": "نشر تحديثات Oracle Forms & Reports",
+    "selectProfile": "اختر ملف التعريف للنشر",
+    "chooseProfile": "اختر ملف تعريف...",
+    "servicesToRestart": "الخدمات لإعادة تشغيلها",
+    "deploy": "نشر",
+    "deploying": "جاري النشر...",
+    "deploymentSteps": "خطوات النشر",
+    "liveLog": "السجل المباشر",
+    "confirmDeployment": "تأكيد النشر",
+    "confirmMessage": "أنت على وشك النشر باستخدام الملف \"{profile}\". سيتم تنفيذ {steps} خطوات.",
+    "backupWillCreate": "سيتم إنشاء نسخة احتياطية تلقائياً. يمكنك التراجع إذا لزم الأمر.",
+    "startDeployment": "بدء النشر",
+    "cancel": "إلغاء",
+    "deploymentStarted": "بدأ النشر",
+    "deploymentComplete": "تم النشر بنجاح!",
+    "deploymentFailed": "فشل النشر. جاري التراجع...",
+    "stepCompleted": "تم: {step}",
+    "stepFailed": "فشل: {step}",
+    "startingStep": "جاري البدء: {step}",
+    "rollingBack": "جاري التراجع: {step}"
+  },
+  "profiles": {
+    "title": "ملفات التعريف",
+    "subtitle": "إدارة ملفات تعريف النشر لكل عميل",
+    "newProfile": "ملف تعريف جديد",
+    "editProfile": "تعديل ملف التعريف",
+    "profileName": "اسم ملف التعريف",
+    "customerName": "اسم العميل",
+    "deploymentSettings": "إعدادات النشر",
+    "deploy": "نشر",
+    "noProfiles": "لا توجد ملفات تعريف بعد",
+    "createFirst": "إنشاء أول ملف تعريف",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا الملف؟ لا يمكن التراجع.",
+    "profileCreated": "تم إنشاء ملف التعريف بنجاح",
+    "profileUpdated": "تم تحديث ملف التعريف بنجاح",
+    "profileDeleted": "تم حذف ملف التعريف"
+  },
+  "guide": {
+    "title": "دليل التثبيت",
+    "subtitle": "مرجع خطوة بخطوة للتحقق من نشر الخادم",
+    "progress": "التقدم العام",
+    "completedSteps": "{done} من {total} خطوات مكتملة",
+    "resetChecklist": "إعادة تعيين قائمة التحقق",
+    "viewGuide": "عرض دليل PDF",
+    "phases": {
+      "linux": {
+        "title": "المرحلة ١: خادم Oracle Linux 8.9",
+        "description": "تثبيت نظام التشغيل والتكوين الأساسي",
+        "steps": {
+          "install": "تثبيت Oracle Linux 8.9 على الخادم",
+          "network": "تكوين واجهات الشبكة واستضافة النظام",
+          "firewall": "تكوين قواعد جدار الحماية (فتح المنافذ: 1521, 8888, 443, 7001-7003, 8001-8002, 9001-9002)",
+          "selinux": "تعيين SELinux إلى وضع السماح",
+          "packages": "تثبيت الحزم المسبقة (binutils, gcc, make, إلخ)",
+          "oracleUser": "إنشاء مستخدم oracle والمجموعات (oinstall, dba)",
+          "kernel": "تكوين معلمات النواة (shmmax, shmall, sem, إلخ)",
+          "limits": "تكوين /etc/security/limits.conf لمستخدم oracle",
+          "firewalld": "تفعيل وتشغيل خدمة firewalld"
+        }
+      },
+      "database": {
+        "title": "المرحلة ٢: قاعدة بيانات Oracle 21c",
+        "description": "تثبيت وتكوين خادم قاعدة البيانات",
+        "steps": {
+          "uploadMedia": "رفع وسيلة تثبيت Oracle Database 21c إلى الخادم",
+          "runInstaller": "تشغيل runInstaller واختيار التثبيت الأساسي",
+          "setPassword": "تعيين كلمات مرور مسؤول قاعدة البيانات (SYS, SYSTEM)",
+          "createDB": "إنشاء مثيل قاعدة البيانات بتكوين SGA/PGA مناسب",
+          "configureListener": "تكوين مستمع Oracle على المنفذ 1521",
+          "createService": "إنشاء اسم خدمة قاعدة البيانات (مثل ORCL)",
+          "testConn": "اختبار اتصال قاعدة البيانات بـ sqlplus",
+          "createUsers": "إنشاء مستخدمات وأدوار قاعدة البيانات",
+          "importData": "استيراد مخطط قاعدة البيانات والبيانات الأولية",
+          "checkListener": "التحقق من حالة المستمع بـ lsnrctl status"
+        }
+      },
+      "apex": {
+        "title": "المرحلة ٣: Oracle APEX 22.2",
+        "description": "تثبيت Oracle Application Express على قاعدة البيانات",
+        "steps": {
+          "installApex": "تثبيت APEX 22.2 على قاعدة بيانات Oracle",
+          "configureApex": "تكوين مثيل APEX (apex instance setup)",
+          "testApex": "اختبار الوصول إلى APEX عبر المتصفح",
+          "configureImages": "تكوين بادئة صور APEX",
+          "backupApexConfig": "النسخ الاحتياطي لتكوين APEX"
+        }
+      },
+      "weblogic": {
+        "title": "المرحلة ٤: WebLogic 10.3.6 + Forms & Reports",
+        "description": "تثبيت خادم التطبيق وForms/Reports",
+        "steps": {
+          "installJdk": "تثبيت JDK 7 وتعيين JAVA_HOME",
+          "installWebLogic": "تثبيت Oracle WebLogic Server 10.3.6",
+          "createDomain": "إنشاء مجال WebLogic (base_domain)",
+          "configNodeManager": "تكوين Node Manager",
+          "startNodeManager": "تشغيل خدمة Node Manager",
+          "installFormsReports": "تثبيت Oracle Forms & Reports 11g",
+          "applyPatch": "تطبيق التصحيح 17301874 على Forms & Reports",
+          "configureForms": "تكوين Forms servlet و default.env",
+          "configureReports": "تكوين Reports Server و rwservlet.properties",
+          "createManagedServers": "إنشاء خوادم WLS_FORMS و WLS_REPORTS المُدارة",
+          "startServers": "تشغيل جميع الخوادم المُدارة والتحقق"
+        }
+      },
+      "ords": {
+        "title": "المرحلة ٥: ORDS + SSL/HTTPS",
+        "description": "تثبيت Oracle REST Data Services وتكوين SSL",
+        "steps": {
+          "installOrds": "تثبيت Oracle REST Data Services (ORDS)",
+          "configureOrds": "تكوين ORDS مع اتصال قاعدة البيانات",
+          "startOrds": "تشغيل ORDS على المنفذ 8888",
+          "sslCert": "إنشاء وتكوين شهادة SSL",
+          "configureHttps": "تكوين HTTPS على المنفذ 443",
+          "testOrdsAccess": "اختبار الوصول إلى ORDS وAPEX: https://<server>/ords",
+          "backupOrdsConfig": "النسخ الاحتياطي لملفات إعدادات ORDS"
+        }
+      },
+      "ixConfig": {
+        "title": "المرحلة ٥: تكوين نظام IX",
+        "description": "هيكل الدليل وملفات الإعداد ونشر التطبيق",
+        "steps": {
+          "createDirs": "تشغيل mkdir_1010.bat لإنشاء هيكل الأدلة",
+          "copyConfigFiles": "نسخ ملفات الإعداد (tnsnames.ora, formsweb.cfg, إلخ)",
+          "replaceHost": "استبدال اسم المضيف في tnsnmes.ora وملفات البيئة",
+          "replaceService": "استبدال SERVICE_NAME في ملفات الإعداد",
+          "installWebUtil": "تثبيت WebUtil (ملفات DLL, pll, jar)",
+          "installJarFiles": "تثبيت ملفات JAR (أكثر من 24 ملف jar إلى دليل java في Forms)",
+          "configureEnv": "تكوين ملفات البيئة (default.env, ONYXW.env, إلخ)",
+          "copyRegistry": "نسخ وتحديث registry.dat",
+          "copyFontConfig": "نسخ uifont.ali إلى دليل FRComponent",
+          "restartServers": "إعادة تشغيل خوادم WLS_FORMS و WLS_REPORTS"
+        }
+      },
+      "client": {
+        "title": "المرحلة ٦: إعداد محطة العمل",
+        "description": "تكوين المتصفح وJava ومحطة POS",
+        "steps": {
+          "installJre": "تثبيت Java JRE 8 على أجهزة العملاء",
+          "configBrowser": "تكوين المتصفح للثقة بالشهادة الموقعة ذاتياً",
+          "addTrustedSite": "إضافة رابط التطبيق إلى المواقع الموثوقة",
+          "disableSecurity": "تعطيل تكوين الأمان المعزز في IE",
+          "installCert": "تثبيت شهادة SSL في مستودع ثقة Windows",
+          "testForms": "اختبار الوصول إلى تطبيق Forms من المتصفح",
+          "configPOS": "تكوين إعدادات اتصال محطة POS",
+          "testPOS": "اختبار اتصال محطة POS",
+          "verifyPrinting": "التحقق من وظيفة طباعة POS",
+          "documentIPs": "توثيق عناوين IP وأسماء أجهزة جميع العملاء"
+        }
+      }
+    }
+  },
+  "templates": {
+    "title": "القوالب",
+    "subtitle": "إدارة قوالب الإعدادات الإقليمية",
+    "newTemplate": "قالب جديد",
+    "editTemplate": "تعديل القالب",
+    "templateName": "اسم القالب",
+    "region": "المنطقة",
+    "selectRegion": "اختر المنطقة...",
+    "defaultSettings": "الإعدادات الافتراضية",
+    "noTemplates": "لا توجد قوالب",
+    "add": "إضافة",
+    "deleteConfirm": "هل أنت متأكد من حذف هذا القالب؟",
+    "templateCreated": "تم إنشاء القالب",
+    "templateUpdated": "تم تحديث القالب",
+    "templateDeleted": "تم حذف القالب"
+  },
+  "rollback": {
+    "title": "مدير التراجع",
+    "subtitle": "استعادة الملفات من النسخ الاحتياطي",
+    "availableBackups": "النسخ الاحتياطية المتاحة",
+    "backupCount": "{count} نسخة(نسخ) متاحة",
+    "restore": "استعادة",
+    "restoring": "جاري الاستعادة...",
+    "noBackups": "لا توجد نسخ احتياطية",
+    "backupsCreatedDuring": "تُنشأ النسخ الاحتياطية أثناء النشر",
+    "confirmRestore": "تأكيد الاستعادة",
+    "confirmRestoreMessage": "هل أنت متأكد من استعادة هذا الملف؟",
+    "willOverwrite": "سيتم استبدال الملف الحالي بالنسخة الاحتياطية.",
+    "restoreComplete": "تمت الاستعادة بنجاح",
+    "restoreFailed": "فشلت الاستعادة"
+  },
+  "logs": {
+    "title": "سجل العمليات",
+    "subtitle": "سجل كامل لجميع العمليات",
+    "refresh": "تحديث",
+    "export": "تصدير",
+    "clear": "مسح",
+    "searchLogs": "بحث في السجلات...",
+    "allLevels": "جميع المستويات",
+    "noLogs": "لا توجد سجلات",
+    "total": "الإجمالي",
+    "errors": "الأخطاء",
+    "warnings": "التحذيرات"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "إعدادات وتفضيلات التطبيق",
+    "appearance": "المظهر",
+    "darkMode": "الوضع الداكن",
+    "darkModeDesc": "تبديل بين الوضع الداكن والفاتح",
+    "rtl": "من اليمين إلى اليسار (RTL)",
+    "rtlDesc": "تبديل اتجاه الصفحة",
+    "language": "اللغة",
+    "languageDesc": "اختر لغة التطبيق",
+    "notifications": "الإشعارات",
+    "enableNotifications": "تفعيل الإشعارات",
+    "enableNotificationsDesc": "عرض إشعارات النشر",
+    "autoBackup": "النسخ الاحتياطي التلقائي",
+    "autoBackupDesc": "إنشاء نسخة احتياطية تلقائياً قبل النشر",
+    "security": "الأمان",
+    "currentRole": "الدور الحالي",
+    "yourAccessLevel": "مستوى صلاحياتك",
+    "changePassword": "تغيير كلمة المرور",
+    "newPassword": "كلمة المرور الجديدة",
+    "saveSettings": "حفظ الإعدادات",
+    "saved": "تم الحفظ!"
+  },
+  "translations": {
+    "title": "مدير الترجمات",
+    "subtitle": "إدارة الترجمات لجميع اللغات",
+    "addLanguage": "إضافة لغة",
+    "searchTranslations": "بحث في الترجمات...",
+    "key": "المفتاح",
+    "originalText": "النص الأصلي",
+    "translatedText": "النص المترجم",
+    "untranslated": "غير مترجم",
+    "translated": "مترجم",
+    "totalKeys": "إجمالي المفاتيح",
+    "completionRate": "نسبة الإنجاز",
+    "saveTranslation": "حفظ الترجمة",
+    "exportTranslations": "تصدير",
+    "importTranslations": "استيراد",
+    "compareLanguages": "مقارنة اللغات",
+    "translationSaved": "تم حفظ الترجمة بنجاح",
+    "noUntranslated": "جميع الترجمات مكتملة!"
+  },
+  "branding": {
+    "title": "الهوية البصرية والمظهر",
+    "subtitle": "تخصيص مظهر التطبيق",
+    "logoManagement": "إدارة الشعار",
+    "mainLogo": "الشعار الرئيسي",
+    "sidebarLogo": "شعار القائمة الجانبية",
+    "loginLogo": "شعار تسجيل الدخول",
+    "favicon": "أيقونة المتصفح",
+    "reportLogo": "شعار التقارير",
+    "uploadLogo": "رفع شعار",
+    "colorScheme": "نظام الألوان",
+    "primaryColor": "اللون الأساسي",
+    "secondaryColor": "اللون الثانوي",
+    "successColor": "لون النجاح",
+    "warningColor": "لون التحذير",
+    "errorColor": "لون الخطأ",
+    "background": "الخلفية",
+    "headerColor": "لون الترويسة",
+    "sidebarColor": "لون القائمة الجانبية",
+    "cardColor": "لون البطاقات",
+    "typography": "الخط",
+    "fontFamily": "نوع الخط",
+    "fontSize": "حجم الخط",
+    "borderRadius": "نصف قطر الحواف",
+    "themes": "الثيمات",
+    "currentTheme": "الثيم الحالي",
+    "createTheme": "إنشاء ثيم",
+    "preview": "معاينة",
+    "applyChanges": "تطبيق التغييرات",
+    "changesSaved": "تم حفظ التغييرات بنجاح",
+    "resetDefaults": "إعادة التعيين"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "username": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "signIn": "تسجيل الدخول",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "نسيت كلمة المرور؟"
+  },
+  "arch": {
+    "title": "معمارية النظام",
+    "subtitle": "نظرة عامة على المعمارية ثلاثية الطبقات — ONYX-IX",
+    "intro": "يعتمد نظام ONYX-IX على معمارية ثلاثية الطبقات تفصل بين عرض الواجهة ومنطق التطبيق وتخزين البيانات، لتحقيق قابلية التوسع والصيانة والأمان. تُقدّم هذه الصفحة مرجعًا تفاعليًا لفهم كل طبقة وأدواتها ودورها في التكامل.",
+    "viewSimple": "عرض مبسّط",
+    "viewDetailed": "عرض تفصيلي",
+    "tier": {
+      "client": "طبقة العميل",
+      "clientSub": "Client Tier",
+      "application": "طبقة التطبيقات",
+      "applicationSub": "Application Tier — ERP-IAS",
+      "database": "طبقة البيانات",
+      "databaseSub": "Database Tier — ERP-DBS"
+    },
+    "connection": {
+      "http": "HTTP/HTTPS — المنفذ 8888 / 443",
+      "tns": "SQL*Net / TNS — المنفذ 1521"
+    },
+    "drawer": {
+      "role": "الدور",
+      "description": "الوصف",
+      "integrationBenefit": "الفائدة في التكامل",
+      "relatedGuide": "الدليل المرتبط"
+    },
+    "tools": {
+      "webBrowser": {
+        "role": "واجهة الوصول",
+        "desc": "متصفح الويب هو نقطة الدخول الأولى للمستخدم. يُحمّل النماذج عبر إضافة Java (JRE) ويعرض واجهة النظام التفاعلية.",
+        "benefit": "يُتيح للمستخدمين الوصول السريع من أي جهاز موصول بالشبكة دون الحاجة لتثبيت תוכنة إضافية."
+      },
+      "javaJre": {
+        "role": "محرك النماذج",
+        "desc": "بيئة تشغيل الجافا 8 تُشغّل نماذج Oracle Forms كتطبيق applet داخل المتصفح عبر إضافة Java.",
+        "benefit": "يُوفّر بيئة تشغيل موحّدة لجميع نماذج النظام ويضمن التوافق مع إصدارات Java المختلفة."
+      },
+      "posTerminal": {
+        "role": "نقطة البيع",
+        "desc": "جهاز نقطة البيع (POS) يُستخدم للطباعة المباشرة والباركود في المتاجر ومراكز التوزيع.",
+        "benefit": "يتكامل مع نظام ONYX-IX لمعالجة المعاملات البيعية وإصدار الفواتير وطباعة الباركود."
+      },
+      "weblogic": {
+        "role": "خادم التطبيقات",
+        "desc": "Oracle WebLogic 10.3.6 هو خادم تطبيقات الجافا الذي يستضيف Forms & Reports Servers ويدير اتصالات قاعدة البيانات.",
+        "benefit": "يوفر بيئة تشغيل مستقرة وقابلة للتوسع لإدارة حمل المستخدمين المتعددين."
+      },
+      "formsReports": {
+        "role": "محرك النماذج والتقارير",
+        "desc": "Oracle Forms & Reports 11g يُشغّل نماذج ERP ويُولّد التقارير الديناميكية من قاعدة البيانات.",
+        "benefit": "يُشكّل جوهر منطق الأعمال ويحول البيانات الخام إلى تقارير تفاعلية."
+      },
+      "ordsApex": {
+        "role": "واجهة REST والويب",
+        "desc": "Oracle REST Data Services (ORDS) و APEX يُوفّران واجهة ويب خفيفة وخدمات REST API للنظام.",
+        "benefit": "يُتيح الوصول عبر الويب بدون Oracle Forms ويُبسّط التكامل مع الأنظمة الخارجية."
+      },
+      "reportsServers": {
+        "role": "خادم التقارير",
+        "desc": "خادم التقارير (Reports Server) يُولّد التقارير المطبوعة (PDF, HTML, Excel) من بيانات Oracle Database.",
+        "benefit": "يفصل بين عرض البيانات وطريقة إخراجها، مما يُتيح تخصيص شكل التقارير حسب الحاجة."
+      },
+      "jdk": {
+        "role": "مكتبة التطوير",
+        "desc": "Java Development Kit 7 يُوفّر أدوات التطوير والتصياغ الضرورية لنماذج Oracle Forms.",
+        "benefit": "يُوفّر بيئة تطوير متوافقة مع WebLogic 10.3.6 و Forms 11g."
+      },
+      "sslHttps": {
+        "role": "الحماية والتشيفر",
+        "desc": "بروتوكول SSL/HTTPS يُشفّر اتصالات الويب بين المتصفح وخادم التطبيقات لحماية البيانات الحساسة.",
+        "benefit": "يُحقق أمان النقل ويراعي متطلبات الحوكمة والامتثال."
+      },
+      "oracleDb": {
+        "role": "قاعدة البيانات",
+        "desc": "Oracle Database 21c هي قاعدة البيانات الأساسية التي تخزن جميع بيانات النظام وتمكّن الاستعلامات المعقدة.",
+        "benefit": "توفر أعلى مستوى من الأداء والموثوقية والأمان لبيانات المؤسسات."
+      },
+      "oracleLinux": {
+        "role": "نظام التشغيل",
+        "desc": "Oracle Linux 8.9 هو نظام التشغيل الذي يُشغّل قاعدة البيانات وخوادم التطبيقات بتثبيت UEK.",
+        "benefit": "يُوفّر بيئة تشغيل مستقرة ومُحسّنة لـ Oracle Database و WebLogic."
+      }
+    },
+    "journey": {
+      "title": "رحلة طلب نموذجية",
+      "step1": {
+        "title": "فتح رابط النظام وتحميل النماذج",
+        "desc": "يفتح المستخدم رابط النظام في المتصفح وتُحمّل نماذج Oracle Forms عبر إضافة Java (JRE)."
+      },
+      "step2": {
+        "title": "إرسال الطلب إلى خادم التطبيقات",
+        "desc": "يُرسل المتصفح الطلب عبر HTTP/HTTPS إلى خادم WebLogic على ERP-IAS."
+      },
+      "step3": {
+        "title": "معالجة منطق العمل",
+        "desc": "تُعالج النماذج منطق العمل عبر Forms & Reports وتُستعلم البيانات من قاعدة البيانات عبر TNS/SQL*Net."
+      },
+      "step4": {
+        "title": "إعادة النتيجة",
+        "desc": "تُعاد النتيجة من Oracle Database 21c وتُعرض في النموذج أو يُولّد تقرير عبر خادم التقارير."
+      },
+      "step5": {
+        "title": "الطباعة في نقطة البيع",
+        "desc": "عند الطباعة: تُستخدم مكتبة الباركود والطباعة المباشرة على جهاز POS."
+      }
+    },
+    "guides": {
+      "title": "سلسلة الأدلة",
+      "linux": "دليل تثبيت Oracle Linux 8.9",
+      "linux.desc": "خطوات تثبيت نظام التشغيل وإعداد UEK.",
+      "database": "دليل تثبيت Oracle Database 21c",
+      "database.desc": "تثبيت قاعدة البيانات وضبط الإعدادات الأساسية.",
+      "ordsApex": "دليل تثبيت ORDS و APEX مع SSL",
+      "ordsApex.desc": "إعداد واجهة REST والويب مع التشفير.",
+      "appServer": "دليل تثبيت خادم التطبيقات والمتصفحات",
+      "appServer.desc": "تثبيت WebLogic و Forms & Reports.",
+      "formsPatch": "دليل ترقيع Oracle Forms 17301874",
+      "formsPatch.desc": "تطبيق الترقيع الأخير على Oracle Forms.",
+      "pos": "دليل إعداد خادم نقاط البيع POS",
+      "pos.desc": "إعداد أجهزة نقاط البيع والطباعة."
+    }
+  },
+  "status": {
+    "running": "يعمل",
+    "stopped": "متوقف",
+    "error": "خطأ"
+  }
+}

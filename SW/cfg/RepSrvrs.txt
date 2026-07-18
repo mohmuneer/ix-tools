@@ -1,0 +1,34 @@
+place created files D:\oracle\ofm\ofr\asinst1\reports\server
+
+
+D:\oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost database-laban -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_gnr -componentType  ReportsServerComponent
+
+D:\oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost database-laban -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_pos -componentType  ReportsServerComponent
+
+
+********************************************
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_adm -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_stp -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_gls -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_inv -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_aps -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_ars -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_prl -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_fng -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_hrs -componentType  ReportsServerComponent
+
+D:\Oracle\ofm\ofr\asinst1\bin\opmnctl deletecomponent  -adminUsername ultimate  -adminHost ERPIAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_gls -componentType  ReportsServerComponent
+
+
+
+
+
+D:\oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost ERP-IAS  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_emm -componentType  ReportsServerComponent

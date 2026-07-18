@@ -1,0 +1,32 @@
+{
+  "steps": {
+    "backup": "النسخ الاحتياطي للملفات الحالية",
+    "copy": "نسخ الملفات الجديدة",
+    "variables": "استبدال المتغيرات",
+    "environment": "تكوين البيئة",
+    "webutil": "تثبيت WebUtil",
+    "jar": "تثبيت ملفات Java",
+    "restart": "إعادة تشغيل الخدمات"
+  },
+  "variables": {
+    "HOST": "المضيف",
+    "PORT": "المنفذ",
+    "SERVICE_NAME": "اسم الخدمة",
+    "FORMS_PATH": "مسار Forms",
+    "REPORTS_PATH": "مسار Reports",
+    "JAVA_HOME": "مسار Java",
+    "DOMAIN_HOME": "مسار النطاق",
+    "INSTANCE_HOME": "مسار المثيل",
+    "DATABASE_NAME": "اسم قاعدة البيانات",
+    "TNS_ADMIN": "مسار TNS",
+    "FORMS_LISTENER_PORT": "منفذ Forms Listener",
+    "REPORTS_LISTENER_PORT": "منفذ Reports Listener"
+  },
+  "services": {
+    "node-manager": "مدير العقد",
+    "forms": "أوراكل فورمز",
+    "reports": "أوراكل ريبورتس",
+    "weblogic": "خادم ويب لوجيك",
+    "windows-service": "خدمة ويندوز"
+  }
+}

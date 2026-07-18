@@ -1,0 +1,26 @@
+Onyx IX Used Tools - Public Share from Drive
+
+ISO LINUX7.4
+https://drive.google.com/drive/folders/19Fwaby6KuW_Rzz29sUJ2_qZdN7-Y1Es2?usp=sharing
+
+http:://41.33.108.26:8888/forms/frmservlet?config=onyxix_ar
+------------------------------
+linux_db_12c
+https://drive.google.com/file/d/15YIPBnYVq9XmyfmcE0Rual-lzJdOxu_9/view?usp=sharing
+------------------
+JAVA
+http:://41.33.108.26:8888/forms/java/java.exe
+-------------------------------------------
+JRE_8
+https://drive.google.com/file/d/1IBSi_CevN7ZG05du9QiUZ5fHgFqO3fTL/view?usp=sharing
+---------------------
+
+WINscp
+https://drive.google.com/file/d/1rsiUgK9rhkuXHX3Y3eQydTAPPtV-6fCc/view?usp=sharing
+----------------------
+
+PUTTY
+https://drive.google.com/file/d/1fukOKWglayXWAgL4hj0-kM6PXIXyP7BK/view?usp=sharing
+----------------------
+
+https://10.10.10.11/ui/#/host/vms/12

@@ -1,0 +1,165 @@
+#
+# $Header: uifont.ali@@/main/2 \
+# Checked in on Sun Feb 22 17:41:15 PST 1998 by hwang \
+# Copyright (c) 1997, 1998 by Oracle Corporation. All Rights Reserved. \
+# $ Copyr (c) 1995 Oracle
+#
+#  Copyright (c) Oracle Corporation 1995, 1997, 1998.
+#  All Rights Reserved.
+
+/* See readme.ali for usage instructions. */
+/* MS Windows uifont.ali */
+
+[ Global ]
+
+"Terwinal 993".....     = "Terwinal 993".....we8iso8859p1
+
+/* Convert JEUC to SJIS for all fonts */
+.....jeuc               = .....sjis
+
+/* Mac Fonts */
+"Avant Garde"           = Arial
+"New Century Schlbk"    = "Times New Roman"
+"New York"              = "Times New Roman"
+Bookman                 = "Times New Roman"
+
+/* Motif fonts */
+
+lucidatypewriter        = "Courier New"
+lucidabright            = "Times New Roman"
+fixed                   = "Courier New"
+
+/* Cue card fonts */
+cuecard                 = Arial.8.Plain.Medium.Normal
+cuecardFixed            = "Courier New"..Plain.Medium.Normal
+
+
+[ Printer ]
+
+/* Mac Fonts */
+"Avant Garde"           = "Avant Garde"
+"New Century Schlbk"    = "New Century Schoolbook"
+
+/* Motif fonts */
+courier                 = "Courier New"
+times                   = "Times New Roman"
+
+/* ttf fonts */
+
+ Arial..italic.Bold.. = "arialbi.ttf"
+ "Andale Duospace WT J" = "Aduoj.ttf"
+ "Albany WT J"="AlbanWTJ.ttf"
+ "Arabic Transparent"="artro.ttf"
+
+
+[ Display ]
+
+
+# Oracle Report PDF sections
+# Three new sections have been added:
+# [ PDF ]         - Used for font aliasing and Multibyte language support
+# [ PDF:Embed ]   - Used for Type 1 font embedding
+# [ PDF:Subset ]  - Used for True Type Font subsetting
+
+
+[ PDF ]
+
+# This example shows how to rename Arial font to Courier font
+# Arial = Courier
+# You can Alias specific styles of font as below
+# Arial.12..Bold.. = Courier.14....
+# "Times New Roman".12..Bold = "Sans Serif"
+#
+# Support for Far Eastern Languages:
+# ----------------------------------
+# PDF section can be additionally used to enable Multibyte language support
+# built into Reports.  To use this feature with Adobe (r) Acrobat (c), you
+# need to install the Asian font pack available online at the Adobe web site.
+# By specifying the below aliasing, a Japanese report run with Shift-JIS
+# characterset is replaced to HeiseiKakuGo-W5-Acro CID font.
+# .....SJIS = "HeiseiKakuGo-W5-Acro"
+
+
+[ PDF:Embed ]
+
+# This example shows how to embed Type 1 Arial font into the PDF file:
+# Arial = "Arial.pfm Arial.pfb"
+# You need to specify the .pfm file before the .pfb file.
+# The font files must exist in one of the folders specified in REPORTS_PATH.
+#"Courier New" = "Courier New.ttf"
+
+
+[ PDF:Subset ]
+
+"arial" = "arial.ttf"
+"Tahoma" = "tahoma.ttf"
+"Tahoma Bold" = "tahomabd.ttf"
+"Tahoma Bold Italic" = "tahoma.ttf"
+"Tahoma Italic" = "tahoma.ttf"
+Arial..italic.Bold.. = "arialbi.ttf"
+"Andale Duospace WT J" = "Aduoj.ttf"
+"Albany WT J"="AlbanWTJ.ttf"
+"Arabic Transparent"="artro.ttf"
+"Arabic Transparent"...Bold.. = "artrbdo.ttf"
+"Arabic Transparent"..... = "artro.ttf"
+Arial..Italic.Bold.. = "ARIALBI.TTF"
+Arial...Bold.. = "ARIALBD.TTF"
+Arial..Italic... = "ARIALI.TTF"
+Arial..... = "ARIAL.TTF"
+"Courier New" = "COUR.TTF"
+"Courier New Bold" = "COURBD.TTF"
+"Courier New Bold Italic" = "COURBI.TTF"
+"Courier New Italic" = "COURI.TTF"
+"SimplifiedArabic" = "simpo.ttf"
+"Simplified Arabic"...Bold.. = "simpbdo.ttf"
+"Simplified Arabic"..... = "simpo.ttf"
+"AL-Mohanad" = "MOHAND.TTF"
+"AL-Mohanad"...Bold.. = "MOHANDBO.TTF"
+"AL-Mohanad"..... = "MOHAND.TTF"
+"AL-MohanadArt" = "Mohandart.ttf"
+"AL-Mohanad art"..... = "Mohandart.ttf"
+"Al-Mateen" = "MATEEN.TTF"
+"Al-Mateen"...Bold.. = "MATEEN.TTF"
+"Al-Mateen"..... = "MATEEN.TTF"
+"Times New Roman"..Italic.Bold.. = "TIMESBI.TTF"
+"Times New Roman"...Bold.. = "timesbd.ttf"
+"Times New Roman"..Italic... = "TIMESI.TTF"
+"Times New Roman"..... = "TIMES.TTF"
+"Traditional Arabic"...Bold.. = "tradbdo.ttf"
+"Traditional Arabic"..... = "trado.ttf"
+# This example shows how to subset Arial True Type font into the PDF file
+Arial = "Arial.ttf"
+# The True Type font files must exist in any one of the folders specified in
+# REPORTS_PATH.
+
+#MOHANDBO MohandBL
+# Subsetting TrueType Collection fonts:
+# Typically, a TTC font contains several fonts in one file. For example,
+# the TTC file, msgothic.ttc consists of three fonts in the order
+# MS Gothic, MS PGothic and MS UI Gothic. To subset MS PGothic, the
+# entry in the PDF:Subset section of uifont.ali would be:
+# "MS PGothic" = "msgothic.ttc,1"
+#
+
+
+
+# NOTES ON PRECEDENCE OF PDF SECTIONS:
+# ------------------------------------
+#
+# If you have entries for a same font in many PDF sections, then Font
+# Aliasing entry will take precedence over Font Subsetting entry. Entries 
+# in Font Subsetting will take precedence over the entries in Font Embedding 
+# section.
+#
+# Generic entries for a font must follow more specific entries for the same
+# font.  For instance, if you want to subset Arial Plain, Arial Bold,
+# Arial Italic and Arial Bold-Italic fonts, your entries must be:
+#
+# [ PDF:Subset ]
+# Arial..Italic.Bold.. = "Arialbi.ttf"
+# Arial...Bold..       = "Arialb.ttf"
+# Arial..Italic...     = "Ariali.ttf"
+# Arial.....           = "Arial.ttf"
+#
+# If Arial..... entries appears in the top of the list, all the styles of
+# Arial font in the layout will be subset as Arial Plain font.

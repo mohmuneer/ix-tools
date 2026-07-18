@@ -1,0 +1,4 @@
+
+Ulti$Ix_2020
+
+D:\oracle\ofm\ofr\asinst1\bin\opmnctl createcomponent  -adminUsername ultimate  -adminHost MATHSERVER  -adminPort 7001  -oracleHome D:\Oracle\ofm\ofr\as1 -oracleInstance D:\Oracle\ofm\ofr\asinst1 -instanceName  asinst1 -componentName  onyx-iax_rprt_pos -componentType  ReportsServerComponent

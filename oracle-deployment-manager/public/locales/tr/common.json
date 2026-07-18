@@ -1,0 +1,562 @@
+{
+  "app": {
+    "name": "Oracle Dağıtım Yöneticisi",
+    "shortName": "Oracle Deploy",
+    "description": "Profesyonel Oracle Forms & Reports Dağıtım Platformu"
+  },
+  "nav": {
+    "dashboard": "Kontrol Paneli",
+    "fileManager": "Dosya Yöneticisi",
+    "configManager": "Yapılandırma Yöneticisi",
+    "smartEditor": "Akıllı Editör",
+    "deployment": "Dağıtım",
+    "profiles": "Profiller",
+    "templates": "Şablonlar",
+    "rollback": "Geri Alma",
+    "logs": "Kayıtlar",
+    "settings": "Ayarlar",
+    "translations": "Çeviriler",
+    "branding": "Marka Kimliği",
+    "swDeploy": "IX Sistem Kurulumu",
+    "architecture": "Mimari"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "subtitle": "Sunucu Genel Bakışı",
+    "server": "Sunucu",
+    "cpu": "İşlemci",
+    "memory": "Bellek",
+    "disk": "Disk",
+    "java": "Java",
+    "oracleForms": "Oracle Forms",
+    "weblogic": "WebLogic",
+    "database": "Veritabanı",
+    "running": "Çalışıyor",
+    "stopped": "Durduruldu",
+    "error": "Hata",
+    "recentActivity": "Son Aktivite",
+    "quickActions": "Hızlı İşlemler",
+    "serverDetails": "Sunucu Detayları",
+    "noActivity": "Aktivite yok",
+    "newDeployment": "Yeni Dağıtım",
+    "nodeManager": "Node Manager",
+    "cores": "Çekirdek",
+    "freeOf": "/",
+    "listener": "Listener",
+    "hostname": "Ana Bilgisayar",
+    "os": "İşletim Sistemi",
+    "windowsVersion": "Windows Sürümü",
+    "javaVersion": "Java Sürümü",
+    "oracleReports": "Oracle Reports",
+    "diskTotal": "Toplam Disk",
+    "diskFree": "Boş Disk",
+    "memoryToplam": "Toplam Bellek",
+    "cpuCores": "CPU Çekirdekleri"
+  },
+  "common": {
+    "search": "Ara...",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "close": "Kapat",
+    "confirm": "Onayla",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "loading": "Yükleniyor...",
+    "refresh": "Yenile",
+    "export": "Dışa Aktar",
+    "import": "İçe Aktar",
+    "copy": "Kopyala",
+    "cut": "Kes",
+    "paste": "Yapıştır",
+    "rename": "Yeniden Adlandır",
+    "download": "İndir",
+    "upload": "Yükle",
+    "selected": "seçili",
+    "noData": "Veri yok",
+    "actions": "İşlemler",
+    "status": "Durum",
+    "name": "Ad",
+    "size": "Boyut",
+    "type": "Tür",
+    "modified": "Değiştirildi",
+    "created": "Oluşturuldu",
+    "description": "Açıklama",
+    "folder": "Klasör",
+    "file": "Dosya",
+    "total": "Toplam",
+    "success": "Başarılı",
+    "running": "Çalışıyor",
+    "stopped": "Durduruldu",
+    "error": "Hata",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "rollback": "Geri Alma",
+    "version": "Sürüm",
+    "newFolder": "Yeni Klasör",
+    "newFile": "Yeni Dosya",
+    "createFolder": "Klasör Oluştur",
+    "createFile": "Dosya Oluştur",
+    "folderName": "Klasör Adı",
+    "fileName": "Dosya Adı",
+    "newName": "Yeni Ad",
+    "areYouSure": "Emin misiniz?",
+    "cannotUndo": "Bu işlem geri alınamaz.",
+    "noItemsSelected": "Hiçbir öğe seçilmedi",
+    "itemsSelected": "{count} öğe seçildi"
+  },
+  "fileManager": {
+    "title": "Dosya Yöneticisi",
+    "subtitle": "Dosyaları görüntüle ve yönet",
+    "searchFiles": "Ara...",
+    "noFiles": "Bu klasör boş",
+    "noSearchResults": "Sonuç yok",
+    "createFolder": "Klasör",
+    "createFile": "Dosya",
+    "deleteConfirm": "{count} öğe silinsin mi?"
+  },
+  "configManager": {
+    "title": "Yapılandırma Yöneticisi",
+    "subtitle": "Oracle yapılandırma dosyaları",
+    "searchFiles": "Ara...",
+    "selectFile": "Dosya seçin",
+    "original": "Orijinal",
+    "current": "Mevcut",
+    "compare": "Karşılaştır",
+    "revert": "Geri Yükle",
+    "modified": "Değiştirildi",
+    "versions": "{count} sürüm",
+    "saveConfirm": "{file} değişiklikleri kaydedilsin mi?",
+    "fileSaved": "kaydedildi",
+    "reverted": "geri yüklendi",
+    "searchHint": "Oracle dizinlerinde yapılandırma dosyalarını arayın",
+    "filesFound": "{count} dosya bulundu",
+    "browseHint": "Bir yapılandırma dosyasını açmak için tıklayın",
+    "emptyFolder": "Boş klasör",
+    "configLabel": "yapılandırma"
+  },
+  "editor": {
+    "title": "Akıllı Editör",
+    "subtitle": "Profesyonel metin editörü",
+    "openFile": "Aç",
+    "save": "Kaydet",
+    "copyAll": "Tümünü Kopyala",
+    "find": "Bul",
+    "replace": "Değiştir",
+    "replaceAll": "Tümünü Değiştir",
+    "lines": "Satır",
+    "characters": "Karakter",
+    "modified": "Değiştirildi",
+    "contentCopied": "Kopyalandı",
+    "saved": "kaydedildi",
+    "openFailed": "Hata",
+    "saveFailed": "Hata"
+  },
+  "deployment": {
+    "title": "Dağıtım Sihirbazı",
+    "subtitle": "Oracle güncellemelerini dağıt",
+    "selectProfile": "Profil Seç",
+    "chooseProfile": "Profil seçin...",
+    "servicesToRestart": "Yeniden başlatılacak hizmetler",
+    "deploy": "Dağıt",
+    "deploying": "Dağıtılıyor...",
+    "deploymentSteps": "Adımlar",
+    "liveLog": "Canlı Kayıt",
+    "confirmDeployment": "Onayla",
+    "confirmMessage": "\"{profile}\" profili ile dağıtılacak. {steps} adım.",
+    "backupWillCreate": "Otomatik yedekleme.",
+    "startDeployment": "Başlat",
+    "cancel": "İptal",
+    "deploymentStarted": "Başlatıldı",
+    "deploymentComplete": "Başarıyla tamamlandı!",
+    "deploymentFailed": "Hata. Geri alınıyor...",
+    "stepCompleted": "Tamamlandı: {step}",
+    "stepFailed": "Hata: {step}",
+    "startingStep": "Başlatılıyor: {step}",
+    "rollingBack": "Geri alınıyor: {step}"
+  },
+  "profiles": {
+    "title": "Kurulum Profilleri",
+    "subtitle": "Müşteri profillerini yönet",
+    "newProfile": "Yeni Profil",
+    "editProfile": "Düzenle",
+    "profileName": "Profil Adı",
+    "customerName": "Müşteri Adı",
+    "deploymentSettings": "Ayarlar",
+    "deploy": "Dağıt",
+    "noProfiles": "Profil yok",
+    "createFirst": "İlkini Oluştur",
+    "deleteConfirm": "Bu profil silinsin mi?",
+    "profileCreated": "Profil oluşturuldu",
+    "profileUpdated": "Profil güncellendi",
+    "profileDeleted": "Profil silindi"
+  },
+  "guide": {
+    "title": "Kurulum Kılavuzu",
+    "subtitle": "Sunucu dağıtımı doğrulaması için adım adım referans",
+    "progress": "Genel İlerleme",
+    "completedSteps": "{total} adımdan {done} tanesi tamamlandı",
+    "resetChecklist": "Kontrol Listesini Sıfırla",
+    "viewGuide": "PDF Kılavuzunu Görüntüle",
+    "phases": {
+      "linux": {
+        "title": "Faz 1: Oracle Linux 8.9 Sunucusu",
+        "description": "İşletim sistemi kurulumu ve temel yapılandırma",
+        "steps": {
+          "install": "Sunucuya Oracle Linux 8.9 kurulumu",
+          "network": "Ağ arayüzlerini ve ana bilgisayar adını yapılandırma",
+          "firewall": "Güvenlik duvarı kurallarını yapılandırma (açık portlar: 1521, 8888, 443, 7001-7003, 8001-8002, 9001-9002)",
+          "selinux": "SELinux'u izin veren moda ayarlama",
+          "packages": "Önkoşul paketlerini yükleme (binutils, gcc, make vb.)",
+          "oracleUser": "Oracle kullanıcısı ve gruplarını oluşturma (oinstall, dba)",
+          "kernel": "Çekirdek parametrelerini yapılandırma (shmmax, shmall, sem vb.)",
+          "limits": "Oracle kullanıcısı için /etc/security/limits.conf yapılandırması",
+          "firewalld": "Firewalld hizmetini etkinleştirme ve başlatma"
+        }
+      },
+      "database": {
+        "title": "Faz 2: Oracle Database 21c",
+        "description": "Veritabanı sunucusu kurulumu ve yapılandırması",
+        "steps": {
+          "uploadMedia": "Oracle Database 21c kurulum medyasını sunucuya yükleme",
+          "runInstaller": "runInstaller'ı çalıştırma ve Temel Kurulum seçme",
+          "setPassword": "Veritabanı yönetici şifrelerini belirleme (SYS, SYSTEM)",
+          "createDB": "Uygun SGA/PGA ile veritabanı örneği oluşturma",
+          "configureListener": "Oracle Listener'ı 1521 portunda yapılandırma",
+          "createService": "Veritabanı hizmet adı oluşturma (ör. ORCL)",
+          "testConn": "sqlplus ile veritabanı bağlantısını test etme",
+          "createUsers": "Uygulama veritabanı kullanıcılarını ve rollerini oluşturma",
+          "importData": "Veritabanı şemasını ve başlangıç verilerini içe aktarma",
+          "checkListener": "lsnrctl status ile dinleyici durumunu doğrulama"
+        }
+      },
+      "apex": {
+        "title": "3. Aşama: Oracle APEX 22.2",
+        "description": "Oracle Application Express veritabanı üzerinde kurulum",
+        "steps": {
+          "installApex": "Oracle Database üzerine APEX 22.2 kurulumu",
+          "configureApex": "APEX örneğini yapılandırma",
+          "testApex": "Tarayıcı ile APEX erişimini test et",
+          "configureImages": "APEX resim ön ekini yapılandırma",
+          "backupApexConfig": "APEX yapılandırmasını yedekle"
+        }
+      },
+      "weblogic": {
+        "title": "Faz 4: WebLogic 10.3.6 + Forms & Reports",
+        "description": "Uygulama sunucusu ve Forms/Reports kurulumu",
+        "steps": {
+          "installJdk": "JDK 7 kurulumu ve JAVA_HOME ayarlama",
+          "installWebLogic": "Oracle WebLogic Server 10.3.6 kurulumu",
+          "createDomain": "WebLogic alanı oluşturma (base_domain)",
+          "configNodeManager": "Node Manager yapılandırması",
+          "startNodeManager": "Node Manager hizmetini başlatma",
+          "installFormsReports": "Oracle Forms & Reports 11g kurulumu",
+          "applyPatch": "Forms & Reports'a Yama 17301874 uygulama",
+          "configureForms": "Forms servlet ve default.env yapılandırması",
+          "configureReports": "Reports Server ve rwservlet.properties yapılandırması",
+          "createManagedServers": "WLS_FORMS ve WLS_REPORTS yönetilen sunucularını oluşturma",
+          "startServers": "Tüm yönetilen sunucuları başlatma ve doğrulama"
+        }
+      },
+      "ords": {
+        "title": "5. Aşama: ORDS + SSL/HTTPS",
+        "description": "Oracle REST Data Services kurulumu ve SSL yapılandırması",
+        "steps": {
+          "installOrds": "Oracle REST Data Services (ORDS) kurulumu",
+          "configureOrds": "ORDS'yi veritabanı bağlantısıyla yapılandırma",
+          "startOrds": "ORDS'yi 8888 portunda başlat",
+          "sslCert": "SSL sertifikası oluştur ve yapılandır",
+          "configureHttps": "443 portunda HTTPS yapılandır",
+          "testOrdsAccess": "ORDS ve APEX erişimini test et: https://<server>/ords",
+          "backupOrdsConfig": "ORDS yapılandırmasını yedekle"
+        }
+      },
+      "ixConfig": {
+        "title": "Faz 5: IX Sistem Yapılandırması",
+        "description": "Dizin yapısı, yapılandırma dosyaları ve uygulama dağıtımı",
+        "steps": {
+          "createDirs": "Dizin yapısını oluşturmak için mkdir_1010.bat çalıştırma",
+          "copyConfigFiles": "Yapılandırma dosyalarını kopyalama (tnsnames.ora, formsweb.cfg vb.)",
+          "replaceHost": "tnsnames.ora ve env dosyalarında ana bilgisayar adını değiştirme",
+          "replaceService": "Yapılandırma dosyalarında SERVICE_NAME değiştirme",
+          "installWebUtil": "WebUtil kurulumu (DLLs, pll, jar dosyaları)",
+          "installJarFiles": "JAR dosyalarını kurma (24+ jar dosyası Forms java dizinine)",
+          "configureEnv": "Ortam dosyalarını yapılandırma (default.env, ONYXW.env vb.)",
+          "copyRegistry": "registry.dat kopyalama ve güncelleme",
+          "copyFontConfig": "uifont.ali'yi FRComponent dizinine kopyalama",
+          "restartServers": "WLS_FORMS ve WLS_REPORTS sunucularını yeniden başlatma"
+        }
+      },
+      "client": {
+        "title": "Faz 6: İstemci İş İstasyonu Kurulumu",
+        "description": "Tarayıcı, Java ve POS terminali yapılandırması",
+        "steps": {
+          "installJre": "İstemci makinelerine Java JRE 8 kurulumu",
+          "configBrowser": "Tarayıcıyı self-imzalı sertifikaya güvenecek şekilde yapılandırma",
+          "addTrustedSite": "Uygulama URL'sini güvenilir sitelere ekleme",
+          "disableSecurity": "IE'de gelişmiş güvenlik yapılandırmasını devre dışı bırakma",
+          "installCert": "SSL sertifikasını Windows güven mağazasına kurma",
+          "testForms": "Tarayıcıdan Forms uygulama erişimini test etme",
+          "configPOS": "POS terminali bağlantı ayarlarını yapılandırma",
+          "testPOS": "POS terminali bağlantısını test etme",
+          "verifyPrinting": "POS yazdırma işlevselliğini doğrulama",
+          "documentIPs": "Tüm istemci IP adreslerini ve makine adlarını belgeleme"
+        }
+      }
+    }
+  },
+  "templates": {
+    "title": "Şablonlar",
+    "subtitle": "Bölgesel yapılandırma şablonları",
+    "newTemplate": "Yeni Şablon",
+    "editTemplate": "Düzenle",
+    "templateName": "Şablon Adı",
+    "region": "Bölge",
+    "selectRegion": "Seçin...",
+    "defaultSettings": "Varsayılan Ayarlar",
+    "noTemplates": "Şablon yok",
+    "add": "Ekle",
+    "deleteConfirm": "Bu şablon silinsin mi?",
+    "templateCreated": "Şablon oluşturuldu",
+    "templateUpdated": "Şablon güncellendi",
+    "templateDeleted": "Şablon silindi"
+  },
+  "rollback": {
+    "title": "Geri Alma Yöneticisi",
+    "subtitle": "Dosyaları yedekten geri yükle",
+    "availableBackups": "Mevcut Yedekler",
+    "backupCount": "{count} yedek mevcut",
+    "restore": "Geri Yükle",
+    "restoring": "Geri yükleniyor...",
+    "noBackups": "Yedek yok",
+    "backupsCreatedDuring": "Dağıtım sırasında oluşturulur",
+    "confirmRestore": "Onayla",
+    "confirmRestoreMessage": "Bu dosya geri yüklensin mi?",
+    "willOverwrite": "Mevcut dosya değiştirilecek.",
+    "restoreComplete": "Geri yüklendi",
+    "restoreFailed": "Hata"
+  },
+  "logs": {
+    "title": "Aktivite Kayıtları",
+    "subtitle": "Tüm işlemlerin kaydı",
+    "refresh": "Yenile",
+    "export": "Dışa Aktar",
+    "clear": "Temizle",
+    "searchLogs": "Ara...",
+    "allLevels": "Tümü",
+    "noLogs": "Kayıt yok",
+    "total": "Toplam",
+    "errors": "Hatalar",
+    "warnings": "Uyarılar"
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "subtitle": "Uygulama tercihleri",
+    "appearance": "Görünüm",
+    "darkMode": "Karanlık Mod",
+    "darkModeDesc": "Açık/karanlık değiştir",
+    "rtl": "Sağdan Sola (RTL)",
+    "rtlDesc": "Yönü değiştir",
+    "language": "Dil",
+    "languageDesc": "Dil seçin",
+    "notifications": "Bildirimler",
+    "enableNotifications": "Etkinleştir",
+    "enableNotificationsDesc": "Bildirimleri göster",
+    "autoBackup": "Otomatik Yedekleme",
+    "autoBackupDesc": "Dağıtımdan önce yedekle",
+    "security": "Güvenlik",
+    "currentRole": "Rol",
+    "yourAccessLevel": "Erişim düzeyi",
+    "changePassword": "Şifre Değiştir",
+    "newPassword": "Yeni şifre",
+    "saveSettings": "Kaydet",
+    "saved": "Kaydedildi!"
+  },
+  "translations": {
+    "title": "Çeviri Yöneticisi",
+    "subtitle": "Çevirileri yönet",
+    "addLanguage": "Dil Ekle",
+    "searchTranslations": "Ara...",
+    "key": "Anahtar",
+    "originalText": "Orijinal",
+    "translatedText": "Çeviri",
+    "untranslated": "Çevrilmemiş",
+    "translated": "Çevrildi",
+    "totalKeys": "Toplam anahtar",
+    "completionRate": "İlerleme",
+    "saveTranslation": "Kaydet",
+    "exportTranslations": "Dışa Aktar",
+    "importTranslations": "İçe Aktar",
+    "compareLanguages": "Karşılaştır",
+    "translationSaved": "Kaydedildi",
+    "noUntranslated": "Tümü çevrildi!"
+  },
+  "branding": {
+    "title": "Marka Kimliği ve Görünüm",
+    "subtitle": "Özelleştir",
+    "logoManagement": "Logolar",
+    "mainLogo": "Ana Logo",
+    "sidebarLogo": "Kenar Çubuğu Logosu",
+    "loginLogo": "Giriş Logosu",
+    "favicon": "Favicon",
+    "reportLogo": "Rapor Logosu",
+    "uploadLogo": "Yükle",
+    "colorScheme": "Renk Şeması",
+    "primaryColor": "Birincil Renk",
+    "secondaryColor": "İkincil Renk",
+    "successColor": "Başarı",
+    "warningColor": "Uyarı",
+    "errorColor": "Hata",
+    "background": "Arka Plan",
+    "headerColor": "Başlık",
+    "sidebarColor": "Kenar Çubuğu",
+    "cardColor": "Kartlar",
+    "typography": "Tipografi",
+    "fontFamily": "Yazı Tipi",
+    "fontSize": "Yazı Boyutu",
+    "borderRadius": "Yarı Çap",
+    "themes": "Temalar",
+    "currentTheme": "Mevcut Tema",
+    "createTheme": "Oluştur",
+    "preview": "Önizleme",
+    "applyChanges": "Uygula",
+    "changesSaved": "Uygulandı!",
+    "resetDefaults": "Sıfırla"
+  },
+  "login": {
+    "title": "Giriş",
+    "username": "Kullanıcı Adı",
+    "password": "Şifre",
+    "signIn": "Giriş Yap",
+    "rememberMe": "Beni Hatırla",
+    "forgotPassword": "Şifremi unuttum?"
+  },
+  "arch": {
+    "title": "Sistem Mimarisi",
+    "subtitle": "Üç Katmanlı Mimari Genel Bakış — ONYX-IX",
+    "intro": "ONYX-IX sistemi, ölçeklenebilirlik, bakım kolaylığı ve güvenlik için sunum, uygulama mantığı ve veri depolamayı ayıran üç katmanlı bir mimari kullanır.",
+    "viewSimple": "Basit Görünüm",
+    "viewDetailed": "Ayrıntılı Görünüm",
+    "tier": {
+      "client": "İstemci Katmanı",
+      "clientSub": "Client Tier",
+      "application": "Uygulama Katmanı",
+      "applicationSub": "Application Tier — ERP-IAS",
+      "database": "Veritabanı Katmanı",
+      "databaseSub": "Database Tier — ERP-DBS"
+    },
+    "connection": {
+      "http": "HTTP/HTTPS — Port 8888 / 443",
+      "tns": "SQL*Net / TNS — Port 1521"
+    },
+    "drawer": {
+      "role": "Rol",
+      "description": "Açıklama",
+      "integrationBenefit": "Entegrasyon Avantajı",
+      "relatedGuide": "İlgili Kılavuz"
+    },
+    "tools": {
+      "webBrowser": {
+        "role": "Erişim Arayüzü",
+        "desc": "Web tarayıcısı, kullanıcının birincil giriş noktasıdır. Oracle Forms'u Java eklentisi aracılığıyla yükler.",
+        "benefit": "Ek yazılım yüklemesi olmadan herhangi bir ağ bağlantılı cihazdan hızlı erişim sağlar."
+      },
+      "javaJre": {
+        "role": "Form Motoru",
+        "desc": "Java Runtime Environment 8, Oracle Forms'u Java eklentisi aracılığıyla tarayıcı içinde applet olarak çalıştırır.",
+        "benefit": "Tüm sistem formları için tek bir çalışma ortamı sağlar ve Java sürümleri arasında uyumluluk sağlar."
+      },
+      "posTerminal": {
+        "role": "Satış Noktası",
+        "desc": "POS terminali, mağazalarda doğrudan yazdırmayı ve barkod üretimini yönetir.",
+        "benefit": "ONYX-IX ile satış işlemleri, fatura düzenleme ve barkod yazdırma için tümleşir."
+      },
+      "weblogic": {
+        "role": "Uygulama Sunucusu",
+        "desc": "Oracle WebLogic 10.3.6, Forms & Reports Sunucularını barındıran Java uygulama sunucusudur.",
+        "benefit": "Eşzamanlı kullanıcı yüklerini yönetmek için stabil ve ölçeklenebilir bir ortam sağlar."
+      },
+      "formsReports": {
+        "role": "Forms & Reports Motoru",
+        "desc": "Oracle Forms & Reports 11g, ERP formlarını çalıştırır ve dinamik raporlar üretir.",
+        "benefit": "İş mantığının çekirdeğini oluşturur ve ham verileri etkileşimli raporlara dönüştürür."
+      },
+      "ordsApex": {
+        "role": "REST ve Web Arayüzü",
+        "desc": "Oracle REST Data Services (ORDS) ve APEX, hafif bir web arayüzü ve REST API hizmetleri sağlar.",
+        "benefit": "Oracle Forms olmadan web erişimi sağlar ve harici sistemlerle entegrasyonu basitleştirir."
+      },
+      "reportsServers": {
+        "role": "Rapor Sunucusu",
+        "desc": "Rapor sunucusu, Oracle Database verilerinden basılı raporlar (PDF, HTML, Excel) üretir.",
+        "benefit": "Veri sunumunu çıkış formatından ayırarak raporların özelleştirilmesini sağlar."
+      },
+      "jdk": {
+        "role": "Geliştirme Paketi",
+        "desc": "Java Development Kit 7, Oracle Forms için gerekli derleme ve geliştirme araçlarını sağlar.",
+        "benefit": "WebLogic 10.3.6 ve Forms 11g ile uyumlu bir geliştirme ortamı sağlar."
+      },
+      "sslHttps": {
+        "role": "Güvenlik ve Şifreleme",
+        "desc": "SSL/HTTPS, hassas verileri korumak için tarayıcı ile uygulama sunucusu arasındaki web bağlantılarını şifreler.",
+        "benefit": "Taşıma güvenliğini sağlar ve yönetişim ile uyumluluk gereksinimlerini karşılar."
+      },
+      "oracleDb": {
+        "role": "Veritabanı",
+        "desc": "Oracle Database 21c, tüm sistem verilerini depolayan temel veritabanıdır.",
+        "benefit": "Kurumsal veriler için en yüksek düzeyde performans, güvenilirlik ve güvenlik sağlar."
+      },
+      "oracleLinux": {
+        "role": "İşletim Sistemi",
+        "desc": "Oracle Linux 8.9, UEK yüklenmiş veritabanı ve uygulama sunucularını çalıştıran işletim sistemidir.",
+        "benefit": "Oracle Database ve WebLogic için optimize edilmiş stabil bir ortam sağlar."
+      }
+    },
+    "journey": {
+      "title": "Tipik İstek Yolculuğu",
+      "step1": {
+        "title": "Sistem bağlantısını açın ve formları yükleyin",
+        "desc": "Kullanıcı tarayıcıda sistem bağlantısını açar ve Oracle Forms Java eklentisi (JRE) aracılığıyla yüklenir."
+      },
+      "step2": {
+        "title": "İsteği uygulama sunucusuna gönderin",
+        "desc": "Tarayıcı isteği HTTP/HTTPS aracılığıyla ERP-IAS'deki WebLogic sunucusuna gönderir."
+      },
+      "step3": {
+        "title": "İş mantığını işleyin",
+        "desc": "Formlar Forms & Reports aracılığıyla iş mantığını işler ve TNS/SQL*Net aracılığıyla veritabanını sorgular."
+      },
+      "step4": {
+        "title": "Sonuçları döndürün",
+        "desc": "Sonuçlar Oracle Database 21c'den döner — formda görüntülenir veya rapor sunucusu aracılığıyla rapor olarak üretilir."
+      },
+      "step5": {
+        "title": "Satış noktasında yazdırın",
+        "desc": "Yazdırmak için: barkod kitaplığı ve POS cihazında doğrudan yazdırma."
+      }
+    },
+    "guides": {
+      "title": "Kurulum Kılavuzları",
+      "linux": "Oracle Linux 8.9 Kurulum Kılavuzu",
+      "linux.desc": "İşletim sistemi kurulumu ve UEK yapılandırma adımları.",
+      "database": "Oracle Database 21c Kurulum Kılavuzu",
+      "database.desc": "Veritabanı kurulumu ve temel yapılandırma.",
+      "ordsApex": "SSL ile ORDS & APEX Kurulum Kılavuzu",
+      "ordsApex.desc": "Şifreleme ile REST ve web arayüzü kurulumu.",
+      "appServer": "Uygulama Sunucusu ve Tarayıcı Kurulum Kılavuzu",
+      "appServer.desc": "WebLogic ve Forms & Reports kurulumu.",
+      "formsPatch": "Oracle Forms Yamı 17301874 Kılavuzu",
+      "formsPatch.desc": "Oracle Forms'a en son yamanın uygulanması.",
+      "pos": "POS Sunucusu Kurulum Kılavuzu",
+      "pos.desc": "POS cihazları ve yazdırma kurulumu."
+    }
+  },
+  "status": {
+    "running": "Çalışıyor",
+    "stopped": "Durdu",
+    "error": "Hata"
+  }
+}

@@ -1,0 +1,18 @@
+node_modules/
+.next/
+.vercel
+.env*
+*.tsbuildinfo
+next-env.d.ts
+
+# Large source directories (PDFs already copied to public/docs/)
+accounting-doc/
+install-pdf/
+توثيق-تركيب/
+
+# Large binary files in SW
+SW/**/*.exe
+SW/**/*.rar
+SW/**/*.zip
+SW/**/*.dll
+SW/**/*.lnk

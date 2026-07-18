@@ -1,0 +1,37 @@
+E:\oracle\ofm\ofr\as1\OPatch\17301874>E:\oracle\ofm\ofr\as1\OPatch\opatch apply
+Oracle Interim Patch Installer version 11.1.0.9.11
+Copyright (c) 2013, Oracle Corporation.  All rights reserved.
+
+
+Oracle Home       : E:\oracle\ofm\ofr\as1
+Central Inventory : C:\Program Files\Oracle\Inventory
+   from           : n/a
+OPatch version    : 11.1.0.9.11
+OUI version       : 11.1.0.9.0
+Log file location : E:\oracle\ofm\ofr\as1\cfgtoollogs\opatch\17301874_Sep_28_2023_13_01_23\apply2023-09-28_13-01-23Ú_1.log
+
+
+OPatch detects the Middleware Home as "E:\oracle\ofm\ofr"
+
+Applying interim patch '17301874' to OH 'E:\oracle\ofm\ofr\as1'
+Verifying environment and performing prerequisite checks...
+All checks passed.
+
+Please shutdown Oracle instances running out of this ORACLE_HOME on the local system.
+(Oracle Home = 'E:\oracle\ofm\ofr\as1')
+
+
+Is the local system ready for patching? [y|n]
+y
+User Responded with: Y
+Backing up files...
+
+Patching component oracle.developer.forms.runtime, 11.1.2.2.0...
+
+Verifying the update...
+Patch 17301874 successfully applied
+Log file location: E:\oracle\ofm\ofr\as1\cfgtoollogs\opatch\17301874_Sep_28_2023_13_01_23\apply2023-09-28_13-01-23Ú_1.log
+
+OPatch succeeded.
+
+E:\oracle\ofm\ofr\as1\OPatch\17301874>

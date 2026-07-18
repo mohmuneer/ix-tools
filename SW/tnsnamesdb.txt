@@ -1,0 +1,796 @@
+ONYXW=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=192.168.0.244)
+      (PORT=1521)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwp)
+    )
+  )
+  
+ONYXW_POS_MN=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=192.168.0.244)
+      (PORT=1521)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwp)
+    )
+  )
+
+ONYXW_POS_YANBUIX=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=YANBUIX)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+
+ONYXW_POS_RWDHSERVER2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=RWDHSERVER2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+   
+  
+ONYXW_POS_YARMUKDB=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=YARMUKDB)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_KMSSRVR=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=KMSSRVR)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+   
+  
+ONYXW_POS_DATABASE-SHEFA=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-SHEFA)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVER-HAIL=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVER-HAIL)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERBRDH=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERBRDH)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERBRIDA2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERBRIDA2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERTAEF=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERTAEF)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_MADINASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=MADINASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SWDWRKSHP=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SWDWRKSHP)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_NHDHSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=NHDHSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_JEDDAHSERVER2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=JEDDAHSERVER2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_MATHSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=MATHSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_NEMARSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=NEMARSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_MAJMAASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=MAJMAASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE_ML=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE_ML)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_QUNFSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=QUNFSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-BISH=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-BISH)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-SHRQ=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-SHRQ)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_QRYTSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=QRYTSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_MAKAADMIN2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=MAKAADMIN2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DMAMSERVER3=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DMAMSERVER3)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-MAKKAH=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-MAKKAH)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-KH=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-KH)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SBYA-SERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SBYA-SERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+
+  
+ONYXW_POS_DATABASE-HAMRA=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-HAMRA)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_KHFGYSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=KHFGYSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_ZULFISERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=ZULFISERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERHAFRBATEN=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERHAFRBATEN)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_JED-TAHLEA=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=JED-TAHLEA)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERMAD2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERMAD2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_JUBAILSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=JUBAILSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SHASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SHASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVER-JEDDAH=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVER-JEDDAH)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+ 
+  
+ONYXW_POS_SERVER-TABOOK=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVER-TABOOK)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_ENIZASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=ENIZASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_MASIRSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=MASIRSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_ABHASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=ABHASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-LABAN=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-LABAN)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-KHARJ=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-KHARJ)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVERSKAKA=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVERSKAKA)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_SERVEREXIT28=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=SERVEREXIT28)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DWADMISRVR=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DWADMISRVR)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_ANIZASERVER2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=ANIZASERVER2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_NAGRANDATA=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=NAGRANDATA)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_EHSASERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=EHSASERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DAMAMSERVER2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DAMAMSERVER2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_ARARSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=ARARSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE_RAS=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE_RAS)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-DAMAM=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-DAMAM)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+   
+  
+ONYXW_POS_DATABASE-GEAZAN=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-GEAZAN)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+   
+  
+ONYXW_POS_DWASERSERVER=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DWASERSERVER)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+  
+  
+ONYXW_POS_DATABASE-SWD=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=DATABASE-SWD)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )
+
+
+ONYXW_POS_EHSASERVER2=
+  (DESCRIPTION=
+    (ADDRESS=
+      (PROTOCOL=TCP)
+      (HOST=EHSASERVER2)
+      (PORT=1522)
+    )
+    (CONNECT_DATA=
+      (SERVER=dedicated)
+      (SERVICE_NAME=onyxwcp)
+    )
+  )  
+  
