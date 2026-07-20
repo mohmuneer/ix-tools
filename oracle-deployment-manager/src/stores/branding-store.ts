@@ -89,6 +89,21 @@ export const useBrandingStore = create<BrandingState>((set, get) => ({
     root.style.setProperty('--brand-radius', config.borderRadius);
     root.style.setProperty('--brand-font', config.fontFamily);
     root.style.setProperty('--brand-font-size', config.fontSize);
+
+    root.style.setProperty('--primary', config.primaryColor);
+    root.style.setProperty('--primary-foreground', '#FFFFFF');
+    root.style.setProperty('--secondary', config.secondaryColor);
+    root.style.setProperty('--secondary-foreground', '#FFFFFF');
+    root.style.setProperty('--destructive', config.errorColor);
+    root.style.setProperty('--ring', config.primaryColor);
+    root.style.setProperty('--chart-1', config.primaryColor);
+    root.style.setProperty('--chart-2', config.secondaryColor);
+    root.style.setProperty('--chart-3', config.warningColor);
+    root.style.setProperty('--chart-5', config.errorColor);
+    root.style.setProperty('--radius', config.borderRadius);
+    root.style.setProperty('--sidebar-primary', config.primaryColor);
+    root.style.setProperty('--sidebar-primary-foreground', '#FFFFFF');
+    root.style.setProperty('--sidebar-ring', config.primaryColor);
   },
 }));
 
