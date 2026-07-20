@@ -50,7 +50,7 @@ export function Header() {
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#18B13A] to-[#15803D] flex items-center justify-center">
             <Database className="h-3.5 w-3.5 text-white" />
           </div>
-          <span className="font-bold text-sm text-white">US</span>
+          <span className="font-bold text-sm text-white">IX</span>
         </div>
 
         <div className="relative hidden md:block">

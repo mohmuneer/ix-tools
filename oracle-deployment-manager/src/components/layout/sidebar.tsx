@@ -103,8 +103,8 @@ export function Sidebar() {
           </div>
           {isExpanded && (
             <div className="overflow-hidden flex-1 min-w-0">
-              <h1 className="font-bold text-sm text-white leading-tight truncate">Ultimate Solutions</h1>
-              <p className="text-[10px] text-slate-500 truncate">Enterprise Platform</p>
+              <h1 className="font-bold text-sm text-white leading-tight truncate">Onyx IX</h1>
+              <p className="text-[10px] text-slate-500 truncate">{isRTL ? 'متطلبات التركيب' : 'Installation Requirements'}</p>
             </div>
           )}
         </div>

@@ -55,19 +55,19 @@ export default function LoginPage() {
                 <Database className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Ultimate Solutions</h1>
-                <p className="text-sm text-slate-500">Enterprise Platform</p>
+                <h1 className="text-2xl font-bold text-white">Onyx IX</h1>
+                <p className="text-sm text-slate-500">{isRTL ? 'متطلبات التركيب' : 'Installation Requirements'}</p>
               </div>
             </div>
             <h2 className="text-4xl font-bold text-white leading-tight">
-              {isRTL ? 'منصة إدارة' : 'Enterprise'}
+              {isRTL ? 'متطلبات تركيب' : 'Onyx IX'}
               <br />
-              <span className="text-[#18B13A]">{isRTL ? 'المؤسسات' : 'Administration'}</span>
+              <span className="text-[#18B13A]">{isRTL ? 'نظام Onyx IX' : 'System Requirements'}</span>
             </h2>
             <p className="text-slate-400 text-base max-w-md">
               {isRTL
-                ? 'منصة متكاملة لإدارة ونشر أنظمة Oracle Forms & Reports مع أدوات متقدمة للمراقبة والإدارة.'
-                : 'Comprehensive platform for Oracle Forms & Reports deployment with advanced monitoring and management tools.'
+                ? 'متطلبات تركيب نظام Onyx IX مع أدوات متقدمة للمراقبة والإدارة.'
+                : 'Onyx IX System Installation Requirements with advanced monitoring and management tools.'
               }
             </p>
           </div>

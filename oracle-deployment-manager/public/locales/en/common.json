@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Oracle Deployment Manager",
-    "shortName": "Oracle Deploy",
+    "name": "Onyx IX System Requirements",
+    "shortName": "Onyx IX",
     "description": "Onyx IX System Installation Requirements"
   },
   "nav": {
@@ -21,8 +21,8 @@
     "architecture": "Architecture"
   },
   "dashboard": {
-    "title": "Dashboard",
-    "subtitle": "Oracle Deployment Manager - Server Overview",
+    "title": "Info",
+    "subtitle": "Onyx IX System Installation Requirements",
     "server": "Server",
     "cpu": "CPU",
     "memory": "Memory",

@@ -1,11 +1,11 @@
 {
   "app": {
-    "name": "مدير نشر أوراكل",
-    "shortName": "نشر أوراكل",
+    "name": "متطلبات تركيب نظام Onyx IX",
+    "shortName": "Onyx IX",
     "description": "متطلبات تركيب نظام Onyx IX"
   },
   "nav": {
-    "dashboard": "لوحة التحكم",
+    "dashboard": "معلومات",
     "fileManager": "مدير الملفات",
     "configManager": "إدارة الإعدادات",
     "smartEditor": "المحرر الذكي",
@@ -21,8 +21,8 @@
     "architecture": "معمارية النظام"
   },
   "dashboard": {
-    "title": "لوحة التحكم",
-    "subtitle": "مدير نشر أوراكل - نظرة عامة على السيرفر",
+    "title": "معلومات",
+    "subtitle": "متطلبات تركيب نظام Onyx IX",
     "server": "السيرفر",
     "cpu": "المعالج",
     "memory": "الذاكرة",
