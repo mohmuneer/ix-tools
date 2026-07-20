@@ -46,7 +46,7 @@ function load<T>(key: string, fallback: T): T {
 }
 
 export const useRegistrationStore = create<RegistrationState>((set, get) => ({
-  pendingRequests: [],
+  pendingRequests: load<RegistrationRequest[]>('pending-requests', []),
   approvedUsers: load<ApprovedUser[]>('approved-users', []),
 
   loadFromStorage: () => {
