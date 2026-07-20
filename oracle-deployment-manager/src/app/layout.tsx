@@ -48,6 +48,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' http://localhost:* ws://localhost:*;" />
         <style suppressHydrationWarning dangerouslySetInnerHTML={{ __html: `
           :root {
             --us-green: #18B13A;
