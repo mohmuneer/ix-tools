@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { TranslationProvider } from '@/components/i18n/translation-provider';
 import { BrandingProvider } from '@/components/branding/branding-provider';
+import { AuthGuard } from '@/components/auth/auth-guard';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +12,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <TooltipProvider delay={0}>
         <TranslationProvider>
           <BrandingProvider>
-            {children}
+            <AuthGuard>
+              {children}
+            </AuthGuard>
           </BrandingProvider>
         </TranslationProvider>
       </TooltipProvider>
