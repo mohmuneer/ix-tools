@@ -1,0 +1,7 @@
+{
+  "rootDirectory": "oracle-deployment-manager",
+  "framework": "nextjs",
+  "buildCommand": "npx next build",
+  "installCommand": "npm install",
+  "outputDirectory": ".next"
+}
