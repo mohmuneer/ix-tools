@@ -170,16 +170,58 @@
    RTL SUPPORT
    ============================================================ */
 [dir="rtl"] {
-  [style*="margin-left"],
-  [style*="marginLeft"] {
-    margin-inline-start: var(--temp-ml, 0);
-  }
   .text-left { text-align: start !important; }
   .text-right { text-align: end !important; }
   .rtl-flex-row-reverse { flex-direction: row-reverse; }
   .rtl-flip-translate {
     --tw-translate-x: calc(var(--tw-translate-x, 0) * -1);
   }
+}
+
+/* Auto-mirror directional icons in RTL */
+.direction-rtl { direction: rtl; }
+
+[dir="rtl"] .lucide-arrow-right,
+[dir="rtl"] .lucide-arrow-left,
+[dir="rtl"] .lucide-chevron-right,
+[dir="rtl"] .lucide-chevron-left,
+[dir="rtl"] .lucide-chevrons-right,
+[dir="rtl"] .lucide-chevrons-left,
+[dir="rtl"] .lucide-chevron-forward,
+[dir="rtl"] .lucide-chevron-back,
+[dir="rtl"] .lucide-panel-right-close,
+[dir="rtl"] .lucide-panel-left-close {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select { text-align: start; }
+
+[dir="rtl"] th,
+[dir="rtl"] td { text-align: start; }
+
+/* Numbers stay LTR inside RTL text */
+[dir="rtl"] .num-ltr,
+[dir="rtl"] .num {
+  direction: ltr;
+  unicode-bidi: isolate;
+  display: inline-block;
+}
+
+/* ============================================================
+   FONT SWITCHING PER LANGUAGE
+   ============================================================ */
+html[lang="ar"] {
+  font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+}
+
+html[lang="en"],
+html[lang="fr"],
+html[lang="de"],
+html[lang="es"],
+html[lang="tr"] {
+  font-family: 'Inter', 'IBM Plex Sans Arabic', system-ui, sans-serif;
 }
 
 /* ============================================================
@@ -202,15 +244,6 @@ body.modal-open {
   inset-inline-end: unset;
   inset-inline-start: 0;
 }
-
-[dir="rtl"] { direction: rtl; }
-
-[dir="rtl"] input,
-[dir="rtl"] textarea,
-[dir="rtl"] select { text-align: start; }
-
-[dir="rtl"] th,
-[dir="rtl"] td { text-align: start; }
 
 /* ============================================================
    ULTIMATE SOLUTIONS - Enterprise UI Utilities

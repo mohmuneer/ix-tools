@@ -4,14 +4,16 @@ import { useEffect } from 'react';
 import { useBrandingStore, loadBrandingFromStorage } from '@/stores/branding-store';
 
 export function BrandingProvider({ children }: { children: React.ReactNode }) {
-  const { setConfig } = useBrandingStore();
+  const { fetchBranding, applyBranding } = useBrandingStore();
 
   useEffect(() => {
     const stored = loadBrandingFromStorage();
-    if (stored) {
-      setConfig(stored);
+    if (stored && stored.colors) {
+      useBrandingStore.setState({ config: stored });
+      applyBranding();
     }
-  }, [setConfig]);
+    fetchBranding();
+  }, []);
 
   return <>{children}</>;
 }

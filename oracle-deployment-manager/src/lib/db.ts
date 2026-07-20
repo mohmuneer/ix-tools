@@ -1,17 +1,35 @@
 import Database from 'better-sqlite3';
 import path from 'path';
+import { mkdirSync } from 'fs';
+import { randomUUID } from 'crypto';
+import { hashPassword } from './auth';
 
-const DB_PATH = path.join(process.cwd(), 'data', 'oracle-deploy.db');
+const DATA_DIR = path.join(process.cwd(), 'data');
+const DB_PATH = path.join(DATA_DIR, 'oracle-deploy.db');
 
 let db: Database.Database | null = null;
 
 export function getDb(): Database.Database {
   if (!db) {
+    mkdirSync(DATA_DIR, { recursive: true });
     db = new Database(DB_PATH);
     db.pragma('journal_mode = WAL');
     initDb();
+    seedAdmin();
   }
   return db;
+}
+
+function seedAdmin() {
+  const database = db!;
+  const existing = database.prepare("SELECT id FROM users WHERE role = 'admin'").get();
+  if (!existing) {
+    const id = randomUUID();
+    const passwordHash = hashPassword('admin123');
+    database.prepare(
+      "INSERT INTO users (id, email, username, password_hash, role, status) VALUES (?, ?, ?, ?, ?, ?)"
+    ).run(id, 'admin@onyx.ix', 'admin', passwordHash, 'admin', 'active');
+  }
 }
 
 function initDb() {
@@ -79,10 +97,14 @@ function initDb() {
 
     CREATE TABLE IF NOT EXISTS users (
       id TEXT PRIMARY KEY,
-      username TEXT NOT NULL UNIQUE,
+      email TEXT NOT NULL UNIQUE,
+      username TEXT NOT NULL,
       password_hash TEXT NOT NULL,
-      role TEXT DEFAULT 'viewer',
-      created_at TEXT DEFAULT (datetime('now'))
+      role TEXT DEFAULT 'user',
+      status TEXT DEFAULT 'pending' CHECK(status IN ('pending', 'active', 'rejected')),
+      created_at TEXT DEFAULT (datetime('now')),
+      reviewed_at TEXT,
+      reviewed_by TEXT
     );
 
     CREATE TABLE IF NOT EXISTS template_files (
@@ -96,6 +118,33 @@ function initDb() {
       FOREIGN KEY (template_id) REFERENCES templates(id) ON DELETE CASCADE
     );
   `);
+
+  migrateUsersTable(database);
+}
+
+function migrateUsersTable(database: Database.Database) {
+  const columns = database.prepare("PRAGMA table_info(users)").all() as { name: string }[];
+  const colNames = new Set(columns.map((c) => c.name));
+
+  if (!colNames.has('email')) {
+    database.exec("ALTER TABLE users ADD COLUMN email TEXT NOT NULL DEFAULT ''");
+    database.exec("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_email ON users(email)");
+  }
+  if (!colNames.has('status')) {
+    database.exec("ALTER TABLE users ADD COLUMN status TEXT NOT NULL DEFAULT 'active'");
+  }
+  if (!colNames.has('reviewed_at')) {
+    database.exec("ALTER TABLE users ADD COLUMN reviewed_at TEXT");
+  }
+  if (!colNames.has('reviewed_by')) {
+    database.exec("ALTER TABLE users ADD COLUMN reviewed_by TEXT");
+  }
+  if (!colNames.has('username')) {
+    database.exec("ALTER TABLE users ADD COLUMN username TEXT NOT NULL DEFAULT ''");
+  }
+
+  database.exec("UPDATE users SET email = username || '@admin.local' WHERE email = '' AND role = 'admin'");
+  database.exec("UPDATE users SET status = 'active' WHERE status IS NULL OR status = ''");
 }
 
 export function dbToJSON<T>(value: string): T {

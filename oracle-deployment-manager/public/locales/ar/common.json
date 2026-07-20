@@ -424,7 +424,15 @@
     "preview": "معاينة",
     "applyChanges": "تطبيق التغييرات",
     "changesSaved": "تم حفظ التغييرات بنجاح",
-    "resetDefaults": "إعادة التعيين"
+    "resetDefaults": "إعادة التعيين",
+    "loginTitle": "عنوان تسجيل الدخول",
+    "loginSubtitle": "وصف تسجيل الدخول",
+    "sidebarActive": "لون العنصر النشط",
+    "livePreview": "معاينة حيّة",
+    "hidePreview": "إخفاء المعاينة",
+    "saved": "تم الحفظ",
+    "remove": "إزالة",
+    "companyAndLogin": "بيانات الشركة وتسجيل الدخول"
   },
   "login": {
     "title": "تسجيل الدخول",

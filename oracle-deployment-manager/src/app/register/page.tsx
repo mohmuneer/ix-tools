@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useLocale } from '@/hooks/use-locale';
-import { useRegistrationStore } from '@/stores/registration-store';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -22,9 +21,8 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const router = useRouter();
   const { isRTL } = useLocale();
-  const addRequest = useRegistrationStore((s) => s.addRequest);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
@@ -50,11 +48,28 @@ export default function RegisterPage() {
     }
 
     setLoading(true);
-    setTimeout(() => {
-      addRequest({ email: email.trim(), username: username.trim(), password, requestedRole: 'user' });
+
+    try {
+      const res = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), username: username.trim(), password, confirmPassword }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || 'Registration failed');
+        setLoading(false);
+        return;
+      }
+
       setDone(true);
       setLoading(false);
-    }, 600);
+    } catch {
+      setError(isRTL ? 'حدث خطأ في الاتصال' : 'Connection error');
+      setLoading(false);
+    }
   };
 
   const features = [
@@ -257,7 +272,7 @@ export default function RegisterPage() {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full h-11 bg-gradient-to-r from-[#18B13A] to-[#15803D] hover:from-[#15803D] hover:to-[#14702F] text-white font-semibold rounded-xl shadow-lg shadow-[#18B13A]/25 hover:shadow-[#18B13A]/40 transition-all duration-200"
+                className="w-full h-11 bg-gradient-to-r from-[#18B13A] to-[#15803D] hover:from-[#15803D] hover:to-[#14702F] text-white font-semibold rounded-xl shadow-lg shadow-[#18B13A]/25 transition-all duration-200"
               >
                 {loading ? (
                   <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

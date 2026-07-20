@@ -82,7 +82,7 @@ export default function DashboardPage() {
                   <LayoutDashboard className="h-6 w-6 text-white" />
                 </div>
                 {allServicesOk && (
-                  <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-[#22C55E] border-2 border-[#0B0F17] status-dot text-[#22C55E]" />
+                  <div className="absolute -bottom-0.5 -end-0.5 w-3 h-3 rounded-full bg-[#22C55E] border-2 border-[#0B0F17] status-dot text-[#22C55E]" />
                 )}
               </div>
               <div className="space-y-0.5">

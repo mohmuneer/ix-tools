@@ -137,7 +137,7 @@ export function SwDeployStepsEditor({ open, onClose }: SwDeployStepsEditorProps)
                 <button onClick={() => removeStep(step.id)} className="text-red-500 hover:text-red-500/80 p-0.5"><Trash2 className="h-3.5 w-3.5" /></button>
               </div>
               {isExpanded && (
-                <div className="mt-2 pl-7 space-y-2">
+                <div className="mt-2 ps-7 space-y-2">
                   {isEditing ? (
                     <>
                       <div className="space-y-1">

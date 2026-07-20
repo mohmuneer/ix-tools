@@ -11,7 +11,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
   const { isRTL } = useLocale();
 
   return (
-    <div className="min-h-screen bg-[#0B0F17]">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--brand-background, #0B0F17)' }}>
       <Sidebar />
       <div
         className={cn(

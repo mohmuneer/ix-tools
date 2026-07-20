@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/app-store';
 import { useDashboardStore } from '@/stores/dashboard-store';
@@ -17,21 +17,26 @@ import {
   Package,
   Layers,
   ClipboardList,
+  LogOut,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { useLocale } from '@/hooks/use-locale';
 import { useAuthStore } from '@/stores/auth-store';
+import { useBrandingStore } from '@/stores/branding-store';
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export function Sidebar() {
+  const router = useRouter();
   const pathname = usePathname();
   const { sidebarOpen, toggleSidebar, mobileMenuOpen, setMobileMenuOpen } = useAppStore();
   const { t, isRTL } = useLocale();
   const { data: dashboardData, init } = useDashboardStore();
   const role = useAuthStore((s) => s.role);
+  const logout = useAuthStore((s) => s.logout);
+  const config = useBrandingStore((s) => s.config);
 
   useEffect(() => {
     init();
@@ -92,12 +97,13 @@ export function Sidebar() {
       <aside
         className={cn(
           'fixed top-0 z-40 h-screen transition-all duration-300 flex flex-col',
-          'bg-[#0F1520] dark:bg-[#0F1520]',
+          'dark:bg-[#0F1520]',
           isRTL ? 'right-0 border-l border-white/[0.06]' : 'left-0 border-r border-white/[0.06]',
           'hidden md:flex',
           isExpanded ? 'w-64' : 'w-[72px]',
           mobileMenuOpen && 'flex !w-64'
         )}
+        style={{ backgroundColor: 'var(--brand-surface, #0F1520)' }}
       >
         {/* Logo / Brand */}
         <div className={cn(
@@ -105,9 +111,13 @@ export function Sidebar() {
           isExpanded ? 'px-4' : 'px-0 justify-center'
         )}>
           <div className="relative shrink-0">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#18B13A] to-[#15803D] flex items-center justify-center shadow-lg shadow-[#18B13A]/20">
-              <Database className="h-4.5 w-4.5 text-white" />
-            </div>
+            {config?.logo?.logoUrl ? (
+              <img src={config.logo.logoUrl} alt="Logo" className="w-9 h-9 rounded-xl object-contain" />
+            ) : (
+              <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-lg" style={{ background: `linear-gradient(135deg, var(--brand-primary, #18B13A), var(--brand-sidebar-active, #15803D))`, boxShadow: '0 4px 12px var(--brand-primary, #18B13A)33' }}>
+                <Database className="h-4.5 w-4.5 text-white" />
+              </div>
+            )}
           </div>
           {isExpanded && (
             <div className="overflow-hidden flex-1 min-w-0">
@@ -141,23 +151,23 @@ export function Sidebar() {
                       'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200',
                       isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
                       isActive
-                        ? 'bg-[#18B13A]/10 text-[#4ADE80] font-medium'
+                        ? 'font-medium'
                         : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.04]'
                     )}
+                    style={isActive ? { backgroundColor: `${config.colors.primary}15`, color: config.colors.primary } : undefined}
                     title={!isExpanded ? item.label : undefined}
                   >
                     {/* Active indicator */}
                     {isActive && (
                       <span className={cn(
-                        'absolute top-1.5 bottom-1.5 w-[3px] rounded-full bg-[#18B13A]',
+                        'absolute top-1.5 bottom-1.5 w-[3px] rounded-full',
                         isRTL ? 'left-0' : 'right-0'
-                      )} />
+                      )} style={{ backgroundColor: config.colors.sidebarActive }} />
                     )}
                     <item.icon className={cn(
                       'shrink-0 transition-colors',
                       isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5',
-                      isActive ? 'text-[#18B13A]' : 'text-slate-600'
-                    )} />
+                    )} style={isActive ? { color: config.colors.primary } : undefined} />
                     {isExpanded && (
                       <span className="flex-1 truncate">{item.label}</span>
                     )}
@@ -179,17 +189,18 @@ export function Sidebar() {
                 'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200',
                 isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
                 pathname.startsWith('/admin')
-                  ? 'bg-[#18B13A]/10 text-[#4ADE80] font-medium'
+                  ? 'font-medium'
                   : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.04]'
               )}
+              style={pathname.startsWith('/admin') ? { backgroundColor: `${config.colors.primary}15`, color: config.colors.primary } : undefined}
             >
               {pathname.startsWith('/admin') && (
                 <span className={cn(
-                  'absolute top-1.5 bottom-1.5 w-[3px] rounded-full bg-[#18B13A]',
+                  'absolute top-1.5 bottom-1.5 w-[3px] rounded-full',
                   isRTL ? 'left-0' : 'right-0'
-                )} />
+                )} style={{ backgroundColor: config.colors.sidebarActive }} />
               )}
-              <Shield className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5', pathname.startsWith('/admin') && 'text-[#18B13A]')} />
+              <Shield className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5')} style={pathname.startsWith('/admin') ? { color: config.colors.primary } : undefined} />
               {isExpanded && <span className="flex-1 truncate">{isRTL ? 'المستخدمين' : 'Users'}</span>}
             </Link>
           </div>
@@ -197,25 +208,41 @@ export function Sidebar() {
 
         {/* Settings link */}
         <div className="p-2 shrink-0">
-          <Link
-            href="/settings"
-            className={cn(
-              'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200',
-              isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
-              pathname === '/settings'
-                ? 'bg-[#18B13A]/10 text-[#4ADE80] font-medium'
-                : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.04]'
-            )}
-          >
-            {pathname === '/settings' && (
-              <span className={cn(
-                'absolute top-1.5 bottom-1.5 w-[3px] rounded-full bg-[#18B13A]',
-                isRTL ? 'left-0' : 'right-0'
-              )} />
-            )}
-            <Shield className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5', pathname === '/settings' && 'text-[#18B13A]')} />
+            <Link
+              href="/settings"
+              className={cn(
+                'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200',
+                isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
+                pathname === '/settings'
+                  ? 'font-medium'
+                  : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.04]'
+              )}
+              style={pathname === '/settings' ? { backgroundColor: `${config.colors.primary}15`, color: config.colors.primary } : undefined}
+            >
+              {pathname === '/settings' && (
+                <span className={cn(
+                  'absolute top-1.5 bottom-1.5 w-[3px] rounded-full',
+                  isRTL ? 'left-0' : 'right-0'
+                )} style={{ backgroundColor: config.colors.sidebarActive }} />
+              )}
+              <Shield className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5')} style={pathname === '/settings' ? { color: config.colors.primary } : undefined} />
             {isExpanded && <span className="flex-1 truncate">{t('nav.settings')}</span>}
           </Link>
+        </div>
+
+        {/* Logout button */}
+        <div className="p-2 shrink-0">
+          <button
+            onClick={() => { logout(); router.replace('/login'); }}
+            className={cn(
+              'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200 w-full',
+              isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
+              'text-slate-500 hover:text-red-400 hover:bg-red-500/10'
+            )}
+          >
+            <LogOut className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5')} />
+            {isExpanded && <span className="flex-1 truncate">{isRTL ? 'تسجيل الخروج' : 'Logout'}</span>}
+          </button>
         </div>
 
         {/* Collapse/Expand button - desktop only */}

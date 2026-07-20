@@ -124,7 +124,7 @@ function StepFileRow({
       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground/20 group-hover:text-amber-500 shrink-0 mt-0.5 transition-colors" />
 
       {/* Inline action buttons - appear on hover */}
-      <div className="absolute top-2 left-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+      <div className="absolute top-2 start-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
         {uploadingId === file.id ? (
           <Badge variant="secondary" className="text-[9px] animate-pulse h-5">
             {isRTL ? 'جاري...' : '...'}
@@ -341,12 +341,12 @@ function SectionContent({
   return (
     <div className="space-y-3">
       <div className="relative direction-rtl">
-        <Search className="absolute top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground right-3" />
+        <Search className="absolute top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground end-3" />
         <Input
           placeholder="ابحث عن ملف..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="pr-9 pl-3 text-right"
+          className="pe-9 ps-3 text-end"
         />
       </div>
 

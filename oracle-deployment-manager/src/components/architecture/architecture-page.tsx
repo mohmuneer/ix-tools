@@ -213,7 +213,7 @@ export function ArchitecturePage() {
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/20">
                   <Boxes className="h-6 w-6 text-white" />
                 </div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-background" />
+                <div className="absolute -bottom-0.5 -end-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-background" />
               </div>
               <div className={cn('space-y-0.5', isRTL && 'text-end')}>
                 <div className={cn('flex items-center gap-2', isRTL && 'flex-row-reverse')}>

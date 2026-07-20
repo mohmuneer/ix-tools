@@ -424,7 +424,15 @@
     "preview": "Preview",
     "applyChanges": "Apply Changes",
     "changesSaved": "Changes saved successfully",
-    "resetDefaults": "Reset to Defaults"
+    "resetDefaults": "Reset to Defaults",
+    "loginTitle": "Login Title",
+    "loginSubtitle": "Login Subtitle",
+    "sidebarActive": "Sidebar Active",
+    "livePreview": "Live Preview",
+    "hidePreview": "Hide Preview",
+    "saved": "Saved!",
+    "remove": "Remove",
+    "companyAndLogin": "Company & Login"
   },
   "login": {
     "title": "Sign In",

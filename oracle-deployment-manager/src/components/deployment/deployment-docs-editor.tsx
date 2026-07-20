@@ -189,7 +189,7 @@ export function DeploymentDocsEditor({ open, onClose, filterTab }: DeploymentDoc
     >
       <div className="space-y-2">
         <div className="relative direction-rtl mb-2">
-          <Input placeholder={isRTL ? 'بحث...' : 'Search...'} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pr-9 text-right text-xs h-8" />
+          <Input placeholder={isRTL ? 'بحث...' : 'Search...'} value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="pe-9 text-end text-xs h-8" />
         </div>
 
         {filteredSteps.map((step) => {
@@ -236,7 +236,7 @@ export function DeploymentDocsEditor({ open, onClose, filterTab }: DeploymentDoc
                   {step.files.map((file) => {
                     const isFileEditing = editingFileStepId === step.id && editingFileId === file.id;
                     return (
-                      <div key={file.id} className="flex items-center gap-2 pl-4 py-1 rounded-lg hover:bg-muted/30 group">
+                      <div key={file.id} className="flex items-center gap-2 ps-4 py-1 rounded-lg hover:bg-muted/30 group">
                         {isFileEditing ? (
                           <>
                             <Input value={editFileName} onChange={(e) => setEditFileName(e.target.value)} className="h-6 text-[10px]" placeholder={isRTL ? 'الاسم' : 'Name'} />
@@ -259,7 +259,7 @@ export function DeploymentDocsEditor({ open, onClose, filterTab }: DeploymentDoc
                     );
                   })}
                   {isAddingFile ? (
-                    <div className="pl-4 space-y-1.5 pt-1">
+                    <div className="ps-4 space-y-1.5 pt-1">
                       <div className="grid grid-cols-3 gap-1.5">
                         <Input value={newFileName} onChange={(e) => setNewFileName(e.target.value)} className="h-6 text-[10px]" placeholder={isRTL ? 'الاسم' : 'Name'} />
                         <Input value={newFileNameAr} onChange={(e) => setNewFileNameAr(e.target.value)} className="h-6 text-[10px]" placeholder="الاسم بالعربي" dir="rtl" />
@@ -271,7 +271,7 @@ export function DeploymentDocsEditor({ open, onClose, filterTab }: DeploymentDoc
                       </div>
                     </div>
                   ) : (
-                    <div className="pl-4 flex items-center gap-2 pt-1">
+                    <div className="ps-4 flex items-center gap-2 pt-1">
                       <button onClick={() => setNewFileStepId(step.id)} className="text-[10px] text-amber-500 hover:text-amber-500/80 flex items-center gap-1">
                         <Plus className="h-3 w-3" /> {isRTL ? 'إضافة ملف' : 'Add file'}
                       </button>
