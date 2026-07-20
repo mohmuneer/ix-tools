@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/app-store';
+import { useDashboardStore } from '@/stores/dashboard-store';
 import {
   LayoutDashboard,
   Rocket,
@@ -28,6 +29,11 @@ export function Sidebar() {
   const pathname = usePathname();
   const { sidebarOpen, toggleSidebar, mobileMenuOpen, setMobileMenuOpen } = useAppStore();
   const { t, isRTL } = useLocale();
+  const { data: dashboardData, init } = useDashboardStore();
+
+  useEffect(() => {
+    init();
+  }, [init]);
 
   const navItems = [
     { href: '/dashboard', label: t('nav.dashboard'), icon: LayoutDashboard, group: 'main' },
@@ -103,8 +109,8 @@ export function Sidebar() {
           </div>
           {isExpanded && (
             <div className="overflow-hidden flex-1 min-w-0">
-              <h1 className="font-bold text-sm text-white leading-tight truncate">Onyx IX</h1>
-              <p className="text-[10px] text-slate-500 truncate">{isRTL ? 'متطلبات التركيب' : 'Installation Requirements'}</p>
+              <h1 className="font-bold text-sm text-white leading-tight truncate">{dashboardData.pageTitles.sidebarAppName}</h1>
+              <p className="text-[10px] text-slate-500 truncate">{dashboardData.pageTitles.sidebarAppSubtitle}</p>
             </div>
           )}
         </div>

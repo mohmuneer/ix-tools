@@ -66,13 +66,14 @@ interface Props {
 }
 
 export function DashboardDataEditor({ open, onClose }: Props) {
-  const { data, setSections, addSection, removeSection, setRequirements, addRequirement, removeRequirement, resetToDefaults } = useDashboardStore();
+  const { data, setSections, addSection, removeSection, setRequirements, addRequirement, removeRequirement, setPageTitles, resetToDefaults } = useDashboardStore();
   const { isRTL } = useLocale();
-  const [activeTab, setActiveTab] = useState<'sections' | 'requirements'>('sections');
+  const [activeTab, setActiveTab] = useState<'titles' | 'sections' | 'requirements'>('titles');
   const [editingSection, setEditingSection] = useState<DashboardSection | null>(null);
   const [editingReqIdx, setEditingReqIdx] = useState<number | null>(null);
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set());
   const [expandedReqs, setExpandedReqs] = useState<Set<number>>(new Set());
+  const [titlesForm, setTitlesForm] = useState({ ...data.pageTitles });
 
   const toggleExpandSection = (id: string) => {
     setExpandedSections((prev) => {
@@ -127,6 +128,10 @@ export function DashboardDataEditor({ open, onClose }: Props) {
     setExpandedReqs(new Set());
   };
 
+  const handleSaveTitles = () => {
+    setPageTitles(titlesForm);
+  };
+
   return (
     <EditorSidebar
       open={open} onClose={onClose}
@@ -143,6 +148,17 @@ export function DashboardDataEditor({ open, onClose }: Props) {
 
       {/* Tabs */}
       <div className="flex shrink-0 gap-1 p-1 rounded-xl bg-white/[0.04]">
+          <button
+            onClick={() => setActiveTab('titles')}
+            className={cn(
+              'flex-1 py-2 px-3 rounded-lg text-xs font-medium transition-colors',
+              activeTab === 'titles'
+                ? 'bg-[#22C55E]/10 text-[#22C55E]'
+                : 'text-slate-500 hover:text-slate-300'
+            )}
+          >
+            {isRTL ? 'عناوين الصفحة' : 'Page Titles'}
+          </button>
           <button
             onClick={() => setActiveTab('sections')}
             className={cn(
@@ -168,6 +184,84 @@ export function DashboardDataEditor({ open, onClose }: Props) {
         </div>
 
         <div className="flex-1 overflow-y-auto min-h-0 space-y-2">
+          {activeTab === 'titles' && (
+            <div className="space-y-4 p-2">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 space-y-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Pencil className="h-4 w-4 text-[#22C55E]" />
+                  <span className="text-sm font-semibold text-white">
+                    {isRTL ? 'عنوان الصفحة الرئيسي' : 'Page Header'}
+                  </span>
+                </div>
+
+                <div>
+                  <Label className="text-xs text-slate-500">
+                    {isRTL ? 'عنوان لوحة التحكم' : 'Dashboard Title'}
+                  </Label>
+                  <Input
+                    value={titlesForm.dashboardTitle}
+                    onChange={(e) => setTitlesForm({ ...titlesForm, dashboardTitle: e.target.value })}
+                    className="mt-1 bg-white/[0.04] border-white/[0.08] text-white"
+                    placeholder={isRTL ? 'مثال: معلومات' : 'e.g. Info'}
+                  />
+                </div>
+
+                <div>
+                  <Label className="text-xs text-slate-500">
+                    {isRTL ? 'وصف الصفحة (تحت العنوان)' : 'Page Description'}
+                  </Label>
+                  <Input
+                    value={titlesForm.dashboardDescription}
+                    onChange={(e) => setTitlesForm({ ...titlesForm, dashboardDescription: e.target.value })}
+                    className="mt-1 bg-white/[0.04] border-white/[0.08] text-white"
+                    placeholder={isRTL ? 'مثال: متطلبات تركيب نظام Onyx IX' : 'e.g. System Requirements'}
+                  />
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 space-y-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Pencil className="h-4 w-4 text-[#38BDF8]" />
+                  <span className="text-sm font-semibold text-white">
+                    {isRTL ? 'الشريط الجانبي' : 'Sidebar'}
+                  </span>
+                </div>
+
+                <div>
+                  <Label className="text-xs text-slate-500">
+                    {isRTL ? 'اسم التطبيق' : 'App Name'}
+                  </Label>
+                  <Input
+                    value={titlesForm.sidebarAppName}
+                    onChange={(e) => setTitlesForm({ ...titlesForm, sidebarAppName: e.target.value })}
+                    className="mt-1 bg-white/[0.04] border-white/[0.08] text-white"
+                    placeholder="Onyx IX"
+                  />
+                </div>
+
+                <div>
+                  <Label className="text-xs text-slate-500">
+                    {isRTL ? 'النص تحت اسم التطبيق' : 'App Subtitle'}
+                  </Label>
+                  <Input
+                    value={titlesForm.sidebarAppSubtitle}
+                    onChange={(e) => setTitlesForm({ ...titlesForm, sidebarAppSubtitle: e.target.value })}
+                    className="mt-1 bg-white/[0.04] border-white/[0.08] text-white"
+                    placeholder={isRTL ? 'متطلبات التركيب' : 'Installation Requirements'}
+                  />
+                </div>
+              </div>
+
+              <Button
+                size="sm"
+                onClick={handleSaveTitles}
+                className="w-full bg-[#22C55E] hover:bg-[#16A34A] text-white"
+              >
+                {isRTL ? 'حفظ العناوين' : 'Save Titles'}
+              </Button>
+            </div>
+          )}
+
           {activeTab === 'sections' && (
             <>
               {data.sections.map((section) => {

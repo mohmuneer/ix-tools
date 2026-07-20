@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { DashboardData, DashboardSection, RequirementCategory } from '@/types';
+import type { DashboardData, DashboardSection, RequirementCategory, PageTitles } from '@/types';
 
 const STORAGE_KEY = 'dashboard-data';
 
@@ -81,6 +81,13 @@ const DEFAULT_REQUIREMENTS: RequirementCategory[] = [
   },
 ];
 
+const DEFAULT_PAGE_TITLES: PageTitles = {
+  dashboardTitle: 'معلومات',
+  dashboardDescription: 'متطلبات تركيب نظام Onyx IX',
+  sidebarAppName: 'Onyx IX',
+  sidebarAppSubtitle: 'متطلبات التركيب',
+};
+
 function loadFromStorage(): DashboardData | null {
   if (typeof window === 'undefined') return null;
   try {
@@ -111,11 +118,12 @@ interface DashboardState {
   addRequirement: (req: RequirementCategory) => void;
   updateRequirement: (index: number, req: Partial<RequirementCategory>) => void;
   removeRequirement: (index: number) => void;
+  setPageTitles: (titles: PageTitles) => void;
   resetToDefaults: () => void;
 }
 
 export const useDashboardStore = create<DashboardState>((set, get) => ({
-  data: { sections: DEFAULT_SECTIONS, requirements: DEFAULT_REQUIREMENTS },
+  data: { sections: DEFAULT_SECTIONS, requirements: DEFAULT_REQUIREMENTS, pageTitles: DEFAULT_PAGE_TITLES },
   initialized: false,
 
   init: () => {
@@ -183,8 +191,14 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
     set({ data });
   },
 
+  setPageTitles: (titles) => {
+    const data = { ...get().data, pageTitles: titles };
+    saveToStorage(data);
+    set({ data });
+  },
+
   resetToDefaults: () => {
-    const data = { sections: DEFAULT_SECTIONS, requirements: DEFAULT_REQUIREMENTS };
+    const data = { sections: DEFAULT_SECTIONS, requirements: DEFAULT_REQUIREMENTS, pageTitles: DEFAULT_PAGE_TITLES };
     saveToStorage(data);
     set({ data });
   },

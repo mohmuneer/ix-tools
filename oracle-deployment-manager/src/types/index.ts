@@ -160,7 +160,15 @@ export interface RequirementCategory {
   items: { ar: string; en: string }[];
 }
 
+export interface PageTitles {
+  dashboardTitle: string;
+  dashboardDescription: string;
+  sidebarAppName: string;
+  sidebarAppSubtitle: string;
+}
+
 export interface DashboardData {
   sections: DashboardSection[];
   requirements: RequirementCategory[];
+  pageTitles: PageTitles;
 }

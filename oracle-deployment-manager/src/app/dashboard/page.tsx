@@ -85,13 +85,13 @@ export default function DashboardPage() {
               </div>
               <div className="space-y-0.5">
                 <div className="flex items-center gap-2">
-                  <h1 className="text-xl font-bold text-white tracking-tight">{t('nav.dashboard')}</h1>
+                  <h1 className="text-xl font-bold text-white tracking-tight">{data.pageTitles.dashboardTitle || t('nav.dashboard')}</h1>
                   <Badge variant="secondary" className="text-[10px] font-mono px-1.5 py-0 bg-[#18B13A]/10 text-[#4ADE80] border-[#18B13A]/20">
                     {isRTL ? 'مباشر' : 'Live'}
                   </Badge>
                 </div>
                 <p className="text-sm text-slate-500">
-                  {t('app.description')}
+                  {data.pageTitles.dashboardDescription || t('app.description')}
                 </p>
               </div>
             </div>
