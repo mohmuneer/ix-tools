@@ -64,10 +64,11 @@ export const useI18nStore = create<I18nState>((set, get) => ({
     if (loadedLocales.has(locale)) return;
 
     try {
+      const v = Date.now();
       const [common, deployment, settings] = await Promise.all([
-        fetch(`/locales/${locale}/common.json`).then((r) => r.json()),
-        fetch(`/locales/${locale}/deployment.json`).then((r) => r.json()),
-        fetch(`/locales/${locale}/settings.json`).then((r) => r.json()),
+        fetch(`/locales/${locale}/common.json?v=${v}`).then((r) => r.json()),
+        fetch(`/locales/${locale}/deployment.json?v=${v}`).then((r) => r.json()),
+        fetch(`/locales/${locale}/settings.json?v=${v}`).then((r) => r.json()),
       ]);
 
       set((state) => ({
