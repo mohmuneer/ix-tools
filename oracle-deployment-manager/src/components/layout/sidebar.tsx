@@ -22,6 +22,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { useLocale } from '@/hooks/use-locale';
+import { useAuthStore } from '@/stores/auth-store';
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -30,6 +31,7 @@ export function Sidebar() {
   const { sidebarOpen, toggleSidebar, mobileMenuOpen, setMobileMenuOpen } = useAppStore();
   const { t, isRTL } = useLocale();
   const { data: dashboardData, init } = useDashboardStore();
+  const role = useAuthStore((s) => s.role);
 
   useEffect(() => {
     init();
@@ -167,6 +169,31 @@ export function Sidebar() {
         </ScrollArea>
 
         <Separator className="bg-white/[0.06]" />
+
+        {/* Admin link */}
+        {role === 'admin' && (
+          <div className="p-2 shrink-0">
+            <Link
+              href="/admin/users"
+              className={cn(
+                'relative flex items-center gap-3 rounded-xl text-sm transition-all duration-200',
+                isExpanded ? 'px-3 py-2.5' : 'px-0 py-2.5 justify-center',
+                pathname.startsWith('/admin')
+                  ? 'bg-[#18B13A]/10 text-[#4ADE80] font-medium'
+                  : 'text-slate-500 hover:text-slate-300 hover:bg-white/[0.04]'
+              )}
+            >
+              {pathname.startsWith('/admin') && (
+                <span className={cn(
+                  'absolute top-1.5 bottom-1.5 w-[3px] rounded-full bg-[#18B13A]',
+                  isRTL ? 'left-0' : 'right-0'
+                )} />
+              )}
+              <Shield className={cn('shrink-0', isExpanded ? 'h-[18px] w-[18px]' : 'h-5 w-5', pathname.startsWith('/admin') && 'text-[#18B13A]')} />
+              {isExpanded && <span className="flex-1 truncate">{isRTL ? 'المستخدمين' : 'Users'}</span>}
+            </Link>
+          </div>
+        )}
 
         {/* Settings link */}
         <div className="p-2 shrink-0">

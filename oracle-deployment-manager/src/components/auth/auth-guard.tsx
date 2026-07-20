@@ -22,7 +22,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!initialized) return;
     const stored = loadAuthFromStorage();
-    if (!stored.role && pathname !== '/login') {
+    if (!stored.role && pathname !== '/login' && pathname !== '/register') {
       setRedirecting(true);
       router.replace('/login');
     }

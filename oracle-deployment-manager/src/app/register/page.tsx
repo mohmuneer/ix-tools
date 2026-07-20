@@ -1,46 +1,37 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Database, Eye, EyeOff, ArrowRight, Shield, Server, Globe, UserCog, User as UserIcon } from 'lucide-react';
+import { Database, Mail, User, Lock, ArrowRight, CheckCircle, Shield, Server, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useLocale } from '@/hooks/use-locale';
-import { useAuthStore, loadAuthFromStorage } from '@/stores/auth-store';
 import { useRegistrationStore } from '@/stores/registration-store';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
-export default function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false);
+export default function RegisterPage() {
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [selectedRole, setSelectedRole] = useState<'admin' | 'user'>('user');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [done, setDone] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
   const { isRTL } = useLocale();
-  const { login, isLoggedIn } = useAuthStore();
-  const { login: loginAction } = useAuthStore();
-  const loadFromStorage = useRegistrationStore((s) => s.loadFromStorage);
-  const approvedUsers = useRegistrationStore((s) => s.approvedUsers);
-  const isEmailApproved = useRegistrationStore((s) => s.isEmailApproved);
+  const addRequest = useRegistrationStore((s) => s.addRequest);
 
-  useEffect(() => {
-    loadFromStorage();
-    const stored = loadAuthFromStorage();
-    if (stored.role) {
-      loginAction(stored.username, stored.role);
-      router.replace('/dashboard');
-    }
-  }, [loginAction, router, loadFromStorage]);
-
-  const handleLogin = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
 
+    if (!email.trim()) {
+      setError(isRTL ? 'يرجى إدخال البريد الإلكتروني' : 'Please enter email');
+      return;
+    }
     if (!username.trim()) {
       setError(isRTL ? 'يرجى إدخال اسم المستخدم' : 'Please enter username');
       return;
@@ -49,36 +40,21 @@ export default function LoginPage() {
       setError(isRTL ? 'يرجى إدخال كلمة المرور' : 'Please enter password');
       return;
     }
-
-    setLoading(true);
-
-    if (selectedRole === 'admin') {
-      setTimeout(() => {
-        if (password === 'admin123') {
-          login(username.trim(), 'admin');
-          router.push('/dashboard');
-        } else {
-          setError(isRTL ? 'كلمة المرور غير صحيحة' : 'Incorrect password');
-          setLoading(false);
-        }
-      }, 800);
+    if (password.length < 4) {
+      setError(isRTL ? 'كلمة المرور قصيرة جداً (4 أحرف على الأقل)' : 'Password too short (min 4 characters)');
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError(isRTL ? 'كلمة المرور غير متطابقة' : 'Passwords do not match');
       return;
     }
 
-    // user role — check approved users
+    setLoading(true);
     setTimeout(() => {
-      const approved = isEmailApproved(username.trim());
-      if (approved && password === approved.password) {
-        login(approved.username, 'user');
-        router.push('/dashboard');
-      } else if (approved && password !== approved.password) {
-        setError(isRTL ? 'كلمة المرور غير صحيحة' : 'Incorrect password');
-        setLoading(false);
-      } else {
-        setError(isRTL ? 'البريد الإلكتروني غير معتمد. يرجى التسجيل أولاً أو انتظار موافقة المدير.' : 'Email not approved. Please register first or wait for admin approval.');
-        setLoading(false);
-      }
-    }, 800);
+      addRequest({ email: email.trim(), username: username.trim(), password, requestedRole: 'user' });
+      setDone(true);
+      setLoading(false);
+    }, 600);
   };
 
   const features = [
@@ -87,22 +63,44 @@ export default function LoginPage() {
     { icon: Globe, title: isRTL ? 'منصة موحدة' : 'Unified Platform', desc: isRTL ? 'كل أدواتك في مكان واحد' : 'All tools in one place' },
   ];
 
-  const roles = [
-    {
-      id: 'admin' as const,
-      icon: UserCog,
-      label: isRTL ? 'مدير النظام' : 'Administrator',
-      desc: isRTL ? 'صلاحية كاملة للتعديل والإدارة' : 'Full edit and manage access',
-      passwordHint: isRTL ? 'كلمة المرور: admin123' : 'Password: admin123',
-    },
-    {
-      id: 'user' as const,
-      icon: UserIcon,
-      label: isRTL ? 'مستخدم عادي' : 'Normal User',
-      desc: isRTL ? 'صلاحية مشاهدة فقط بدون تعديل' : 'View-only, no edit access',
-      passwordHint: isRTL ? 'كلمة المرور: user123' : 'Password: user123',
-    },
-  ];
+  if (done) {
+    return (
+      <div className="min-h-screen us-login-bg flex items-center justify-center p-4 relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#18B13A]/[0.03] blur-[100px]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[#3A3A96]/[0.05] blur-[80px]" />
+        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="w-full max-w-md"
+        >
+          <div className="rounded-3xl bg-[#111827]/80 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-black/40 p-8 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-[#18B13A]/10 flex items-center justify-center mx-auto mb-4">
+              <CheckCircle className="h-8 w-8 text-[#18B13A]" />
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">
+              {isRTL ? 'تم إرسال الطلب' : 'Request Submitted'}
+            </h2>
+            <p className="text-sm text-slate-400 mb-6">
+              {isRTL
+                ? 'سيتم مراجعة طلبك من قبل مدير النظام. سيتم تفعيل حسابك بعد الموافقة.'
+                : 'Your request will be reviewed by the administrator. Your account will be activated upon approval.'}
+            </p>
+            <Button
+              onClick={() => router.push('/login')}
+              className="h-11 bg-gradient-to-r from-[#18B13A] to-[#15803D] hover:from-[#15803D] hover:to-[#14702F] text-white font-semibold rounded-xl shadow-lg shadow-[#18B13A]/25"
+            >
+              <span className={cn('flex items-center gap-2', isRTL && 'flex-row-reverse')}>
+                {isRTL ? 'العودة لتسجيل الدخول' : 'Back to Sign In'}
+                <ArrowRight className={cn('h-4 w-4', isRTL && 'rotate-180')} />
+              </span>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen us-login-bg flex items-center justify-center p-4 relative overflow-hidden">
@@ -130,15 +128,14 @@ export default function LoginPage() {
               </div>
             </div>
             <h2 className="text-4xl font-bold text-white leading-tight">
-              {isRTL ? 'متطلبات تركيب' : 'Onyx IX'}
+              {isRTL ? 'طلب تسجيل جديد' : 'New Registration'}
               <br />
-              <span className="text-[#18B13A]">{isRTL ? 'نظام Onyx IX' : 'System Requirements'}</span>
+              <span className="text-[#18B13A]">{isRTL ? 'إنشاء حساب جديد' : 'Create Account'}</span>
             </h2>
             <p className="text-slate-400 text-base max-w-md">
               {isRTL
-                ? 'متطلبات تركيب نظام Onyx IX مع أدوات متقدمة للمراقبة والإدارة.'
-                : 'Onyx IX System Installation Requirements with advanced monitoring and management tools.'
-              }
+                ? 'قم بإنشاء حساب جديد وسيتم تفعيله بعد موافقة مدير النظام.'
+                : 'Create a new account. It will be activated after administrator approval.'}
             </p>
           </div>
 
@@ -182,87 +179,76 @@ export default function LoginPage() {
           <div className="rounded-3xl bg-[#111827]/80 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-black/40 p-8">
             <div className={cn('space-y-1 mb-6', isRTL && 'text-end')}>
               <h2 className="text-xl font-bold text-white">
-                {isRTL ? 'تسجيل الدخول' : 'Sign In'}
+                {isRTL ? 'إنشاء حساب' : 'Create Account'}
               </h2>
               <p className="text-sm text-slate-500">
-                {isRTL ? 'اختر نوع المستخدم وأدخل البيانات' : 'Select role and enter credentials'}
+                {isRTL ? 'أدخل بياناتك لإنشاء حساب جديد' : 'Enter your details to create a new account'}
               </p>
             </div>
 
-            {/* Role Selection */}
-            <div className="grid grid-cols-2 gap-3 mb-6">
-              {roles.map((role) => {
-                const RoleIcon = role.icon;
-                const isSelected = selectedRole === role.id;
-                return (
-                  <button
-                    key={role.id}
-                    type="button"
-                    onClick={() => setSelectedRole(role.id)}
-                    className={cn(
-                      'flex flex-col items-center gap-2 p-3 rounded-xl border transition-all text-center',
-                      isSelected
-                        ? 'border-[#18B13A] bg-[#18B13A]/10 ring-1 ring-[#18B13A]/30'
-                        : 'border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04]'
-                    )}
-                  >
-                    <RoleIcon className={cn('h-5 w-5', isSelected ? 'text-[#18B13A]' : 'text-slate-400')} />
-                    <span className={cn('text-xs font-medium', isSelected ? 'text-[#18B13A]' : 'text-slate-300')}>
-                      {role.label}
-                    </span>
-                    <span className="text-[9px] text-slate-500 leading-tight">{role.desc}</span>
-                  </button>
-                );
-              })}
-            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label className="text-xs font-medium text-slate-400">
+                  {isRTL ? 'البريد الإلكتروني' : 'Email'}
+                </Label>
+                <div className="relative">
+                  <Mail className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600" />
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={isRTL ? 'أدخل البريد الإلكتروني' : 'Enter email'}
+                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl ps-10"
+                  />
+                </div>
+              </div>
 
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div className="space-y-2">
-                  <Label className="text-xs font-medium text-slate-400">
-                    {selectedRole === 'admin'
-                      ? (isRTL ? 'اسم المستخدم' : 'Username')
-                      : (isRTL ? 'البريد الإلكتروني' : 'Email')
-                    }
-                  </Label>
+              <div className="space-y-2">
+                <Label className="text-xs font-medium text-slate-400">
+                  {isRTL ? 'اسم المستخدم' : 'Username'}
+                </Label>
+                <div className="relative">
+                  <User className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600" />
                   <Input
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    placeholder={
-                      selectedRole === 'admin'
-                        ? (isRTL ? 'أدخل اسم المستخدم' : 'Enter username')
-                        : (isRTL ? 'أدخل البريد الإلكتروني المعتمد' : 'Enter approved email')
-                    }
-                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl"
+                    placeholder={isRTL ? 'أدخل اسم المستخدم' : 'Enter username'}
+                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl ps-10"
                   />
                 </div>
+              </div>
 
               <div className="space-y-2">
                 <Label className="text-xs font-medium text-slate-400">
                   {isRTL ? 'كلمة المرور' : 'Password'}
                 </Label>
                 <div className="relative">
+                  <Lock className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600" />
                   <Input
-                    type={showPassword ? 'text' : 'password'}
+                    type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder={isRTL ? 'أدخل كلمة المرور' : 'Enter password'}
-                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl pe-11"
+                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl ps-10"
                   />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute end-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
-                  >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
                 </div>
               </div>
 
-              {selectedRole === 'admin' && (
-                <p className="text-[10px] text-slate-600 text-center">
-                  {isRTL ? 'كلمة مرور المدير: admin123' : 'Admin password: admin123'}
-                </p>
-              )}
+              <div className="space-y-2">
+                <Label className="text-xs font-medium text-slate-400">
+                  {isRTL ? 'تأكيد كلمة المرور' : 'Confirm Password'}
+                </Label>
+                <div className="relative">
+                  <Lock className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600" />
+                  <Input
+                    type="password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder={isRTL ? 'أعد إدخال كلمة المرور' : 'Re-enter password'}
+                    className="h-11 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 focus:border-[#18B13A]/40 focus:ring-[#18B13A]/20 rounded-xl ps-10"
+                  />
+                </div>
+              </div>
 
               {error && (
                 <p className="text-xs text-red-400 text-center">{error}</p>
@@ -277,7 +263,7 @@ export default function LoginPage() {
                   <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                 ) : (
                   <span className={cn('flex items-center gap-2', isRTL && 'flex-row-reverse')}>
-                    {isRTL ? 'دخول' : 'Sign In'}
+                    {isRTL ? 'إرسال الطلب' : 'Submit Request'}
                     <ArrowRight className={cn('h-4 w-4', isRTL && 'rotate-180')} />
                   </span>
                 )}
@@ -286,9 +272,9 @@ export default function LoginPage() {
 
             <div className="mt-6 pt-6 border-t border-white/[0.06] text-center">
               <p className="text-sm text-slate-500">
-                {isRTL ? 'ليس لديك حساب؟' : "Don't have an account?"}{' '}
-                <Link href="/register" className="text-[#18B13A] hover:text-[#4ADE80] font-medium transition-colors">
-                  {isRTL ? 'تسجيل جديد' : 'Register'}
+                {isRTL ? 'لديك حساب بالفعل؟' : 'Already have an account?'}{' '}
+                <Link href="/login" className="text-[#18B13A] hover:text-[#4ADE80] font-medium transition-colors">
+                  {isRTL ? 'تسجيل الدخول' : 'Sign In'}
                 </Link>
               </p>
             </div>
