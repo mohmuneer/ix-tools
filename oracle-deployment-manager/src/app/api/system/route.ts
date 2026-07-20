@@ -41,12 +41,12 @@ function getSystemInfo(): SystemInfo {
   let diskFree = 0;
   try {
     if (platform === 'win32') {
-      const output = execSync('wmic logicaldisk where "DeviceID=\'C:\'" get Size,FreeSpace /format:csv', { encoding: 'utf-8' });
+      const output = execSync('powershell -Command "Get-CimInstance Win32_LogicalDisk | Where-Object { $_.DeviceID -eq \'C:\' } | Select-Object Size,FreeSpace | ConvertTo-Csv -NoTypeInformation"', { encoding: 'utf-8' });
       const lines = output.trim().split('\n').filter((l: string) => l.trim());
       if (lines.length >= 2) {
         const parts = lines[1].split(',');
-        diskFree = parseInt(parts[1]) || 0;
-        diskTotal = parseInt(parts[2]) || 0;
+        diskTotal = parseInt(parts[0]?.replace(/"/g, '')) || 0;
+        diskFree = parseInt(parts[1]?.replace(/"/g, '')) || 0;
       }
     }
   } catch {}

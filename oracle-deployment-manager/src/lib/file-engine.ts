@@ -195,14 +195,14 @@ export class FileEngine {
       const { execSync } = await import('child_process');
       try {
         const output = execSync(
-          `wmic logicaldisk where "DeviceID='${drive}'" get Size,FreeSpace /format:csv`,
+          `powershell -Command "Get-CimInstance Win32_LogicalDisk -Filter \\\"DeviceID='${drive}'\\\" | Select-Object @{N='Size';E={$_.Size}},@{N='FreeSpace';E={$_.FreeSpace}} | ConvertTo-Csv -NoTypeInformation"`,
           { encoding: 'utf-8' }
         );
         const lines = output.trim().split('\n').filter((l: string) => l.trim());
         if (lines.length >= 2) {
           const parts = lines[1].split(',');
-          const free = parseInt(parts[1]) || 0;
-          const total = parseInt(parts[2]) || 0;
+          const free = parseInt(parts[1]?.replace(/"/g, '')) || 0;
+          const total = parseInt(parts[0]?.replace(/"/g, '')) || 0;
           return { total, free, used: total - free };
         }
       } catch {}
