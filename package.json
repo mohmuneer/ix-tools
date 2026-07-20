@@ -1,7 +1,12 @@
 {
   "name": "ix-tools",
   "private": true,
+  "dependencies": {
+    "next": "16.2.10"
+  },
   "scripts": {
-    "postinstall": "cd oracle-deployment-manager && npm install"
+    "postinstall": "cd oracle-deployment-manager && npm install",
+    "build": "cd oracle-deployment-manager && npm run build",
+    "start": "cd oracle-deployment-manager && npm start"
   }
 }
