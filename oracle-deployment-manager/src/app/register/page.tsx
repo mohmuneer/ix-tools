@@ -158,89 +158,16 @@ export default function RegisterPage() {
     e.currentTarget.style.boxShadow = 'none';
   };
 
-  const headerStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 50,
-    height: '64px',
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 24px',
-    background: 'rgba(10,15,35,0.85)',
-    backdropFilter: 'blur(16px)',
-    WebkitBackdropFilter: 'blur(16px)',
-    borderBottom: '1px solid rgba(255,255,255,0.06)',
-    direction: 'rtl',
-  };
-
-  const headerLogoStyle: React.CSSProperties = {
-    position: 'relative',
-    width: '36px',
-    height: '36px',
-    borderRadius: '12px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexShrink: 0,
-    boxShadow: '0 4px 12px rgba(37,99,235,0.3)',
-    background: 'linear-gradient(135deg, #2563EB, #3B82F6)',
-  };
-
-  const headerTextStyle: React.CSSProperties = {
-    minWidth: 0,
-    marginRight: '12px',
-    textAlign: 'right',
-  };
-
-  const headerTitleStyle: React.CSSProperties = {
-    fontSize: '14px',
-    fontWeight: 700,
-    color: 'white',
-    fontFamily: FONT,
-    margin: 0,
-    lineHeight: 1.3,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-  };
-
-  const headerSubtitleStyle: React.CSSProperties = {
-    fontSize: '10px',
-    color: '#64748b',
-    fontFamily: FONT,
-    margin: 0,
-    lineHeight: 1.3,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-  };
-
   if (done) {
     return (
       <div dir="rtl" lang="ar" style={{ position: 'relative', minHeight: '100vh', width: '100%', overflow: 'hidden', background: '#020617' }}>
-        {/* Header */}
-        <header style={headerStyle}>
-          {config.logo?.logoUrl ? (
-            <img src={config.logo.logoUrl} alt="Logo" style={{ ...headerLogoStyle, objectFit: 'contain', background: 'transparent', boxShadow: 'none' }} />
-          ) : (
-            <div style={headerLogoStyle}>
-              <Database style={{ width: '18px', height: '18px', color: 'white' }} />
-            </div>
-          )}
-          <div style={headerTextStyle}>
-            <h1 style={headerTitleStyle}>{config.logo?.systemName || 'Onyx IX'}</h1>
-            <p style={headerSubtitleStyle}>{config.logo?.companyName || 'Ultimate Solutions'}</p>
-          </div>
-        </header>
         <div style={{ position: 'absolute', inset: 0 }}>
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,0.12), transparent 70%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 30% 70%, rgba(7,27,52,0.8), transparent 60%)' }} />
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 40% at 70% 20%, rgba(4,17,29,0.6), transparent 50%)' }} />
         </div>
         <Particles />
-        <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '96px 16px 32px' }}>
+        <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '32px 16px' }}>
           <div style={{ width: '100%', maxWidth: '480px', animation: 'fadeIn 0.5s ease-out' }}>
             <div style={{
               borderRadius: '24px',
@@ -297,21 +224,6 @@ export default function RegisterPage() {
   return (
     <div dir="rtl" lang="ar" style={{ position: 'relative', minHeight: '100vh', width: '100%', overflow: 'hidden', background: '#020617' }}>
 
-      {/* Header */}
-      <header style={headerStyle}>
-        {config.logo?.logoUrl ? (
-          <img src={config.logo.logoUrl} alt="Logo" style={{ ...headerLogoStyle, objectFit: 'contain', background: 'transparent', boxShadow: 'none' }} />
-        ) : (
-          <div style={headerLogoStyle}>
-            <Database style={{ width: '18px', height: '18px', color: 'white' }} />
-          </div>
-        )}
-        <div style={headerTextStyle}>
-          <h1 style={headerTitleStyle}>{config.logo?.systemName || 'Onyx IX'}</h1>
-          <p style={headerSubtitleStyle}>{config.logo?.companyName || 'Ultimate Solutions'}</p>
-        </div>
-      </header>
-
       {/* Background layers */}
       <div style={{ position: 'absolute', inset: 0 }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,0.12), transparent 70%)' }} />
@@ -323,7 +235,7 @@ export default function RegisterPage() {
       <Particles />
 
       {/* Main content */}
-      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '96px 16px 32px' }}>
+      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '32px 16px' }}>
 
         {/* Logo */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginBottom: '32px', animation: 'fadeIn 0.5s ease-out' }}>
