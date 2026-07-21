@@ -217,7 +217,7 @@ export default function LoginPage() {
                     dir="rtl"
                     autoComplete="username"
                     className="h-14 text-end pe-11 ps-4 rounded-2xl text-white placeholder:text-slate-600 transition-all duration-200"
-                    style={RTL_INPUT_STYLE}
+                    style={{ ...RTL_INPUT_STYLE, textAlign: 'right', direction: 'rtl' }}
                     onFocus={(e) => {
                       e.currentTarget.style.borderColor = 'rgba(37,99,235,0.5)';
                       e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.15)';
@@ -247,7 +247,7 @@ export default function LoginPage() {
                     dir="rtl"
                     autoComplete="current-password"
                     className="h-14 text-end pe-11 ps-4 rounded-2xl text-white placeholder:text-slate-600 transition-all duration-200"
-                    style={RTL_INPUT_STYLE}
+                    style={{ ...RTL_INPUT_STYLE, textAlign: 'right', direction: 'rtl' }}
                     onFocus={(e) => {
                       e.currentTarget.style.borderColor = 'rgba(37,99,235,0.5)';
                       e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.15)';
