@@ -66,25 +66,35 @@ export const DEFAULT_BRANDING: BrandingData = {
   updatedBy: 'system',
 };
 
+let memoryBranding: BrandingData | null = null;
+
 export function getBranding(): BrandingData {
   try {
     if (existsSync(FILE_PATH)) {
       const raw = readFileSync(FILE_PATH, 'utf-8');
       const data = JSON.parse(raw);
-      return { ...DEFAULT_BRANDING, ...data };
+      const result = { ...DEFAULT_BRANDING, ...data };
+      memoryBranding = result;
+      return result;
     }
   } catch {
     // fall through to defaults
   }
+  if (memoryBranding) return memoryBranding;
   return { ...DEFAULT_BRANDING };
 }
 
 export function saveBranding(data: BrandingData): void {
-  if (!existsSync(DATA_DIR)) {
-    mkdirSync(DATA_DIR, { recursive: true });
-  }
   const toSave = { ...data, updatedAt: new Date().toISOString() };
-  writeFileSync(FILE_PATH, JSON.stringify(toSave, null, 2), 'utf-8');
+  memoryBranding = toSave;
+  try {
+    if (!existsSync(DATA_DIR)) {
+      mkdirSync(DATA_DIR, { recursive: true });
+    }
+    writeFileSync(FILE_PATH, JSON.stringify(toSave, null, 2), 'utf-8');
+  } catch {
+    // Read-only filesystem (Vercel) — branding stored in memory only
+  }
 }
 
 export function resetBranding(): BrandingData {

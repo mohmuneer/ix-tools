@@ -1,6 +1,6 @@
 import Database from 'better-sqlite3';
 import path from 'path';
-import { mkdirSync } from 'fs';
+import { mkdirSync, accessSync, constants } from 'fs';
 import { randomUUID } from 'crypto';
 import { hashPassword } from './auth';
 
@@ -9,10 +9,30 @@ const DB_PATH = path.join(DATA_DIR, 'oracle-deploy.db');
 
 let db: Database.Database | null = null;
 
+function isDirectoryWritable(dir: string): boolean {
+  try {
+    accessSync(dir, constants.W_OK);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function getDb(): Database.Database {
   if (!db) {
-    mkdirSync(DATA_DIR, { recursive: true });
-    db = new Database(DB_PATH);
+    let writable = false;
+    try {
+      mkdirSync(DATA_DIR, { recursive: true });
+      writable = isDirectoryWritable(DATA_DIR);
+    } catch {
+      writable = false;
+    }
+
+    if (writable) {
+      db = new Database(DB_PATH);
+    } else {
+      db = new Database(':memory:');
+    }
     db.pragma('journal_mode = WAL');
     initDb();
     seedAdmin();
