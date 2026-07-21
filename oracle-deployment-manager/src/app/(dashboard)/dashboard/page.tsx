@@ -141,7 +141,7 @@ export default function DashboardPage() {
       </div>
     </div>
 
-    /* Editor Dialog */
+    {/* Editor Dialog */}
     <CanEdit>
       <DashboardDataEditor open={editorOpen} onClose={() => setEditorOpen(false)} />
     </CanEdit>
