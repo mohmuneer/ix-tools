@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
 import { getBranding, saveBranding } from '@/lib/branding';
 
 export async function POST(req: NextRequest) {
@@ -12,7 +10,6 @@ export async function POST(req: NextRequest) {
 
     const formData = await req.formData();
     const file = formData.get('file') as File;
-    const type = (formData.get('type') as string) || 'logo';
 
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
@@ -25,23 +22,14 @@ export async function POST(req: NextRequest) {
 
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
-
-    const ext = path.extname(file.name) || '.png';
-    const safeType = type.replace(/[^a-zA-Z0-9_-]/g, '_');
-    const filename = `branding-${safeType}-${Date.now()}${ext}`;
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'branding');
-    const filePath = path.join(uploadDir, filename);
-
-    await mkdir(uploadDir, { recursive: true });
-    await writeFile(filePath, buffer);
-
-    const logoUrl = `/uploads/branding/${filename}`;
+    const base64 = buffer.toString('base64');
+    const logoUrl = `data:${file.type};base64,${base64}`;
 
     const branding = getBranding();
     branding.logo.logoUrl = logoUrl;
     saveBranding(branding);
 
-    return NextResponse.json({ logoUrl, filename });
+    return NextResponse.json({ logoUrl });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

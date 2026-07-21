@@ -90,6 +90,7 @@ class MemoryDatabase {
   backups: Backup[] = [];
   notifications: Notification[] = [];
   templateFiles: TemplateFile[] = [];
+  branding: { id: string; data: string; updated_at: string }[] = [];
 
   prepare(sql: string) {
     const self = this;
@@ -162,6 +163,10 @@ class MemoryDatabase {
       if (upper.includes('FROM TEMPLATES')) return { 'count(*)': this.templates.length };
       if (upper.includes('FROM JOBS')) return { 'count(*)': this.jobs.length };
       if (upper.includes('FROM NOTIFICATIONS')) return { 'count(*)': this.notifications.length };
+    }
+
+    if (upper.includes('FROM BRANDING')) {
+      return this.branding[0] || undefined;
     }
 
     return undefined;
@@ -365,6 +370,21 @@ class MemoryDatabase {
       return { changes };
     }
 
+    if (upper.startsWith('INSERT INTO BRANDING') || upper.startsWith('INSERT OR REPLACE INTO BRANDING')) {
+      this.branding = [{ id: params[0] || 'default', data: params[1] || '{}', updated_at: new Date().toISOString() }];
+      return { changes: 1 };
+    }
+
+    if (upper.startsWith('UPDATE BRANDING')) {
+      if (this.branding.length > 0) {
+        this.branding[0].data = params[0] || '{}';
+        this.branding[0].updated_at = new Date().toISOString();
+        return { changes: 1 };
+      }
+      this.branding = [{ id: 'default', data: params[0] || '{}', updated_at: new Date().toISOString() }];
+      return { changes: 1 };
+    }
+
     return { changes: 0 };
   }
 }
@@ -477,6 +497,10 @@ function initSqliteDb(database: any) {
       path TEXT NOT NULL, size INTEGER DEFAULT 0, extension TEXT DEFAULT '',
       uploaded_at TEXT DEFAULT (datetime('now')),
       FOREIGN KEY (template_id) REFERENCES templates(id) ON DELETE CASCADE
+    );
+    CREATE TABLE IF NOT EXISTS branding (
+      id TEXT PRIMARY KEY DEFAULT 'default', data TEXT NOT NULL DEFAULT '{}',
+      updated_at TEXT DEFAULT (datetime('now'))
     );
   `);
 
