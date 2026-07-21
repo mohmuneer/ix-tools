@@ -1,25 +1,102 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Database, Mail, User, Lock, ArrowLeft, CheckCircle, Shield, Server, Globe } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Database, Mail, User, Lock, Eye, EyeOff, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
-import { cn } from '@/lib/utils';
-import Link from 'next/link';
+import { useBrandingStore } from '@/stores/branding-store';
+
+function Particles() {
+  const [particles, setParticles] = useState<Array<{ id: number; left: number; top: number; size: number; duration: number; delay: number; opacity: number }>>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        size: Math.random() * 3 + 1,
+        duration: Math.random() * 20 + 15,
+        delay: Math.random() * 10,
+        opacity: Math.random() * 0.3 + 0.05,
+      }))
+    );
+  }, []);
+
+  return (
+    <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          style={{
+            position: 'absolute',
+            borderRadius: '50%',
+            animation: `pulse ${p.duration}s ease-in-out ${p.delay}s infinite`,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            width: `${p.size}px`,
+            height: `${p.size}px`,
+            background: `rgba(37, 99, 235, ${p.opacity})`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+const FONT = "'Cairo', 'IBM Plex Sans Arabic', system-ui, sans-serif";
+
+const inputStyle: React.CSSProperties = {
+  width: '100%',
+  height: '56px',
+  padding: '0 44px 0 16px',
+  borderRadius: '16px',
+  border: '1px solid rgba(255,255,255,0.08)',
+  background: 'rgba(255,255,255,0.04)',
+  color: '#ffffff',
+  fontSize: '16px',
+  fontFamily: FONT,
+  fontWeight: 600,
+  direction: 'rtl',
+  textAlign: 'right',
+  unicodeBidi: 'plaintext',
+  outline: 'none',
+  transition: 'border-color 0.2s, box-shadow 0.2s',
+  boxSizing: 'border-box' as const,
+};
+
+const labelStyle: React.CSSProperties = {
+  display: 'block',
+  textAlign: 'right',
+  fontSize: '14px',
+  fontWeight: 600,
+  color: '#cbd5e1',
+  fontFamily: FONT,
+  marginBottom: '8px',
+};
+
+const iconWrapStyle: React.CSSProperties = {
+  position: 'absolute',
+  left: '14px',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  pointerEvents: 'none',
+  color: '#64748b',
+};
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
   const { isRTL } = useLocale();
+  const config = useBrandingStore((s) => s.config);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,64 +148,73 @@ export default function RegisterPage() {
     }
   };
 
-  const features = [
-    { icon: Server, title: isRTL ? 'إدارة الخوادم' : 'Server Management', desc: isRTL ? 'مراقبة وإدارة خوادم' : 'Monitor & manage servers' },
-    { icon: Shield, title: isRTL ? 'صلاحيات متعددة' : 'Multi-level Roles', desc: isRTL ? 'مدير نظام ومستخدم عادي' : 'Admin and normal user' },
-    { icon: Globe, title: isRTL ? 'منصة موحدة' : 'Unified Platform', desc: isRTL ? 'كل أدواتك في مكان واحد' : 'All tools in one place' },
-  ];
+  const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = 'rgba(37,99,235,0.5)';
+    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(37,99,235,0.15)';
+  };
 
-  const LogoBlock = ({ size }: { size: 'sm' | 'lg' }) => {
-    const dim = size === 'lg' ? 'w-14 h-14' : 'w-10 h-10';
-    const iconDim = size === 'lg' ? 'h-7 w-7' : 'h-5 w-5';
-    const textDim = size === 'lg' ? 'text-2xl' : 'text-base';
-    const subDim = size === 'lg' ? 'text-sm' : 'text-[10px]';
-
-    return (
-      <div className={cn('flex items-center gap-3', isRTL ? 'flex-row-reverse' : 'flex-row')}>
-        <div
-          className={cn(dim, 'rounded-2xl bg-gradient-to-br from-[var(--brand-primary,#2563EB)] to-[var(--brand-sidebar-active,#3B82F6)] flex items-center justify-center shadow-xl')}
-          style={{ boxShadow: `0 8px 24px var(--brand-primary,#2563EB)33` }}
-        >
-          <Database className={cn(iconDim, 'text-white')} />
-        </div>
-        <div className={isRTL ? 'text-end' : 'text-start'}>
-          <h1 className={cn(textDim, 'font-bold text-white')}>Onyx IX</h1>
-          <p className={cn(subDim, 'text-slate-500')}>{isRTL ? 'متطلبات التركيب' : 'Installation Requirements'}</p>
-        </div>
-      </div>
-    );
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+    e.currentTarget.style.boxShadow = 'none';
   };
 
   if (done) {
     return (
-      <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen us-login-bg flex items-center justify-center p-4 relative overflow-hidden animate-fadeIn">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--brand-primary,#2563EB)]/[0.04] blur-[100px]" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[#3A3A96]/[0.05] blur-[80px]" />
+      <div dir="rtl" lang="ar" style={{ position: 'relative', minHeight: '100vh', width: '100%', overflow: 'hidden', background: '#020617' }}>
+        <div style={{ position: 'absolute', inset: 0 }}>
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,0.12), transparent 70%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 30% 70%, rgba(7,27,52,0.8), transparent 60%)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 40% at 70% 20%, rgba(4,17,29,0.6), transparent 50%)' }} />
         </div>
-        <div className="w-full max-w-md animate-fadeIn">
-          <div className="rounded-3xl bg-[#111827]/80 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-black/40 p-8 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-[var(--brand-success,#22C55E)]/10 flex items-center justify-center mx-auto mb-4">
-              <CheckCircle className="h-8 w-8 text-[var(--brand-success,#22C55E)]" />
+        <Particles />
+        <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '32px 16px' }}>
+          <div style={{ width: '100%', maxWidth: '480px', animation: 'fadeIn 0.5s ease-out' }}>
+            <div style={{
+              borderRadius: '24px',
+              padding: '40px 32px',
+              background: 'rgba(10,15,35,0.75)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
+              textAlign: 'right',
+            }}>
+              <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'rgba(34,197,94,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <CheckCircle style={{ width: '32px', height: '32px', color: '#22C55E' }} />
+              </div>
+              <h2 style={{ fontSize: '22px', fontWeight: 700, color: 'white', fontFamily: FONT, margin: '0 0 8px 0', textAlign: 'center' }}>
+                {isRTL ? 'تم إرسال الطلب' : 'Request Submitted'}
+              </h2>
+              <p style={{ fontSize: '14px', color: '#94a3b8', fontFamily: FONT, fontWeight: 600, margin: '0 0 24px 0', textAlign: 'center' }}>
+                {isRTL
+                  ? 'سيتم مراجعة طلبك من قبل مدير النظام. سيتم تفعيل حسابك بعد الموافقة.'
+                  : 'Your request will be reviewed by the administrator. Your account will be activated upon approval.'}
+              </p>
+              <button
+                onClick={() => router.push('/login')}
+                style={{
+                  width: '100%',
+                  height: '48px',
+                  borderRadius: '14px',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: '15px',
+                  fontWeight: 700,
+                  fontFamily: FONT,
+                  cursor: 'pointer',
+                  background: 'linear-gradient(135deg, #2563EB, #3B82F6)',
+                  boxShadow: '0 4px 14px rgba(37,99,235,0.3)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  direction: 'rtl',
+                }}
+              >
+                <span>{isRTL ? 'العودة لتسجيل الدخول' : 'Back to Sign In'}</span>
+                <ArrowLeft style={{ width: '16px', height: '16px', transform: 'scaleX(-1)' }} />
+              </button>
             </div>
-            <h2 className="text-xl font-bold text-white mb-2">
-              {isRTL ? 'تم إرسال الطلب' : 'Request Submitted'}
-            </h2>
-            <p className="text-sm text-slate-400 mb-6">
-              {isRTL
-                ? 'سيتم مراجعة طلبك من قبل مدير النظام. سيتم تفعيل حسابك بعد الموافقة.'
-                : 'Your request will be reviewed by the administrator. Your account will be activated upon approval.'}
-            </p>
-            <Button
-              onClick={() => router.push('/login')}
-              className="h-11 bg-gradient-to-r from-[var(--brand-primary,#2563EB)] to-[var(--brand-sidebar-active,#3B82F6)] text-white font-semibold rounded-xl shadow-lg"
-              style={{ boxShadow: '0 4px 14px var(--brand-primary,#2563EB)33' }}
-            >
-              <span className={cn('flex items-center gap-2', isRTL ? 'flex-row-reverse' : 'flex-row')}>
-                {isRTL ? 'العودة لتسجيل الدخول' : 'Back to Sign In'}
-                <ArrowLeft className="h-4 w-4" />
-              </span>
-            </Button>
           </div>
         </div>
       </div>
@@ -136,188 +222,256 @@ export default function RegisterPage() {
   }
 
   return (
-    <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen us-login-bg flex items-center justify-center p-4 sm:p-6 relative overflow-hidden animate-fadeIn">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--brand-primary,#2563EB)]/[0.04] blur-[100px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-[#3A3A96]/[0.05] blur-[80px]" />
-        <div className="absolute top-[40%] right-[20%] w-[300px] h-[300px] rounded-full bg-[#38BDF8]/[0.03] blur-[60px]" />
+    <div dir="rtl" lang="ar" style={{ position: 'relative', minHeight: '100vh', width: '100%', overflow: 'hidden', background: '#020617' }}>
+
+      {/* Background layers */}
+      <div style={{ position: 'absolute', inset: 0 }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 30%, rgba(37,99,235,0.12), transparent 70%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 30% 70%, rgba(7,27,52,0.8), transparent 60%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 40% at 70% 20%, rgba(4,17,29,0.6), transparent 50%)' }} />
+        <div style={{ position: 'absolute', inset: 0, opacity: 0.03, backgroundImage: 'radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       </div>
 
-      <div className="w-full max-w-5xl flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
+      <Particles />
 
-        <div className="hidden lg:flex flex-col flex-1 gap-10 animate-slideIn">
-          <div className={cn('space-y-4', isRTL ? 'text-end' : 'text-start')}>
-            <LogoBlock size="lg" />
-            <h2 className="text-4xl font-bold text-white leading-tight">
-              {isRTL ? 'طلب تسجيل جديد' : 'New Registration'}
-              <br />
-              <span style={{ color: 'var(--brand-primary, #2563EB)' }}>
-                {isRTL ? 'إنشاء حساب جديد' : 'Create Account'}
-              </span>
-            </h2>
-            <p className="text-slate-400 text-base max-w-md">
-              {isRTL
-                ? 'قم بإنشاء حساب جديد وسيتم تفعيله بعد موافقة مدير النظام.'
-                : 'Create a new account. It will be activated after administrator approval.'}
-            </p>
-          </div>
+      {/* Main content */}
+      <div style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', padding: '32px 16px' }}>
 
-          <div className="space-y-3">
-            {features.map((f, i) => (
+        {/* Logo */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginBottom: '32px', animation: 'fadeIn 0.5s ease-out' }}>
+          <div style={{ position: 'relative' }}>
+            <div style={{ position: 'absolute', inset: 0, filter: 'blur(48px)', opacity: 0.3, background: 'radial-gradient(circle, rgba(37,99,235,0.5), transparent 70%)', transform: 'scale(2)' }} />
+            {config.logo?.logoUrl ? (
+              <img
+                src={config.logo.logoUrl}
+                alt="Onyx IX"
+                style={{ position: 'relative', width: '80px', height: '80px', borderRadius: '16px', objectFit: 'contain', boxShadow: '0 0 40px rgba(37,99,235,0.25)' }}
+              />
+            ) : (
               <div
-                key={f.title}
-                className={cn(
-                  'flex items-center gap-4 p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm animate-fadeUp',
-                  isRTL ? 'flex-row-reverse' : 'flex-row'
-                )}
-                style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+                style={{
+                  position: 'relative',
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '16px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 0 40px rgba(37,99,235,0.3)',
+                  background: 'linear-gradient(135deg, #2563EB, #3B82F6)',
+                }}
               >
-                <div className="w-10 h-10 rounded-xl bg-[var(--brand-primary,#2563EB)]/10 flex items-center justify-center shrink-0">
-                  <f.icon className="h-5 w-5 text-[var(--brand-primary,#2563EB)]" />
-                </div>
-                <div className={cn('min-w-0', isRTL ? 'text-end' : 'text-start')}>
-                  <p className="text-sm font-semibold text-white">{f.title}</p>
-                  <p className="text-xs text-slate-500 truncate">{f.desc}</p>
-                </div>
+                <Database style={{ width: '40px', height: '40px', color: 'white' }} />
               </div>
-            ))}
+            )}
+          </div>
+          <div style={{ textAlign: 'right' }}>
+            <h1 style={{ fontSize: '30px', fontWeight: 800, color: 'white', fontFamily: FONT, margin: 0 }}>
+              {config.logo?.systemName || 'Onyx IX'}
+            </h1>
+            <p style={{ fontSize: '14px', color: '#94a3b8', marginTop: '4px', fontFamily: FONT, fontWeight: 600, margin: '4px 0 0 0' }}>
+              {config.logo?.companyName || 'Ultimate Solutions'}
+            </p>
           </div>
         </div>
 
-        <div className="w-full max-w-md animate-fadeUp" style={{ animationDelay: '0.1s' }}>
-          <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
-            <LogoBlock size="sm" />
-          </div>
-
-          <div className="rounded-3xl bg-[#111827]/80 backdrop-blur-2xl border border-white/[0.06] shadow-2xl shadow-black/40 p-6 sm:p-8">
-            <div className={cn('space-y-1 mb-6', isRTL ? 'text-end' : 'text-start')}>
-              <h2 className="text-xl font-bold text-white">
+        {/* Register Card */}
+        <div style={{ width: '100%', maxWidth: '480px', animation: 'fadeUp 0.5s ease-out 0.15s both' }}>
+          <div
+            style={{
+              borderRadius: '24px',
+              padding: '32px',
+              background: 'rgba(10,15,35,0.75)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.03) inset',
+            }}
+          >
+            {/* Card header */}
+            <div style={{ textAlign: 'right', marginBottom: '32px' }}>
+              <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'white', fontFamily: FONT, margin: 0 }}>
                 {isRTL ? 'إنشاء حساب' : 'Create Account'}
               </h2>
-              <p className="text-sm text-slate-500">
+              <p style={{ fontSize: '14px', color: '#94a3b8', marginTop: '8px', fontFamily: FONT, fontWeight: 600, margin: '8px 0 0 0' }}>
                 {isRTL ? 'أدخل بياناتك لإنشاء حساب جديد' : 'Enter your details to create a new account'}
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label className={cn('text-xs font-medium text-slate-400', isRTL ? 'text-end block' : 'text-start block')}>
+            {/* Form */}
+            <form onSubmit={handleSubmit} dir="rtl" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {/* Email */}
+              <div>
+                <label style={labelStyle}>
                   {isRTL ? 'البريد الإلكتروني' : 'Email'}
-                </Label>
-                <div className="relative">
-                  <Mail className={cn('absolute top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600', isRTL ? 'end-3' : 'start-3')} />
-                  <Input
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <div style={iconWrapStyle}>
+                    <Mail style={{ width: '18px', height: '18px' }} />
+                  </div>
+                  <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder={isRTL ? 'أدخل البريد الإلكتروني' : 'Enter email'}
-                    dir={isRTL ? 'rtl' : 'ltr'}
-                    className={cn(
-                      'h-12 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 rounded-xl',
-                      'focus:border-[var(--brand-primary,#2563EB)]/40 focus:ring-[var(--brand-primary,#2563EB)]/20',
-                      isRTL ? 'text-end pe-10' : 'text-start ps-10'
-                    )}
+                    dir="rtl"
+                    autoComplete="email"
+                    style={inputStyle}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className={cn('text-xs font-medium text-slate-400', isRTL ? 'text-end block' : 'text-start block')}>
+              {/* Username */}
+              <div>
+                <label style={labelStyle}>
                   {isRTL ? 'اسم المستخدم' : 'Username'}
-                </Label>
-                <div className="relative">
-                  <User className={cn('absolute top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600', isRTL ? 'end-3' : 'start-3')} />
-                  <Input
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <div style={iconWrapStyle}>
+                    <User style={{ width: '18px', height: '18px' }} />
+                  </div>
+                  <input
+                    type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder={isRTL ? 'أدخل اسم المستخدم' : 'Enter username'}
-                    dir={isRTL ? 'rtl' : 'ltr'}
-                    className={cn(
-                      'h-12 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 rounded-xl',
-                      'focus:border-[var(--brand-primary,#2563EB)]/40 focus:ring-[var(--brand-primary,#2563EB)]/20',
-                      isRTL ? 'text-end pe-10' : 'text-start ps-10'
-                    )}
+                    dir="rtl"
+                    autoComplete="username"
+                    style={inputStyle}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className={cn('text-xs font-medium text-slate-400', isRTL ? 'text-end block' : 'text-start block')}>
+              {/* Password */}
+              <div>
+                <label style={labelStyle}>
                   {isRTL ? 'كلمة المرور' : 'Password'}
-                </Label>
-                <div className="relative">
-                  <Lock className={cn('absolute top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600', isRTL ? 'end-3' : 'start-3')} />
-                  <Input
-                    type="password"
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <div style={iconWrapStyle}>
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#64748b', display: 'flex', alignItems: 'center' }}
+                      aria-label={showPassword ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
+                    >
+                      {showPassword ? <EyeOff style={{ width: '18px', height: '18px' }} /> : <Eye style={{ width: '18px', height: '18px' }} />}
+                    </button>
+                  </div>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder={isRTL ? 'أدخل كلمة المرور' : 'Enter password'}
-                    dir={isRTL ? 'rtl' : 'ltr'}
-                    className={cn(
-                      'h-12 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 rounded-xl',
-                      'focus:border-[var(--brand-primary,#2563EB)]/40 focus:ring-[var(--brand-primary,#2563EB)]/20',
-                      isRTL ? 'text-end pe-10' : 'text-start ps-10'
-                    )}
+                    dir="rtl"
+                    autoComplete="new-password"
+                    style={inputStyle}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label className={cn('text-xs font-medium text-slate-400', isRTL ? 'text-end block' : 'text-start block')}>
+              {/* Confirm Password */}
+              <div>
+                <label style={labelStyle}>
                   {isRTL ? 'تأكيد كلمة المرور' : 'Confirm Password'}
-                </Label>
-                <div className="relative">
-                  <Lock className={cn('absolute top-1/2 -translate-y-1/2 h-4 w-4 text-slate-600', isRTL ? 'end-3' : 'start-3')} />
-                  <Input
-                    type="password"
+                </label>
+                <div style={{ position: 'relative' }}>
+                  <div style={iconWrapStyle}>
+                    <button
+                      type="button"
+                      onClick={() => setShowConfirm(!showConfirm)}
+                      style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: '#64748b', display: 'flex', alignItems: 'center' }}
+                      aria-label={showConfirm ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'}
+                    >
+                      {showConfirm ? <EyeOff style={{ width: '18px', height: '18px' }} /> : <Eye style={{ width: '18px', height: '18px' }} />}
+                    </button>
+                  </div>
+                  <input
+                    type={showConfirm ? 'text' : 'password'}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder={isRTL ? 'أعد إدخال كلمة المرور' : 'Re-enter password'}
-                    dir={isRTL ? 'rtl' : 'ltr'}
-                    className={cn(
-                      'h-12 bg-white/[0.04] border-white/[0.08] text-white placeholder:text-slate-600 rounded-xl',
-                      'focus:border-[var(--brand-primary,#2563EB)]/40 focus:ring-[var(--brand-primary,#2563EB)]/20',
-                      isRTL ? 'text-end pe-10' : 'text-start ps-10'
-                    )}
+                    dir="rtl"
+                    autoComplete="new-password"
+                    style={inputStyle}
+                    onFocus={handleInputFocus}
+                    onBlur={handleInputBlur}
                   />
                 </div>
               </div>
 
+              {/* Error */}
               {error && (
-                <p className="text-xs text-red-400 text-center">{error}</p>
+                <div
+                  style={{
+                    textAlign: 'right',
+                    padding: '8px 16px',
+                    borderRadius: '12px',
+                    fontSize: '14px',
+                    color: '#f87171',
+                    background: 'rgba(239,68,68,0.1)',
+                    border: '1px solid rgba(239,68,68,0.15)',
+                    fontFamily: FONT,
+                  }}
+                >
+                  {error}
+                </div>
               )}
 
-              <Button
+              {/* Submit */}
+              <button
                 type="submit"
                 disabled={loading}
-                className={cn(
-                  'w-full h-12 font-semibold rounded-xl shadow-lg transition-all duration-200',
-                  'bg-gradient-to-r from-[var(--brand-primary,#2563EB)] to-[var(--brand-sidebar-active,#3B82F6)]',
-                  'hover:shadow-[var(--brand-primary,#2563EB)]/40 text-white'
-                )}
-                style={{ boxShadow: '0 4px 14px var(--brand-primary,#2563EB)33' }}
+                style={{
+                  width: '100%',
+                  height: '56px',
+                  borderRadius: '16px',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: '16px',
+                  fontWeight: 700,
+                  fontFamily: FONT,
+                  cursor: loading ? 'not-allowed' : 'pointer',
+                  opacity: loading ? 0.7 : 1,
+                  background: 'linear-gradient(135deg, #2563EB, #3B82F6)',
+                  boxShadow: '0 4px 20px rgba(37,99,235,0.35), 0 0 0 1px rgba(37,99,235,0.2) inset',
+                  transition: 'transform 0.2s, opacity 0.2s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  direction: 'rtl',
+                }}
               >
                 {loading ? (
-                  <div className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div style={{ width: '20px', height: '20px', border: '2px solid rgba(255,255,255,0.3)', borderTopColor: 'white', borderRadius: '50%', animation: 'spin 0.6s linear infinite' }} />
                 ) : (
-                  <span className={cn('flex items-center justify-center gap-2', isRTL ? 'flex-row-reverse' : 'flex-row')}>
-                    {isRTL ? 'إرسال الطلب' : 'Submit Request'}
-                    <ArrowLeft className="h-4 w-4" />
-                  </span>
+                  <>
+                    <span>{isRTL ? 'إرسال الطلب' : 'Submit Request'}</span>
+                    <ArrowLeft style={{ width: '16px', height: '16px', transform: 'scaleX(-1)' }} />
+                  </>
                 )}
-              </Button>
+              </button>
             </form>
 
-            <div className={cn('mt-6 pt-6 border-t border-white/[0.06]', isRTL ? 'text-end' : 'text-start')}>
-              <p className="text-sm text-slate-500">
+            {/* Footer */}
+            <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'right' }}>
+              <p style={{ fontSize: '14px', color: '#64748b', fontFamily: FONT, fontWeight: 600, margin: 0 }}>
                 {isRTL ? 'لديك حساب بالفعل؟' : 'Already have an account?'}{' '}
-                <Link
+                <a
                   href="/login"
-                  className="font-medium transition-colors"
-                  style={{ color: 'var(--brand-primary, #2563EB)' }}
+                  style={{ fontWeight: 700, color: '#3B82F6', fontFamily: FONT, textDecoration: 'none', transition: 'text-decoration 0.2s' }}
+                  onMouseEnter={(e) => { (e.target as HTMLElement).style.textDecoration = 'underline'; }}
+                  onMouseLeave={(e) => { (e.target as HTMLElement).style.textDecoration = 'none'; }}
                 >
                   {isRTL ? 'تسجيل الدخول' : 'Sign In'}
-                </Link>
+                </a>
               </p>
             </div>
           </div>
