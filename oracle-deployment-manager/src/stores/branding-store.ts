@@ -258,7 +258,18 @@ export const useBrandingStore = create<BrandingState>((set, get) => ({
       const res = await fetch('/api/branding');
       if (res.ok) {
         const data = await res.json();
-        set({ config: { ...DEFAULT_CONFIG, ...data }, loaded: true });
+        const current = get().config;
+        const merged = { ...DEFAULT_CONFIG, ...data };
+        if (!merged.logo.logoUrl && current.logo.logoUrl) {
+          merged.logo.logoUrl = current.logo.logoUrl;
+        }
+        if (!merged.logo.systemName || merged.logo.systemName === 'Onyx IX') {
+          merged.logo.systemName = current.logo.systemName;
+        }
+        if (!merged.logo.companyName || merged.logo.companyName === 'Ultimate Solutions') {
+          merged.logo.companyName = current.logo.companyName;
+        }
+        set({ config: merged, loaded: true });
         get().applyBranding();
       } else {
         set({ loaded: true });

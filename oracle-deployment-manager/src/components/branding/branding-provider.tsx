@@ -15,5 +15,13 @@ export function BrandingProvider({ children }: { children: React.ReactNode }) {
     fetchBranding();
   }, []);
 
+  const config = useBrandingStore((s) => s.config);
+
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      localStorage.setItem('app-branding', JSON.stringify(config));
+    }
+  }, [config]);
+
   return <>{children}</>;
 }
