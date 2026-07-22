@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useMemo, useCallback } from 'react';
-import { AppLayout } from '@/components/layout/app-layout';
+
 import { useLocale } from '@/hooks/use-locale';
 import { useAppStore } from '@/stores/app-store';
 import { cn } from '@/lib/utils';
@@ -197,7 +197,6 @@ export function ArchitecturePage() {
   };
 
   return (
-    <AppLayout>
       <div className="us-page-bg min-h-screen">
         <div className="space-y-6 p-6 max-w-[1400px] mx-auto">
 
@@ -638,7 +637,6 @@ export function ArchitecturePage() {
       <CanEdit>
         <ArchitectureDataEditor open={editorOpen} onClose={() => setEditorOpen(false)} />
       </CanEdit>
-    </AppLayout>
   );
 }
 
