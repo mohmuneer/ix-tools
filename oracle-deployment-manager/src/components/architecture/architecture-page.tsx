@@ -197,6 +197,7 @@ export function ArchitecturePage() {
   };
 
   return (
+    <>
       <div className="us-page-bg min-h-screen">
         <div className="space-y-6 p-6 max-w-[1400px] mx-auto">
 
@@ -637,6 +638,7 @@ export function ArchitecturePage() {
       <CanEdit>
         <ArchitectureDataEditor open={editorOpen} onClose={() => setEditorOpen(false)} />
       </CanEdit>
+    </>
   );
 }
 
